@@ -1,0 +1,37 @@
+e:
+e:
+ls
+cd Agenda/
+ls
+cd ..
+ls
+cd Analysis/
+ls
+cat whatToLearn.org 
+ls
+mv task task.org
+l
+cd ..
+d:
+ls
+d:
+ls
+d:
+e:
+ls
+cd Agenda/ls
+ls
+cd Agenda/
+ls
+ls
+ls
+ls -a
+mkdir snippets
+ls
+ls
+ls
+cd ..
+ls
+ls
+clear
+git

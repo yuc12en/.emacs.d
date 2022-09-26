@@ -1,0 +1,95 @@
+;;;; package -- initializing all configs and setings
+;;;; Commentary:
+;;;; code:
+
+;;; package initializing
+(eval-when-compile
+  (require 'use-package))
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(setq url-proxy-services '(("no_proxy" . "^\\(192\\.168\\..*\\)")
+                           ("http" . "127.0.0.1:7890")
+			   ("https" . "127.0.0.1:7890")))
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;;; primitive configs
+;; convenience
+(add-hook 'prog-mode-hook #'show-paren-mode)
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(global-auto-revert-mode t)
+(delete-selection-mode t)
+;; graphic
+(global-display-line-numbers-mode 1)
+(display-line-numbers-mode 1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(load-theme 'dracula t)
+
+;; Agenda
+(setq org-agenda-files '("E:/Agenda/inbox.org"
+			 "E:/Agenda/dayview.org"))
+(setq org-todo-keywords '((sequence "TODO(t)" "DOING(d)" "|" "DONE(d)" "DELAYED(p)" "CANCELDED(c)")))
+
+
+(setq org-refile-targets '(("e:/Agenda/dayview.org" :maxlevel . 3)))
+(setq org-agnead-span "month)
+(global-set-key (kbd "C-,") 'org-cycle-agenda-files)
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;; Capture
+(setq org-capture-templates '(("t" "Todo" entry
+			       (file+headline "e:/Agenda/inbox.org" "Tasks") "* TODO %i%?")
+			      ("d" "days' item" entry
+			       (file+headline "e:/Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
+
+(global-set-key (kbd "C-c c") 'org-capture)
+
+;;; refile & archives
+
+
+;;; ivy
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t))
+
+;;; evil
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode t))
+; (setq evil-undo-system t))
+
+;;; flycheck
+(use-package flycheck
+  :ensure t
+  :hook
+  (prog-mode . flycheck-mode))
+
+;;; all-the-icons
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" default)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
+(provide 'init)
+
+
