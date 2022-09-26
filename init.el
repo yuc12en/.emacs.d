@@ -11,7 +11,7 @@
 			   ("https" . "127.0.0.1:7890")))
 (require 'package)
 (add-to-list 'package-archives '(("melpa" . "https://melpa.org/packages/")
-				 ("gnu" . "https://elpa.gun.org/packages/")
+				 ("gnu" . "https://elpa.gun.org/packages/")))
 (package-initialize)
 
 ;;; primitive configs
@@ -35,9 +35,9 @@
 
 ;; Capture
 (setq org-capture-templates '(("t" "Todo" entry
-			       (file+headline "e:/Agenda/inbox.org" "Tasks") "* TODO %i%?")
+			       (file+headline "../Agenda/Routine.org" "Tasks") "* TODO %i%?")
 			      ("d" "days' item" entry
-			       (file+headline "e:/Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
+			       (file+headline "../Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
