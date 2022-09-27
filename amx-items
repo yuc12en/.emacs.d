@@ -1,16 +1,19 @@
 
 ;; ----- amx-history -----
 (
+ eval-buffer
+ all-the-icons-install-fonts
+ ace-window
+ eshell
  cd
  5x5
  amx
- arp
- dbx
- dig
- erc
 )
 
 ;; ----- amx-data -----
 (
- 
+ (eshell . 1)
+ (ace-window . 1)
+ (all-the-icons-install-fonts . 1)
+ (eval-buffer . 1)
 )

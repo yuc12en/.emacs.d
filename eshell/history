@@ -50,3 +50,17 @@ cd ../
 cd ~
 cd ../Agemda
 cd ../Agenda/
+e:
+cd ../tutors/
+ls
+cd lisp/
+ls
+ls
+ls -a
+cd ..
+rm lisp/
+rmdir lisp/
+ls
+mkdir emcas_skills
+cd emcas_skills/
+ls

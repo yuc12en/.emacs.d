@@ -18,10 +18,13 @@
 (global-auto-revert-mode t)
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(electric-pair-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
+
 ;; graphic
 (global-display-line-numbers-mode 1)
 (display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -39,6 +42,7 @@
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;;; 
 ;;; amx
 (use-package amx
   :ensure t
@@ -88,7 +92,7 @@
 (use-package ace-window
   :ensure t
   :bind
-  (("C-x o" . "ace-window")))
+(("C-x o" . 'ace-window)))
 
 ;;; ivy
 (use-package counsel
@@ -129,9 +133,9 @@
 (use-package neotree
   :ensure t
   :config
-  (progn
-   (global-set-key (kbd "C-c n t") 'neotree-toggle)
-  (setq neo-window-fixed-size 20)))
+  (global-set-key (kbd "C-c n t") 'neotree-toggle)
+  (setq neo-window-fixed-size 20)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 ;;; window-numbering
 (use-package window-numbering
@@ -142,17 +146,15 @@
 ;;; evil
 (use-package evil
   :init
-  (progn
-    (setq evil-shift-width 4))
+   (setq evil-shift-width 4)
   :ensure t
   :config
-  (progn 
-    (evil-mode t)
-    (setq evil-want-C-u-scroll t)
-    (setq evil-want-C-d-scroll t)
-    (setq evil-move-beyond-eol t)
-    (setq evil-undo-system t)))
-; (setq evil-undo-system t))
+   (evil-mode t)
+   (setq evil-want-C-u-scroll t)
+   (setq evil-want-C-d-scroll t)
+   (setq evil-move-beyond-eol t)
+   (setq evil-undo-system t)
+   (setq evil-undo-system t))
 
 ;;; flycheck
 (use-package flycheck
@@ -163,7 +165,9 @@
 ;;; all-the-icons
 (use-package all-the-icons
   :ensure t
-  :if (display-graphic-p))
+  :if (display-graphic-p)
+  :config
+  (add-to-list 'load-path "~/.emacs.d/icon"))
 ;(use-package org-roam
 ;  :ensure t
 ;  :custom
