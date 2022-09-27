@@ -1,20 +1,20 @@
 
 ;; ----- amx-history -----
 (
+ eshell
  eval-buffer
  time-stamp
  all-the-icons-install-fonts
  ace-window
- eshell
  cd
  5x5
 )
 
 ;; ----- amx-data -----
 (
- (eshell . 1)
+ (eshell . 2)
  (ace-window . 1)
  (all-the-icons-install-fonts . 1)
- (eval-buffer . 3)
+ (eval-buffer . 4)
  (time-stamp . 2)
 )

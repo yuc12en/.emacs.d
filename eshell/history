@@ -64,3 +64,8 @@ ls
 mkdir emcas_skills
 cd emcas_skills/
 ls
+d:
+cd ..
+cd ..
+cd Agenda/
+ls

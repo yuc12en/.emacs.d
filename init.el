@@ -32,8 +32,8 @@
 (setq initial-buffer-choice "~/.emacs.d/init.el")
 (load-theme 'dracula t)
 (toggle-truncate-lines 1)
-(global-set-key (kbd "C-c =") 'text-scale-increase)
-(global-set-key (kbd "C-c -") 'text-scale-decrease)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; Capture
 (setq org-capture-templates '(("t" "Todo" entry
@@ -199,7 +199,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+   '("d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")

@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"72ca830919a8b5a9564de15710ec37474dc6169f"
+"e82db99bcf64c2ff4422a4a77a82ee4e080f996b"
 [nil nil nil nil (25394 37622 656372 0) 0 nil]
 ([nil nil ((nil rear-nonsticky nil 1416 . 1417) (nil fontified nil 1350 . 1417) (1350 . 1417) (t 25394 37506 0 0)) nil (25394 37622 656369 0) 0 nil])
 ([nil nil ((1361 . 1364) (1351 . 1361) (1350 . 1351) (1350 . 1351) 1372) nil (25394 37622 656365 0) 0 nil])
@@ -393,7 +393,7 @@
 " 0 1 (rear-nonsticky t fontified t)) . 759) (undo-tree-id71 . -1)) nil (25394 50586 470314 0) 0 nil])
 ([nil nil ((810 . 826)) nil (25394 50586 470311 0) 0 nil])
 ([nil nil ((#("week5 Tues 09/27" 0 16 (fontified t)) . 810) (undo-tree-id70 . -12)) nil (25394 50586 470306 0) 0 nil])
-([nil current ((4513 . 4752) (#("(custom-set-faces
+([nil nil ((4513 . 4752) (#("(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -416,4 +416,31 @@
      (\"melpa\" . \"https://melpa.org/packages/\")))
  '(package-selected-packages
    '(rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 845 (fontified nil)) . -4755) (t 25394 50586 0 0)) nil (25394 51020 722204 0) 0 nil])
+([nil nil ((4513 . 4752) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -4513) (5665 . 5667) (#("
+" 0 1 (fontified nil)) . -5665) (5368 . 5666) (#(" " 0 1 (fontified nil)) . 5368) (5338 . 5369) (5293 . 5296) (5241 . 5244) (#("
+" 0 1 (fontified nil)) . -5332) (5288 . 5290) (5239 . 5241) (5328 . 5329) (5285 . 5286) (#("
+" 0 1 (fontified nil)) . 5285) (5285 . 5286) (#(" " 0 1 (fontified nil)) . -5285) (5238 . 5239) (#("
+" 0 1 (fontified nil)) . 5238) (5238 . 5239) (#(" " 0 1 (fontified nil)) . -5238) (5190 . 5328) (#(" " 0 1 (fontified nil)) . 5190) (5169 . 5191) (#("
+" 0 1 (fontified nil)) . -5169) (5021 . 5170) (#(" " 0 1 (fontified nil)) . 5021) (4755 . 5022) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '(\"3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa\" default))
+ '(package-archives
+   '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+     (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+     (\"melpa\" . \"https://melpa.org/packages/\")))
+ '(package-selected-packages
+   '(rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 845 (fontified nil)) . -4755) (t 25394 56312 0 0)) nil (25394 56362 855818 0) 0 nil])
+([nil nil ((1891 . 1893) (t 25394 56363 0 0)) nil (25394 56422 19805 0) 0 nil])
+([nil nil ((#(" " 0 1 (fontified t)) . 1891)) nil (25394 56422 19804 0) 0 nil])
+([nil nil ((#("t" 0 1 (fontified t)) . 1891)) nil (25394 56422 19799 0) 0 nil])
+([nil current ((#("c" 0 1 (fontified t face font-lock-string-face)) . -1162) (undo-tree-id0 . -1) (#(" " 0 1 (fontified t face font-lock-string-face)) . -1163) (undo-tree-id1 . -1) 1164 (#(" " 0 1 (fontified t face font-lock-string-face)) . -1112) (undo-tree-id2 . -1) 1113 (#("c" 0 1 (fontified t face font-lock-string-face)) . -1112) (undo-tree-id3 . -1) 1113 (t 25394 56422 0 0)) nil (25395 6952 650439 0) 0 nil])
 nil
