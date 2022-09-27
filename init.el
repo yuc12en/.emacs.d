@@ -1,4 +1,4 @@
-;;;; package -- initializing all configs and setings
+;;;; init.el -- initializing all configs and setings
 ;;;; Commentary:
 ;;;; code:
 
@@ -20,8 +20,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (electric-pair-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
-
-;; graphic
+(require 'init-utils)
+(global-set-key (kbd "C-c i") 'insert-time-string)
+;; graph
 (global-display-line-numbers-mode 1)
 (display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
