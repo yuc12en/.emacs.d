@@ -1,20 +1,22 @@
 
 ;; ----- amx-history -----
 (
+ package-install
+ neotree-dir
  eshell
  eval-buffer
  time-stamp
  all-the-icons-install-fonts
  ace-window
- cd
- 5x5
 )
 
 ;; ----- amx-data -----
 (
- (eshell . 2)
+ (eshell . 6)
  (ace-window . 1)
  (all-the-icons-install-fonts . 1)
  (eval-buffer . 4)
  (time-stamp . 2)
+ (neotree-dir . 3)
+ (package-install . 1)
 )

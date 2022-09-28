@@ -37,12 +37,15 @@
 
 ;; Capture
 (setq org-capture-templates '(("t" "Todo" entry
-			       (file+headline "../Agenda/Routine.org" "Tasks") "* TODO %i%?")
+			       (file+headline "e://Agenda/Routine.org" "Tasks") "* TODO %i%?")
 			      ("d" "days' item" entry
-			       (file+headline "../Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
+			       (file+headline "e://Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; Agenda
+(setq org-agenda-files '("e://Agenda/dayview.org"))
+(global-set-key (kbd "C-c a") 'org-agenda)
 ;;; 
 ;;; amx
 (use-package amx
@@ -75,12 +78,18 @@
 ;;; smart-mode-line
 (use-package smart-mode-line
   :ensure t
-  :init (sml/setup))
+  :init
+  (setq sml/no-confirm-load-theme t)
+  :config
+  (setq sml/theme 'powerline)
+  (sml/setup))
 
 ;;; undo-tree
 (use-package undo-tree
   :ensure t
-  :init (global-undo-tree-mode))
+  :config
+  (setq sml/theme 'powerline)
+  (global-undo-tree-mode))
 
 ;;; mwin
 (use-package mwim
@@ -155,7 +164,7 @@
    (setq evil-want-C-d-scroll t)
    (setq evil-move-beyond-eol t)
    (setq evil-undo-system t)
-   (setq evil-undo-system t))
+   (setq evil-undo-system 'undo-tree))
 
 ;;; flycheck
 (use-package flycheck
@@ -199,10 +208,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+   '("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))
+   '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))

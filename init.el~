@@ -1,4 +1,4 @@
-;;;; package -- initializing all configs and setings
+;;;; init.el -- initializing all configs and setings
 ;;;; Commentary:
 ;;;; code:
 
@@ -18,26 +18,39 @@
 (global-auto-revert-mode t)
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(electric-pair-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
-;; graphic
+(require 'init-utils)
+(global-set-key (kbd "C-c i") 'insert-time-string)
+;; graph
 (global-display-line-numbers-mode 1)
 (display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (setq initial-buffer-choice "~/.emacs.d/init.el")
 (load-theme 'dracula t)
 (toggle-truncate-lines 1)
-(global-set-key (kbd "C-c =") 'text-scale-increase)
-(global-set-key (kbd "C-c -") 'text-scale-decrease)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; Capture
 (setq org-capture-templates '(("t" "Todo" entry
-			       (file+headline "../Agenda/Routine.org" "Tasks") "* TODO %i%?")
+			       (file+headline "e://Agenda/Routine.org" "Tasks") "* TODO %i%?")
 			      ("d" "days' item" entry
-			       (file+headline "../Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
+			       (file+headline "e://Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
 
 (global-set-key (kbd "C-c c") 'org-capture)
+
+;; Agenda
+(setq org-agenda-files '("e://Agenda/dayview.org"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+;;; 
+;;; amx
+(use-package amx
+  :ensure t
+  :init (amx-mode))
 
 ;;; rainbow-delimiters
 (use-package rainbow-delimiters
@@ -70,7 +83,9 @@
 ;;; undo-tree
 (use-package undo-tree
   :ensure t
-  :init (global-undo-tree-mode))
+  :init
+  (setq sml/theme 'powerline)
+  (global-undo-tree-mode))
 
 ;;; mwin
 (use-package mwim
@@ -83,7 +98,7 @@
 (use-package ace-window
   :ensure t
   :bind
-  (("C-x o" . "ace-window")))
+(("C-x o" . 'ace-window)))
 
 ;;; ivy
 (use-package counsel
@@ -124,9 +139,9 @@
 (use-package neotree
   :ensure t
   :config
-  (progn
-   (global-set-key (kbd "C-c n t") 'neotree-toggle)
-  (setq neo-window-fixed-size 20)))
+  (global-set-key (kbd "C-c n t") 'neotree-toggle)
+  (setq neo-window-fixed-size 20)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 ;;; window-numbering
 (use-package window-numbering
@@ -137,17 +152,15 @@
 ;;; evil
 (use-package evil
   :init
-  (progn
-    (setq evil-shift-width 4))
+   (setq evil-shift-width 4)
   :ensure t
   :config
-  (progn 
-    (evil-mode t)
-    (setq evil-want-C-u-scroll t)
-    (setq evil-want-C-d-scroll t)
-    (setq evil-move-beyond-eol t)
-    (setq evil-undo-system t)))
-; (setq evil-undo-system t))
+   (evil-mode t)
+   (setq evil-want-C-u-scroll t)
+   (setq evil-want-C-d-scroll t)
+   (setq evil-move-beyond-eol t)
+   (setq evil-undo-system t)
+   (setq evil-undo-system 'undo-tree))
 
 ;;; flycheck
 (use-package flycheck
@@ -158,7 +171,9 @@
 ;;; all-the-icons
 (use-package all-the-icons
   :ensure t
-  :if (display-graphic-p))
+  :if (display-graphic-p)
+  :config
+  (add-to-list 'load-path "~/.emacs.d/icon"))
 ;(use-package org-roam
 ;  :ensure t
 ;  :custom
@@ -189,10 +204,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+   '("d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))
+   '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))

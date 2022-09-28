@@ -69,3 +69,21 @@ cd ..
 cd ..
 cd Agenda/
 ls
+d:
+e:
+cd ../../
+cd Agenda/
+cd ..
+d:
+cd ../
+cd .emacs.d/
+ls
+cd  e://Agenda/
+ls
+cd ..
+cd OneDrive/
+ls
+cd curriculum/
+ls
+cd test/
+ls
