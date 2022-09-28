@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"2611a6564165800b336c39aeef45dd0b5e1216dd"
+"bd87b2ec0549048796333c3d72a55fa332b11501"
 [nil nil nil nil (25395 60506 406604 0) 0 nil]
 ([nil nil ((4738 . 4977) (#("(custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -25,5 +25,29 @@
  '(package-selected-packages
    '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1011 (fontified nil)) . -4980) (t 25395 60492 0 0)) nil (25395 60506 406596 0) 0 nil])
 ([nil nil ((#("m" 0 1 (fontified t)) . -2186) (undo-tree-id0 . -1) (undo-tree-id1 . -1) 2187 (t 25395 60506 0 0)) nil (25395 60540 948718 0) 0 nil])
-([nil current ((2186 . 2187)) nil (25395 60540 948693 0) 0 nil])
+([nil nil ((2186 . 2187)) nil (25395 60540 948693 0) 0 nil])
+([nil nil ((4738 . 4977) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -4738) (6014 . 6016) (#("
+" 0 1 (fontified nil)) . -6014) (5685 . 6015) (#(" " 0 1 (fontified nil)) . 5685) (5655 . 5686) (5610 . 5613) (5558 . 5561) (#("
+" 0 1 (fontified nil)) . -5649) (5605 . 5607) (5556 . 5558) (5645 . 5646) (5602 . 5603) (#("
+" 0 1 (fontified nil)) . 5602) (5602 . 5603) (#(" " 0 1 (fontified nil)) . -5602) (5555 . 5556) (#("
+" 0 1 (fontified nil)) . 5555) (5555 . 5556) (#(" " 0 1 (fontified nil)) . -5555) (5507 . 5645) (#(" " 0 1 (fontified nil)) . 5507) (5461 . 5508) (#("
+" 0 1 (fontified nil)) . -5461) (5246 . 5462) (#(" " 0 1 (fontified nil)) . 5246) (4980 . 5247) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '(\"84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279\" \"d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302\" \"3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa\" default))
+ '(package-archives
+   '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+     (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+     (\"melpa\" . \"https://melpa.org/packages/\")))
+ '(package-selected-packages
+   '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1011 (fontified nil)) . -4980) (t 25395 60906 0 0)) nil (25395 61548 168916 0) 0 nil])
+([nil current ((1496 . 1497) (t 25395 61548 0 0)) nil (25395 61592 895862 0) 0 nil])
 nil
