@@ -37,14 +37,14 @@
 
 ;; Capture
 (setq org-capture-templates '(("t" "Todo" entry
-			       (file+headline "e://Agenda/Routine.org" "Tasks") "* TODO %i%?")
+			       (file+headline "~/.emacs.d/Agenda/Routine.org" "Tasks") "* TODO %i%?")
 			      ("d" "days' item" entry
-			       (file+headline "e://Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
+			       (file+headline "~/.emacs.d/Agenda/dayview.org" "Today's Items") "* %i%? \n %U")))
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; Agenda
-(setq org-agenda-files '("e://Agenda/dayview.org"))
+(setq org-agenda-files '("~/.emacs.d/Agenda"))
 (global-set-key (kbd "C-c a") 'org-agenda)
 ;;; 
 ;;; amx
@@ -208,7 +208,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+   '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+ '(org-agenda-files nil)
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")

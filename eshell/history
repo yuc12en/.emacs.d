@@ -87,3 +87,7 @@ cd curriculum/
 ls
 cd test/
 ls
+e:
+cd ../../..
+ls
+cd Analysis/

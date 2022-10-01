@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"2611a6564165800b336c39aeef45dd0b5e1216dd"
+"492ad84b17a1a557872f92780ef41a2b6c2483f5"
 [nil nil nil nil (25395 60506 406604 0) 0 nil]
 ([nil nil ((4738 . 4977) (#("(custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -25,5 +25,65 @@
  '(package-selected-packages
    '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1011 (fontified nil)) . -4980) (t 25395 60492 0 0)) nil (25395 60506 406596 0) 0 nil])
 ([nil nil ((#("m" 0 1 (fontified t)) . -2186) (undo-tree-id0 . -1) (undo-tree-id1 . -1) 2187 (t 25395 60506 0 0)) nil (25395 60540 948718 0) 0 nil])
-([nil current ((2186 . 2187)) nil (25395 60540 948693 0) 0 nil])
+([nil nil ((2186 . 2187)) nil (25395 60540 948693 0) 0 nil])
+([nil nil ((4738 . 4977) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -4738) (6056 . 6058) (#("
+" 0 1 (fontified nil)) . -6056) (5727 . 6057) (#(" " 0 1 (fontified nil)) . 5727) (5697 . 5728) (5652 . 5655) (5600 . 5603) (#("
+" 0 1 (fontified nil)) . -5691) (5647 . 5649) (5598 . 5600) (5687 . 5688) (5644 . 5645) (#("
+" 0 1 (fontified nil)) . 5644) (5644 . 5645) (#(" " 0 1 (fontified nil)) . -5644) (5597 . 5598) (#("
+" 0 1 (fontified nil)) . 5597) (5597 . 5598) (#(" " 0 1 (fontified nil)) . -5597) (5549 . 5687) (#(" " 0 1 (fontified nil)) . 5549) (5528 . 5550) (#("
+" 0 1 (fontified nil)) . -5528) (5246 . 5529) (#(" " 0 1 (fontified nil)) . 5246) (4980 . 5247) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '(\"84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279\" \"d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302\" \"3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa\" default))
+ '(package-archives
+   '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+     (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+     (\"melpa\" . \"https://melpa.org/packages/\")))
+ '(package-selected-packages
+   '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1011 (fontified nil)) . -4980)) nil (25399 60941 368162 0) 0 nil])
+([nil nil ((4738 . 4977) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -4738) (6081 . 6083) (#("
+" 0 1 (fontified nil)) . -6081) (5752 . 6082) (#(" " 0 1 (fontified nil)) . 5752) (5722 . 5753) (5677 . 5680) (5625 . 5628) (#("
+" 0 1 (fontified nil)) . -5716) (5672 . 5674) (5623 . 5625) (5712 . 5713) (5669 . 5670) (#("
+" 0 1 (fontified nil)) . 5669) (5669 . 5670) (#(" " 0 1 (fontified nil)) . -5669) (5622 . 5623) (#("
+" 0 1 (fontified nil)) . 5622) (5622 . 5623) (#(" " 0 1 (fontified nil)) . -5622) (5574 . 5712) (#(" " 0 1 (fontified nil)) . 5574) (5528 . 5575) (#("
+" 0 1 (fontified nil)) . -5528) (5246 . 5529) (#(" " 0 1 (fontified nil)) . 5246) (4980 . 5247) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '(\"171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b\" \"84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279\" \"d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302\" \"3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa\" default))
+ '(package-archives
+   '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+     (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+     (\"melpa\" . \"https://melpa.org/packages/\")))
+ '(package-selected-packages
+   '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1078 (fontified nil)) . -4980) (t 25399 60941 0 0)) nil (25400 12278 934041 0) 0 nil])
+([nil nil ((1274 . 1275) (#("e" 0 1 (face font-lock-string-face fontified t)) . -1274) (undo-tree-id3 . -1) (#(":" 0 1 (face font-lock-string-face fontified t)) . -1275) (undo-tree-id4 . -1) (#("/" 0 1 (face font-lock-string-face fontified t)) . -1276) (undo-tree-id5 . -1) 1277 (t 25400 12278 0 0)) nil (25400 12360 972505 0) 0 nil])
+([nil nil ((1379 . 1380) (#("e" 0 1 (face font-lock-string-face fontified t)) . -1379) (undo-tree-id0 . -1) (#(":" 0 1 (face font-lock-string-face fontified t)) . -1380) (undo-tree-id1 . -1) (#("/" 0 1 (face font-lock-string-face fontified t)) . -1381) (undo-tree-id2 . -1) 1382) nil (25400 12360 972496 0) 0 nil])
+([nil nil ((#("/" 0 1 (face font-lock-string-face fontified t)) . 1519) (1518 . 1519) (#(":" 0 1 (face font-lock-string-face fontified t)) . 1518) (#("e" 0 1 (face font-lock-string-face fontified t)) . 1518)) nil (25400 12360 972447 0) 0 nil])
+([nil nil ((#("g" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("r" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("o" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("." 0 1 (face font-lock-string-face fontified t)) . 1527) (#("w" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("e" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("i" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("v" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("y" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("a" 0 1 (face font-lock-string-face fontified t)) . 1527) (#("d" 0 1 (face font-lock-string-face fontified t)) . 1527)) nil (25400 12360 972432 0) 0 nil])
+([nil nil ((#("/" 0 1 (face font-lock-string-face fontified t)) . -1526) (undo-tree-id6 . -1) (undo-tree-id7 . -1) 1527 (t 25400 12360 0 0)) nil (25400 12369 266220 0) 0 nil])
+([nil nil ((#("g" 0 1 (fontified t face font-lock-comment-face)) . -55) (undo-tree-id0 . -1) (#("e" 0 1 (fontified t face font-lock-comment-face)) . -56) (undo-tree-id1 . -1) 57 (55 . 57) (t 25400 12369 0 0)) nil (25400 12433 202571 0) 0 nil])
+([nil nil ((1526 . 1539)) nil (25400 12433 202521 0) 0 nil])
+([nil nil ((#("h" 0 1 (fontified t face font-lock-string-face)) . -1539) (undo-tree-id2 . -1) 1540 (1539 . 1540) (t 25400 12433 0 0)) nil (25400 12504 859555 0) 0 nil])
+([nil nil ((1520 . 1529)) nil (25400 12504 859535 0) 0 nil])
+([nil nil ((1276 . 1285)) nil (25400 12504 859533 0) 0 nil])
+([nil nil ((1390 . 1399)) nil (25400 12504 859525 0) 0 nil])
+([nil nil ((#("Routines" 0 8 (face font-lock-string-face fontified t)) . 1554) (t 25400 12504 0 0)) nil (25400 12612 214392 0) 0 nil])
+([nil nil ((#(".org" 0 4 (face font-lock-string-face fontified t)) . 1554)) nil (25400 12612 214381 0) 0 nil])
+([nil current ((#("/" 0 1 (fontified t face font-lock-string-face)) . 1553) (t 25400 12612 0 0)) nil (25400 12813 907661 0) 0 nil])
 nil
