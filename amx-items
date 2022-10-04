@@ -1,25 +1,27 @@
 
 ;; ----- amx-history -----
 (
- eval-buffer
- toggle-truncate-lines
- load-theme
+ visual-line-mode
+ rename-file
  eshell
- toggle-word-wrap
- package-install
  neotree-dir
+ toggle-truncate-lines
+ eval-buffer
+ load-theme
 )
 
 ;; ----- amx-data -----
 (
- (eshell . 8)
+ (eshell . 15)
  (ace-window . 1)
  (all-the-icons-install-fonts . 1)
- (eval-buffer . 5)
+ (eval-buffer . 6)
  (time-stamp . 2)
- (neotree-dir . 3)
+ (neotree-dir . 4)
  (package-install . 1)
  (toggle-word-wrap . 2)
- (toggle-truncate-lines . 4)
+ (toggle-truncate-lines . 5)
  (load-theme . 1)
+ (rename-file . 3)
+ (visual-line-mode . 2)
 )

@@ -1,17 +1,3 @@
-e:
-e:
-ls
-cd Agenda/
-ls
-cd ..
-ls
-cd Analysis/
-ls
-cat whatToLearn.org 
-ls
-mv task task.org
-l
-cd ..
 d:
 ls
 d:
@@ -91,3 +77,52 @@ e:
 cd ../../..
 ls
 cd Analysis/
+ls
+ls
+ls
+ls -a
+ls
+ls
+ls -a
+rm .\#acquire.org 
+ls -a
+rm .acquir.org.\~undo-tree\~ 
+ls
+d:
+cd ..
+cd ..
+ls
+cd Writings/
+ls
+mv pros-cons.org ..
+ls
+cd ..
+ls
+ls
+clear
+d:
+cd ..
+cd 肖雨晨和他糟糕的情商/
+ls
+cd 啧
+ls
+mv 告欧阳同志书.docx  告某某同志书.docx
+clear
+ls
+cd ..
+ls
+cd ..
+ls
+ls
+cd ..
+cd ..
+ cd Emacs/
+ls
+cd .emacs.d/
+ls
+cd Agenda/
+ls
+ls
+rm -f Academia.org
+ls
+rm habits.org 

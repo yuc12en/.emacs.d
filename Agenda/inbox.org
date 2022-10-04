@@ -65,7 +65,8 @@ SCHEDULED: <2022-09-26 周一 ++1d>
     -- emacs
     -- vim
     -- git
-* 其他长期活动
+
+* 课程大作业
 
 ** TODO [#A] 材料分析测试方法大作业
 SCHEDULED: <2022-10-09 周日>
@@ -74,4 +75,4 @@ SCHEDULED: <2022-10-09 周日>
 SCHEDULED: <2022-11-01 周二>
 
 
-* TODO TEST
+* 其他
