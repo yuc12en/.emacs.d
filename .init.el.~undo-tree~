@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"02e9c0c4580754440f2c486b0a20daf0896dc24e"
+"77802fa6b6b40c09d89c7a6f49fa989e00b6dda2"
 [nil nil nil nil (25402 19842 456666 0) 0 nil]
 ([nil nil ((1189 . 1207) (1188 . 1190) (t 25400 15363 0 0)) nil (25402 19842 456665 0) 0 nil])
 ([nil nil ((1200 . 1201) (#(" " 0 1 (fontified t)) . 1200)) nil (25402 19842 456664 0) 0 nil])
@@ -10,7 +10,7 @@
 " 0 1 (fontified nil)) . -1009) (988 . 1010)) nil (25402 19842 456657 0) 0 nil])
 ([nil nil ((#("
 " 0 1 (fontified t rear-nonsticky t)) . 988) (undo-tree-id0 . -1)) nil (25402 19842 456653 0) 0 nil])
-([nil current ((4767 . 5006) (#("(custom-set-faces
+([nil nil ((4767 . 5006) (#("(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
@@ -34,4 +34,109 @@
      (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
      (\"melpa\" . \"https://melpa.org/packages/\")))
  '(package-selected-packages`  '(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1034 (fontified nil)) . -5009) (undo-tree-id4 . -677) (undo-tree-id5 . -1034)) nil (25402 20374 945469 0) 0 nil])
+([nil nil ((#("toggle-truncate-lines 1)
+(" 0 26 (fontified nil)) . 1084) (t 25402 20374 0 0)) nil (25406 8787 138639 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . -1594) (undo-tree-id3 . -1) 1595 (1594 . 1595) (t 25406 7548 0 0)) nil (25406 8787 138638 0) 0 nil])
+([nil nil ((1598 . 1599) 1594) nil (25406 8787 138636 0) 0 nil])
+([nil nil ((1599 . 1601)) nil (25406 8787 138636 0) 0 nil])
+([nil nil ((1601 . 1614)) nil (25406 8787 138635 0) 0 nil])
+([nil nil ((1614 . 1616)) nil (25406 8787 138635 0) 0 nil])
+([nil nil ((1616 . 1617)) nil (25406 8787 138634 0) 0 nil])
+([nil nil ((#("*" 0 1 (fontified t)) . -1616) (undo-tree-id2 . -1) 1617) nil (25406 8787 138633 0) 0 nil])
+([nil nil ((1617 . 1636) (1616 . 1618)) nil (25406 8787 138631 0) 0 nil])
+([nil nil ((1636 . 1639)) nil (25406 8787 138631 0) 0 nil])
+([nil nil ((1639 . 1640)) nil (25406 8787 138630 0) 0 nil])
+([nil nil ((1640 . 1648)) nil (25406 8787 138629 0) 0 nil])
+([nil nil ((4792 . 5031) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 1 (fontified nil face (rainbow-delimiters-depth-1-face)) 1 19 (fontified nil) 19 22 (fontified nil face font-lock-comment-delimiter-face) 22 60 (fontified nil face font-lock-comment-face) 60 61 (fontified nil) 61 64 (fontified nil face font-lock-comment-delimiter-face) 64 125 (fontified nil face font-lock-comment-face) 125 126 (fontified nil) 126 129 (fontified nil face font-lock-comment-delimiter-face) 129 183 (fontified nil face font-lock-comment-face) 183 184 (fontified nil) 184 187 (fontified nil face font-lock-comment-delimiter-face) 187 237 (fontified nil face font-lock-comment-face) 237 238 (fontified nil) 238 239 (fontified nil face (rainbow-delimiters-depth-1-face))) . -4792) (6240 . 6242) (5912 . 5915) (#("
+" 0 1 (fontified nil)) . -6237) (5909 . 5912) (6234 . 6235) (5908 . 5909) (#(" " 0 1 (fontified nil)) . 5908) (5889 . 6234) (#(" " 0 1 (fontified nil)) . 5889) (5859 . 5890) (5814 . 5817) (5762 . 5765) (#("
+" 0 1 (fontified nil)) . -5853) (5809 . 5811) (5760 . 5762) (5849 . 5850) (5806 . 5807) (#("
+" 0 1 (fontified nil)) . 5806) (5806 . 5807) (#(" " 0 1 (fontified nil)) . -5806) (5759 . 5760) (#("
+" 0 1 (fontified nil)) . 5759) (5759 . 5760) (#(" " 0 1 (fontified nil)) . -5759) (5711 . 5849) (#(" " 0 1 (fontified nil)) . 5711) (5690 . 5712) (#("
+" 0 1 (fontified nil)) . -5690) (5536 . 5691) (#(" " 0 1 (fontified nil)) . 5536) (5515 . 5537) (#("
+" 0 1 (fontified nil)) . -5515) (5300 . 5516) (#(" " 0 1 (fontified nil)) . 5300) (5034 . 5301) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '(\"84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279\" \"d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302\" \"3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa\" default))
+ '(org-agenda-files
+   '(\"d:/Emacs/.emacs.d/Agenda/dayview.org\" \"d:/Emacs/.emacs.d/Agenda/inbox.org\" \"d:/Emacs/.emacs.d/Agenda/workout.org\" \"d:/Emacs/.emacs.d/Agenda/÷”.org\"))
+ '(package-archives
+   '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+     (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+     (\"melpa\" . \"https://melpa.org/packages/\")))
+ '(package-selected-packages
+   `'(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))" 0 1 (fontified nil face (rainbow-delimiters-depth-1-face)) 1 23 (fontified nil) 23 26 (fontified nil face font-lock-comment-delimiter-face) 26 68 (fontified nil face font-lock-comment-face) 68 69 (fontified nil) 69 72 (fontified nil face font-lock-comment-delimiter-face) 72 133 (fontified nil face font-lock-comment-face) 133 134 (fontified nil) 134 137 (fontified nil face font-lock-comment-delimiter-face) 137 191 (fontified nil face font-lock-comment-face) 191 192 (fontified nil) 192 195 (fontified nil face font-lock-comment-delimiter-face) 195 245 (fontified nil face font-lock-comment-face) 245 247 (fontified nil) 247 248 (fontified nil face (rainbow-delimiters-depth-2-face)) 248 271 (fontified nil) 271 272 (fontified nil face (rainbow-delimiters-depth-3-face)) 272 338 (fontified nil face font-lock-string-face) 338 339 (fontified nil) 339 405 (fontified nil face font-lock-string-face) 405 406 (fontified nil) 406 472 (fontified nil face font-lock-string-face) 472 480 (fontified nil) 480 481 (fontified nil face (rainbow-delimiters-depth-3-face)) 481 482 (fontified nil face (rainbow-delimiters-depth-2-face)) 482 485 (fontified nil) 485 486 (fontified nil face (rainbow-delimiters-depth-2-face)) 486 507 (fontified nil) 507 508 (fontified nil face (rainbow-delimiters-depth-3-face)) 508 546 (fontified nil face font-lock-string-face) 546 547 (fontified nil) 547 583 (fontified nil face font-lock-string-face) 583 584 (fontified nil) 584 622 (fontified nil face font-lock-string-face) 622 623 (fontified nil) 623 655 (fontified nil face font-lock-string-face) 655 656 (fontified nil face (rainbow-delimiters-depth-3-face)) 656 657 (fontified nil face (rainbow-delimiters-depth-2-face)) 657 660 (fontified nil) 660 661 (fontified nil face (rainbow-delimiters-depth-2-face)) 661 682 (fontified nil) 682 683 (fontified nil face (rainbow-delimiters-depth-3-face)) 683 684 (fontified nil face (rainbow-delimiters-depth-4-face)) 684 689 (fontified nil face font-lock-string-face) 689 692 (fontified nil) 692 724 (fontified nil face font-lock-string-face) 724 725 (fontified nil face (rainbow-delimiters-depth-4-face)) 725 731 (fontified nil) 731 732 (fontified nil face (rainbow-delimiters-depth-4-face)) 732 740 (fontified nil face font-lock-string-face) 740 743 (fontified nil) 743 776 (fontified nil face font-lock-string-face) 776 777 (fontified nil face (rainbow-delimiters-depth-4-face)) 777 783 (fontified nil) 783 784 (fontified nil face (rainbow-delimiters-depth-4-face)) 784 791 (fontified nil face font-lock-string-face) 791 794 (fontified nil) 794 823 (fontified nil face font-lock-string-face) 823 824 (fontified nil face (rainbow-delimiters-depth-4-face)) 824 825 (fontified nil face (rainbow-delimiters-depth-3-face)) 825 826 (fontified nil face (rainbow-delimiters-depth-2-face)) 826 829 (fontified nil) 829 830 (fontified nil face (rainbow-delimiters-depth-2-face)) 830 856 (fontified nil) 856 861 (fontified nil) 861 862 (fontified nil face (rainbow-delimiters-depth-3-face)) 862 1024 (fontified nil) 1024 1184 (fontified nil) 1184 1185 (fontified nil face (rainbow-delimiters-depth-3-face)) 1185 1186 (fontified nil face (rainbow-delimiters-depth-2-face)) 1186 1187 (fontified nil face (rainbow-delimiters-depth-1-face))) . -5034) (undo-tree-id0 . -859) (undo-tree-id1 . -1187) 1649) nil (25406 8787 138623 0) 0 nil])
+([nil nil ((#("k" 0 1 (face (font-lock-warning-face) help-echo "Easy to misread; consider moving the element to the next line" fontified t)) . -1649) (undo-tree-id117 . -1) 1650 (1649 . 1650) (t . 0)) nil (25406 10162 96831 0) 0 nil])
+([nil nil ((1629 . 1631)) nil (25406 10162 96830 0) 0 nil])
+([nil nil ((1923 . 1941) (1922 . 1923) (1921 . 1923) (#("\"" 0 1 (face (rainbow-delimiters-depth-3-face) fontified nil)) . -1921) (1921 . 1922) (#("(" 0 1 (face (rainbow-delimiters-depth-4-face) fontified nil)) . -1921) (undo-tree-id99 . -1) (#(")" 0 1 (face (rainbow-delimiters-depth-4-face) fontified t)) . 1922) (#("\"" 0 1 (face font-lock-string-face fontified t)) . -1922) (undo-tree-id100 . -1) (#("\"" 0 1 (face font-lock-string-face fontified t)) . -1923) (undo-tree-id101 . -1) (#(")" 0 1 (face (rainbow-delimiters-depth-4-face) fontified t)) . -1924) (undo-tree-id102 . -1) (undo-tree-id103 . 1) (undo-tree-id104 . -1) 1925 (1922 . 1924) (#("\"" 0 1 (face (rainbow-delimiters-depth-4-face) fontified nil)) . -1922) (1922 . 1923) (1919 . 1920) (1920 . 1922) (1913 . 1921) (1897 . 1913) (1896 . 1898) (#("s" 0 1 (fontified t)) . -1896) (undo-tree-id105 . -1) (#("e" 0 1 (fontified t)) . -1897) (undo-tree-id106 . -1) (#("t" 0 1 (fontified t)) . -1898) (undo-tree-id107 . -1) (#("q" 0 1 (fontified t)) . -1899) (undo-tree-id108 . -1) 1900 (1896 . 1900) (1893 . 1896) (1886 . 1893) (1883 . 1886) (1868 . 1882) (1867 . 1869) (1864 . 1867) (1825 . 1827) (#(" " 0 1 (fontified nil)) . 1824) (undo-tree-id109 . -1) (undo-tree-id110 . -1) (1825 . 1826) (1689 . 1690) (1686 . 1689) (1671 . 1685) (1660 . 1671) (1654 . 1661) (#("c" 0 1 (face font-lock-builtin-face fontified t)) . -1654) (undo-tree-id111 . -1) (#("o" 0 1 (face font-lock-builtin-face fontified t)) . -1655) (undo-tree-id112 . -1) (#("n" 0 1 (face font-lock-builtin-face fontified t)) . -1656) (undo-tree-id113 . -1) (#("f" 0 1 (face font-lock-builtin-face fontified t)) . -1657) (undo-tree-id114 . -1) (#("i" 0 1 (face font-lock-builtin-face fontified t)) . -1658) (undo-tree-id115 . -1) (#("g" 0 1 (face font-lock-builtin-face fontified t)) . -1659) (undo-tree-id116 . -1) 1660 (1653 . 1660) (1650 . 1653)) nil (25406 10162 96826 0) 0 nil])
+([nil nil ((1944 . 1947) (#(")" 0 1 (face (rainbow-delimiters-depth-2-face) fontified nil)) . -1944) (1944 . 1945)) nil (25406 10162 96810 0) 0 nil])
+([nil nil ((#("x" 0 1 (face (font-lock-warning-face) help-echo "Easy to misread; consider moving the element to the next line" fontified t)) . 1945)) nil (25406 10162 96809 0) 0 nil])
+([nil nil ((#("e" 0 1 (face (font-lock-warning-face) help-echo "Easy to misread; consider moving the element to the next line" fontified t)) . 1945)) nil (25406 10162 96808 0) 0 nil])
+([nil nil ((#(")" 0 1 (face (rainbow-delimiters-unmatched-face) fontified t)) . -1945) (undo-tree-id96 . -1) (undo-tree-id97 . 1) (undo-tree-id98 . -1) 1946 (1945 . 1946) (#(")" 0 1 (face (rainbow-delimiters-depth-1-face) fontified nil)) . -1945) (1945 . 1946)) nil (25406 10162 96807 0) 0 nil])
+([nil nil ((#(")" 0 1 (face (rainbow-delimiters-depth-1-face) fontified nil)) . 1945) (1945 . 1946) (#(")" 0 1 (face (rainbow-delimiters-unmatched-face) fontified nil)) . 1945) (1945 . 1946)) nil (25406 10162 96805 0) 0 nil])
+([nil nil ((1945 . 1946)) nil (25406 10162 96804 0) 0 nil])
+([nil nil ((1945 . 1946)) nil (25406 10162 96803 0) 0 nil])
+([nil nil ((#(")" 0 1 (face (rainbow-delimiters-depth-2-face) fontified nil)) . 1944) (1944 . 1945) (#(")xe" 0 1 (face (rainbow-delimiters-depth-1-face) fontified t) 1 2 (face (font-lock-warning-face) help-echo "Easy to misread; consider moving the element to the next line" fontified t) 2 3 (face (font-lock-warning-face) help-echo "Easy to misread; consider moving the element to the next line" fontified t)) . 1944) (undo-tree-id95 . -1)) nil (25406 10162 96802 0) 0 nil])
+([nil nil ((#("
+  " 0 1 (fontified t) 1 3 (fontified nil)) . 1650) (undo-tree-id48 . -1) (#(":config" 0 1 (face font-lock-builtin-face fontified nil) 1 2 (face font-lock-builtin-face fontified nil) 2 3 (face font-lock-builtin-face fontified nil) 3 4 (face font-lock-builtin-face fontified nil) 4 5 (face font-lock-builtin-face fontified nil) 5 6 (face font-lock-builtin-face fontified nil) 6 7 (face font-lock-builtin-face fontified nil)) . 1653) (1654 . 1660) (#("hook ()" 0 4 (face font-lock-builtin-face fontified nil) 4 5 (fontified nil) 5 6 (face (rainbow-delimiters-depth-2-face) fontified nil) 6 7 (face (rainbow-delimiters-depth-2-face) fontified nil)) . 1654) (#("org-mode . " 0 11 (fontified nil)) . 1660) (#("yas-minor-mode" 0 14 (fontified nil)) . 1671) (#("
+  " 0 1 (fontified t) 1 3 (fontified nil)) . 1686) (#(":" 0 1 (fontified t)) . 1689) (#("
+" 0 1 (fontified nil)) . 1825) (1824 . 1825) (#("  " 0 2 (fontified nil)) . 1825) (#("
+  " 0 1 (fontified t) 1 3 (fontified nil)) . 1864) (undo-tree-id49 . -3) (undo-tree-id50 . -3) (undo-tree-id51 . -3) (undo-tree-id52 . -3) (undo-tree-id53 . -3) (#("()" 0 1 (face (rainbow-delimiters-depth-2-face) fontified nil) 1 2 (face (rainbow-delimiters-depth-2-face) fontified nil)) . 1867) (undo-tree-id54 . -2) (undo-tree-id55 . -2) (undo-tree-id56 . -2) (undo-tree-id57 . -2) (undo-tree-id58 . -2) (#("yas-reload-all" 0 14 (fontified nil)) . 1868) (#("
+  " 0 1 (fontified t) 1 3 (fontified nil)) . 1883) (undo-tree-id59 . -3) (undo-tree-id60 . -3) (undo-tree-id61 . -3) (undo-tree-id62 . -3) (#(":config" 0 7 (face font-lock-builtin-face fontified nil)) . 1886) (undo-tree-id63 . -7) (undo-tree-id64 . -7) (undo-tree-id65 . -7) (undo-tree-id66 . -7) (#("
+  " 0 1 (fontified t) 1 3 (fontified nil)) . 1893) (undo-tree-id67 . -3) (undo-tree-id68 . -3) (undo-tree-id69 . -3) (undo-tree-id70 . -3) (#("setq" 0 1 (fontified nil) 1 2 (fontified nil) 2 3 (fontified nil) 3 4 (fontified nil)) . 1896) (1896 . 1900) (#("()" 0 1 (face (rainbow-delimiters-depth-2-face) fontified nil) 1 2 (face (rainbow-delimiters-depth-3-face) fontified nil)) . 1896) (undo-tree-id71 . -1) (undo-tree-id72 . -1) (undo-tree-id73 . -1) (undo-tree-id74 . -1) (#("setq yas-snippet" 0 4 (face font-lock-keyword-face fontified nil) 4 16 (fontified nil)) . 1897) (undo-tree-id75 . -16) (undo-tree-id76 . -16) (undo-tree-id77 . -16) (undo-tree-id78 . -16) (#("-dirs ()" 0 6 (fontified nil) 6 7 (face (rainbow-delimiters-depth-3-face) fontified nil) 7 8 (face (rainbow-delimiters-depth-4-face) fontified nil)) . 1913) (undo-tree-id79 . -7) (undo-tree-id80 . -7) (undo-tree-id81 . -7) (undo-tree-id82 . -7) (#("()" 0 1 (face (rainbow-delimiters-depth-4-face) fontified nil) 1 2 (face (rainbow-delimiters-depth-4-face) fontified nil)) . 1920) (#("'" 0 1 (fontified nil)) . 1919) (#("\"" 0 1 (face (rainbow-delimiters-depth-4-face) fontified nil)) . 1922) (1922 . 1923) (#("\"\"" 0 1 (face font-lock-string-face fontified nil) 1 2 (face font-lock-string-face fontified nil)) . 1922) (1922 . 1925) (1921 . 1923) (#("\"" 0 1 (face (rainbow-delimiters-depth-3-face) fontified nil)) . 1921) (1921 . 1922) (#("\"\"" 0 2 (face font-lock-string-face fontified nil)) . 1921) (undo-tree-id83 . -1) (undo-tree-id84 . -1) (undo-tree-id85 . -1) (undo-tree-id86 . -1) (#("~" 0 1 (face font-lock-string-face fontified nil)) . 1922) (undo-tree-id87 . -1) (undo-tree-id88 . -1) (undo-tree-id89 . -1) (undo-tree-id90 . -1) (#("/.emacs.d/snippets" 0 18 (face font-lock-string-face fontified t)) . 1923) (undo-tree-id91 . -18) (undo-tree-id92 . -18) (undo-tree-id93 . -18) (undo-tree-id94 . -18)) nil (25406 10162 96798 0) 0 nil])
+([nil nil ((1681 . 1685) (1675 . 1681) (#("n" 0 1 (fontified t)) . -1675) (undo-tree-id39 . -1) (#("i" 0 1 (fontified t)) . -1676) (undo-tree-id40 . -1) 1677 (1671 . 1677) (#("a" 0 1 (fontified t)) . -1671) (undo-tree-id41 . -1) 1672 (1669 . 1672) (#("," 0 1 (fontified t)) . -1669) (undo-tree-id42 . -1) (#(" " 0 1 (fontified t)) . -1670) (undo-tree-id43 . -1) 1671 (1663 . 1671) (1660 . 1663) (1658 . 1661) (#("
+" 0 1 (fontified t)) . -1658) (undo-tree-id44 . -1) (#(" " 0 1 (fontified t)) . -1659) (undo-tree-id45 . -1) (#(" " 0 1 (fontified t)) . -1660) (undo-tree-id46 . -1) 1661 (#("(" 0 1 (face (rainbow-delimiters-depth-2-face) fontified nil)) . -1661) (undo-tree-id47 . -1) (#(")" 0 1 (face (rainbow-delimiters-depth-2-face) fontified t)) . 1662) (1661 . 1663) (1658 . 1661) (1653 . 1658) (1650 . 1653)) nil (25406 10162 96771 0) 0 nil])
+([nil nil ((1659 . 1661) (#(" " 0 1 (fontified nil)) . 1658) (undo-tree-id38 . -1) (1659 . 1660)) nil (25406 10162 96764 0) 0 nil])
+([nil nil ((1691 . 1693) (1688 . 1691)) nil (25406 10162 96763 0) 0 nil])
+([nil nil ((#("(" 0 1 (face (rainbow-delimiters-depth-2-face) fontified t)) . 1691) (undo-tree-id36 . 1) (undo-tree-id37 . -1)) nil (25406 10162 96762 0) 0 nil])
+([nil nil ((#(")" 0 1 (face (rainbow-delimiters-depth-1-face) fontified t)) . 1691) (undo-tree-id33 . 1) (undo-tree-id34 . 1) (undo-tree-id35 . -1)) nil (25406 10162 96761 0) 0 nil])
+([nil nil ((1673 . 1676) (#("l" 0 1 (fontified t)) . -1673) (undo-tree-id32 . -1) 1674 (1662 . 1674) (1661 . 1663) (1659 . 1661) (1659 . 1660) 1661) nil (25406 10162 96759 0) 0 nil])
+([nil nil ((1749 . 1765) (1746 . 1749) (1745 . 1747) (#("\"" 0 1 (face (rainbow-delimiters-depth-3-face) fontified nil)) . -1745) (1745 . 1746) (1730 . 1746) (1721 . 1730) (1720 . 1722) (1717 . 1720) (1710 . 1717)) nil (25406 10162 96757 0) 0 nil])
+([nil nil ((#("(setq yas-snippet-dirs '(\"~/.emacs.d/snippets\")" 0 1 (face (rainbow-delimiters-depth-2-face) fontified t) 1 5 (face font-lock-keyword-face fontified t) 5 24 (fontified t) 24 25 (face (rainbow-delimiters-depth-3-face) fontified t) 25 46 (face font-lock-string-face fontified t) 46 47 (face (rainbow-delimiters-depth-3-face) fontified t)) . 1720) (undo-tree-id23 . -46) (undo-tree-id24 . 2) (undo-tree-id25 . -46) (undo-tree-id26 . -46) (undo-tree-id27 . -46) (undo-tree-id28 . 1) (undo-tree-id29 . -47) (undo-tree-id30 . 23) (undo-tree-id31 . -25) 1766) nil (25406 10162 96755 0) 0 nil])
+([nil nil ((#("y" 0 1 (fontified t)) . -1661) (undo-tree-id22 . -1) 1662 (1661 . 1662) (1658 . 1661) (1653 . 1658) (1650 . 1653) 1641) nil (25406 10162 96750 0) 0 nil])
+([nil nil ((nil rear-nonsticky nil 1707 . 1708) (nil fontified nil 1661 . 1708) (1661 . 1708)) nil (25406 10162 96748 0) 0 nil])
+([nil nil ((#("  :hook
+  (yas-reload-all)
+  (org-mode . yas-minor-mode)
+" 0 2 (fontified t) 2 7 (face font-lock-builtin-face fontified t) 7 8 (fontified t) 8 10 (fontified t) 10 11 (face (rainbow-delimiters-depth-3-face) fontified t) 11 25 (fontified t) 25 26 (face (rainbow-delimiters-depth-3-face) fontified t) 26 27 (fontified t) 27 29 (fontified t) 29 30 (face (rainbow-delimiters-depth-3-face) fontified t) 30 55 (fontified t) 55 56 (face (rainbow-delimiters-depth-3-face) fontified t) 56 57 (fontified t)) . 1709) (undo-tree-id18 . -26) (undo-tree-id19 . -7) (undo-tree-id20 . 30) (undo-tree-id21 . -26) 1716) nil (25406 10162 96747 0) 0 nil])
+([nil nil ((1726 . 1739) (1722 . 1726) (1721 . 1723) (1718 . 1721) 1716) nil (25406 10162 96744 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . -1740) (undo-tree-id12 . -1) (undo-tree-id13 . -1) (#(" " 0 1 (fontified t)) . -1741) (undo-tree-id14 . -1) (undo-tree-id15 . -1) (#(" " 0 1 (fontified t)) . -1742) (undo-tree-id16 . -1) (undo-tree-id17 . -1) 1743) nil (25406 10162 96743 0) 0 nil])
+([nil nil ((1708 . 1709) (#(")" 0 1 (fontified nil)) . -1708) (1708 . 1709)) nil (25406 10162 96738 0) 0 nil])
+([nil nil ((#(")" 0 1 (face (rainbow-delimiters-unmatched-face) fontified t)) . -1742) (undo-tree-id4 . -1) (undo-tree-id5 . -1) (undo-tree-id6 . -1) (undo-tree-id7 . -1) (undo-tree-id8 . -1) (undo-tree-id9 . -1) (undo-tree-id10 . 1) (undo-tree-id11 . -1) 1743) nil (25406 10162 96734 0) 0 nil])
+([nil current ((4885 . 5124) (#("(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )" 0 239 (fontified nil)) . -4885) (6300 . 6302) (5972 . 5975) (#("
+" 0 1 (fontified nil)) . -6297) (5969 . 5972) (6294 . 6295) (5968 . 5969) (#(" " 0 1 (fontified nil)) . 5968) (5949 . 6294) (#(" " 0 1 (fontified nil)) . 5949) (5919 . 5950) (5874 . 5877) (5822 . 5825) (#("
+" 0 1 (fontified nil)) . -5913) (5869 . 5871) (5820 . 5822) (5909 . 5910) (5866 . 5867) (#("
+" 0 1 (fontified nil)) . 5866) (5866 . 5867) (#(" " 0 1 (fontified nil)) . -5866) (5819 . 5820) (#("
+" 0 1 (fontified nil)) . 5819) (5819 . 5820) (#(" " 0 1 (fontified nil)) . -5819) (5771 . 5909) (#(" " 0 1 (fontified nil)) . 5771) (5750 . 5772) (#("
+" 0 1 (fontified nil)) . -5750) (5629 . 5751) (#(" " 0 1 (fontified nil)) . 5629) (5608 . 5630) (#("
+" 0 1 (fontified nil)) . -5608) (5393 . 5609) (#(" " 0 1 (fontified nil)) . 5393) (5127 . 5394) (#("(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '(\"84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279\" \"d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302\" \"3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa\" default))
+ '(org-agenda-files
+   '(\"d:/Emacs/.emacs.d/Agenda/dayview.org\" \"d:/Emacs/.emacs.d/Agenda/inbox.org\" \"d:/Emacs/.emacs.d/Agenda/workout.org\" \"d:/Emacs/.emacs.d/Agenda/÷”.org\"))
+ '(package-archives
+   '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+     (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+     (\"melpa\" . \"https://melpa.org/packages/\")))
+ '(package-selected-packages
+   '(snippet quote
+	     (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))" 0 1208 (fontified nil)) . -5127) (t 25406 10162 0 0)) nil (25406 10226 280638 0) 0 nil])
 nil

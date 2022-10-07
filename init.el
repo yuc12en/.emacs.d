@@ -32,7 +32,6 @@
 (visual-line-mode 1)
 (setq initial-buffer-choice "~/.emacs.d/init.el")
 (load-theme 'dracula t)
-(toggle-truncate-lines 1)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 ;; Capture
@@ -47,6 +46,16 @@
 (setq org-agenda-files '("~/.emacs.d/Agenda"))
 (global-set-key (kbd "C-c a") 'org-agenda)
 ;;; 
+
+
+;;; yasnippet
+
+(use-package yasnippet
+  :ensure t
+  :init
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  :config
+  (yas-global-mode 1))
 ;;; amx
 (use-package amx
   :ensure t
@@ -210,10 +219,11 @@
  '(custom-safe-themes
    '("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(org-agenda-files
-   '("d:/Emacs/.emacs.d/Agenda/dayview.org" "d:/Emacs/.emacs.d/Agenda/inbox.org" "d:/Emacs/.emacs.d/Agenda/workout.org" "d:/Emacs/.emacs.d/Agenda/钟.org"))
+   '("d:/Emacs/.emacs.d/Agenda/dayview.org" "d:/Emacs/.emacs.d/Agenda/inbox.org" "d:/Emacs/.emacs.d/Agenda/workout.org"))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   `'(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons)))
+   '(snippet quote
+	     (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
