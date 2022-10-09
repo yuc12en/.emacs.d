@@ -1,21 +1,4 @@
 ls
-d:
-e:
-ls
-cd Agenda/ls
-ls
-cd Agenda/
-ls
-ls
-ls
-ls -a
-mkdir snippets
-ls
-ls
-ls
-cd ..
-ls
-ls
 clear
 git
 cd ../Agenda
@@ -126,3 +109,20 @@ rm habits.org
 rm WhaToDo.org 
 ls
 mkdir snippets
+dL
+d:
+cd ..
+cd ..
+eL
+e:
+cd e:/
+cd e:
+ls
+cd tutors/
+ls
+git
+git status
+git fetch
+ls
+ls -a
+rm .writing.org.swp 

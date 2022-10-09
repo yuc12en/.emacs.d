@@ -1,8 +1,8 @@
 
 ;; ----- amx-history -----
 (
- eshell
  visual-line-mode
+ eshell
  rename-file
  neotree-dir
  toggle-truncate-lines
@@ -12,7 +12,7 @@
 
 ;; ----- amx-data -----
 (
- (eshell . 17)
+ (eshell . 19)
  (ace-window . 1)
  (all-the-icons-install-fonts . 1)
  (eval-buffer . 6)
@@ -23,5 +23,5 @@
  (toggle-truncate-lines . 5)
  (load-theme . 1)
  (rename-file . 3)
- (visual-line-mode . 2)
+ (visual-line-mode . 3)
 )
