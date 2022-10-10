@@ -1,0 +1,120 @@
+(undo-tree-save-format-version . 1)
+"07850ef7f7101e4677356547a5c873c1d63bc97b"
+[nil nil nil nil (25402 20333 772844 0) 0 nil]
+([nil nil ((816 . 821) (#("k" 0 1 (face org-level-1 fontified t)) . -816) (undo-tree-id0 . -1) (#("e" 0 1 (face org-level-1 fontified t)) . -817) (undo-tree-id1 . -1) 818 (816 . 818) (#("动" 0 1 (face org-level-1 fontified t)) . 816) (#("活" 0 1 (face org-level-1 fontified t)) . 816) (#("期" 0 1 (face org-level-1 fontified t)) . 816) (#("长" 0 1 (face org-level-1 fontified t)) . 816) (#("他" 0 1 (face org-level-1 fontified t)) . 816) (#("其" 0 1 (face org-level-1 fontified t)) . 816) (t 25400 14900 0 0)) nil (25402 20333 772842 0) 0 nil])
+([nil nil ((#("* TODO TEST
+" 0 2 (face org-level-1 fontified t) 2 6 (face (org-todo org-level-1) fontified t) 6 11 (face org-level-1 fontified t) 11 12 (fontified t)) . 921)) nil (25402 20333 772827 0) 0 nil])
+([nil nil ((921 . 923)) nil (25402 20333 772826 0) 0 nil])
+([nil nil ((923 . 925)) nil (25402 20333 772825 0) 0 nil])
+([nil nil ((925 . 926)) nil (25402 20333 772821 0) 0 nil])
+([nil nil ((#("k" 0 1 (face org-level-1 fontified t)) . -925) (undo-tree-id3 . -1) (#("k" 0 1 (face org-level-1 fontified t)) . -926) (undo-tree-id4 . -1) 927 (925 . 927) (t 25402 20333 0 0)) nil (25402 33044 651811 0) 0 nil])
+([nil nil ((#("    " 0 4 (fontified t)) . -814) (undo-tree-id2 . -4) 818 (813 . 818) 5) nil (25402 33044 651805 0) 0 nil])
+([nil nil ((124 . 125) (#("+ [ ] memory item
++ [ ] 口语表达练习
++ [ ] 写作练习
++ [ ] 听力练习
++ [ ] 阅读练习
++ [ ] 复习环节
+" 0 2 (fontified t org-category "inbox" org-stats 0) 2 5 (fontified t org-category "inbox" org-stats 0 face (org-checkbox)) 5 20 (fontified t org-category "inbox" org-stats 0) 20 23 (fontified t org-category "inbox" org-stats 0 face (org-checkbox)) 23 33 (fontified t org-category "inbox" org-stats 0) 33 36 (fontified t org-category "inbox" org-stats 0 face (org-checkbox)) 36 44 (fontified t org-category "inbox" org-stats 0) 44 47 (fontified t org-category "inbox" org-stats 0 face (org-checkbox)) 47 55 (fontified t org-category "inbox" org-stats 0) 55 58 (fontified t org-category "inbox" org-stats 0 face (org-checkbox)) 58 66 (fontified t org-category "inbox" org-stats 0) 66 69 (fontified t org-category "inbox" org-stats 0 face (org-checkbox)) 69 75 (fontified t org-category "inbox" org-stats 0)) . 124) (undo-tree-id41 . -75) (undo-tree-id42 . -75) (undo-tree-id43 . -74) (undo-tree-id44 . -75) (undo-tree-id45 . -75) (219 . 220) (203 . 219) (199 . 203) (#("i" 0 1 (fontified t org-category "inbox" org-stats 0)) . -199) (undo-tree-id46 . -1) (#("、" 0 1 (fontified t org-category "inbox" org-stats 0)) . -200) (undo-tree-id47 . -1) 201 (199 . 201) (#("
+" 0 1 (fontified t org-category "inbox" org-stats 0)) . -274) (undo-tree-id48 . -1) (undo-tree-id49 . -1) (undo-tree-id50 . -1) (undo-tree-id51 . -1) (undo-tree-id52 . -1) (#("#" 0 1 (fontified t org-category "inbox" org-stats 0 font-lock-fontified t face font-lock-comment-face)) . -275) (undo-tree-id53 . -1) (undo-tree-id54 . -1) (undo-tree-id55 . -1) (undo-tree-id56 . -1) (undo-tree-id57 . -1) 276 (#(" " 0 1 (fontified t org-category "inbox" org-stats 0 font-lock-fontified t face font-lock-comment-face)) . -276) (undo-tree-id58 . -1) (undo-tree-id59 . -1) (undo-tree-id60 . -1) (undo-tree-id61 . -1) (undo-tree-id62 . -1) (#("
+" 0 1 (fontified t org-category "inbox" org-stats 0)) . -277) (undo-tree-id63 . -1) (undo-tree-id64 . -1) (undo-tree-id65 . -1) (undo-tree-id66 . -1) (undo-tree-id67 . -1) (#("+" 0 1 (fontified t org-category "inbox" org-stats 0)) . -278) (undo-tree-id68 . -1) (undo-tree-id69 . -1) (undo-tree-id70 . -1) (undo-tree-id71 . -1) (undo-tree-id72 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -279) (undo-tree-id73 . -1) (undo-tree-id74 . -1) (undo-tree-id75 . -1) (undo-tree-id76 . -1) (undo-tree-id77 . -1) (#("[" 0 1 (fontified t org-category "inbox" org-stats 0)) . -280) (undo-tree-id78 . -1) (undo-tree-id79 . -1) (undo-tree-id80 . -1) (undo-tree-id81 . -1) (undo-tree-id82 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -281) (undo-tree-id83 . -1) (undo-tree-id84 . -1) (undo-tree-id85 . -1) (undo-tree-id86 . -1) (undo-tree-id87 . -1) (#("]" 0 1 (fontified t org-category "inbox" org-stats 0 face (org-checkbox))) . -282) (undo-tree-id88 . -1) (undo-tree-id89 . -1) (undo-tree-id90 . -1) (undo-tree-id91 . -1) (undo-tree-id92 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -283) (undo-tree-id93 . -1) (undo-tree-id94 . -1) (undo-tree-id95 . -1) (undo-tree-id96 . -1) (undo-tree-id97 . -1) (#("读" 0 1 (fontified t org-category "inbox" org-stats 0)) . -284) (undo-tree-id98 . -1) (undo-tree-id99 . -1) (undo-tree-id100 . -1) (undo-tree-id101 . -1) (undo-tree-id102 . -1) (#("文" 0 1 (fontified t org-category "inbox" org-stats 0)) . -285) (undo-tree-id103 . -1) (undo-tree-id104 . -1) (undo-tree-id105 . -1) (undo-tree-id106 . -1) (undo-tree-id107 . -1) (#("章" 0 1 (fontified t org-category "inbox" org-stats 0)) . -286) (undo-tree-id108 . -1) (undo-tree-id109 . -1) (undo-tree-id110 . -1) (undo-tree-id111 . -1) (undo-tree-id112 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -287) (undo-tree-id113 . -1) (undo-tree-id114 . -1) (undo-tree-id115 . -1) (undo-tree-id116 . -1) (undo-tree-id117 . -1) (#("
+" 0 1 (fontified t org-category "inbox" org-stats 0)) . -288) (undo-tree-id118 . -1) (undo-tree-id119 . -1) (undo-tree-id120 . -1) (undo-tree-id121 . -1) (undo-tree-id122 . -1) (#("+" 0 1 (fontified t org-category "inbox" org-stats 0)) . -289) (undo-tree-id123 . -1) (undo-tree-id124 . -1) (undo-tree-id125 . -1) (undo-tree-id126 . -1) (undo-tree-id127 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -290) (undo-tree-id128 . -1) (undo-tree-id129 . -1) (undo-tree-id130 . -1) (undo-tree-id131 . -1) (undo-tree-id132 . -1) (#("[" 0 1 (fontified t org-category "inbox" org-stats 0)) . -291) (undo-tree-id133 . -1) (undo-tree-id134 . -1) (undo-tree-id135 . -1) (undo-tree-id136 . -1) (undo-tree-id137 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -292) (undo-tree-id138 . -1) (undo-tree-id139 . -1) (undo-tree-id140 . -1) (undo-tree-id141 . -1) (undo-tree-id142 . -1) (#("]" 0 1 (fontified t org-category "inbox" org-stats 0 face (org-checkbox))) . -293) (undo-tree-id143 . -1) (undo-tree-id144 . -1) (undo-tree-id145 . -1) (undo-tree-id146 . -1) (undo-tree-id147 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -294) (undo-tree-id148 . -1) (undo-tree-id149 . -1) (undo-tree-id150 . -1) (undo-tree-id151 . -1) (undo-tree-id152 . -1) (#("实" 0 1 (fontified t org-category "inbox" org-stats 0)) . -295) (undo-tree-id153 . -1) (undo-tree-id154 . -1) (undo-tree-id155 . -1) (undo-tree-id156 . -1) (undo-tree-id157 . -1) (#("验" 0 1 (fontified t org-category "inbox" org-stats 0)) . -296) (undo-tree-id158 . -1) (undo-tree-id159 . -1) (undo-tree-id160 . -1) (undo-tree-id161 . -1) (undo-tree-id162 . -1) 297 (394 . 396) (388 . 393) (#("、" 0 1 (fontified t)) . -388) (undo-tree-id163 . -1) 389 (383 . 389) (374 . 383) (#("于" 0 1 (fontified t)) . -374) (undo-tree-id164 . -1) (#("释" 0 1 (fontified t)) . -375) (undo-tree-id165 . -1) (#("放" 0 1 (fontified t)) . -376) (undo-tree-id166 . -1) 377 (372 . 377) (365 . 372) (#("放" 0 1 (fontified t)) . -365) (undo-tree-id167 . -1) (#("下" 0 1 (fontified t)) . -366) (undo-tree-id168 . -1) (#("给" 0 1 (fontified t)) . -367) (undo-tree-id169 . -1) (#("你" 0 1 (fontified t)) . -368) (undo-tree-id170 . -1) (#("是" 0 1 (fontified t)) . -369) (undo-tree-id171 . -1) 370 (363 . 370) (359 . 364) (343 . 359) (#("聚" 0 1 (fontified t)) . -343) (undo-tree-id172 . -1) (#("集" 0 1 (fontified t)) . -344) (undo-tree-id173 . -1) 345 (343 . 345) (337 . 343) (#("决" 0 1 (fontified t)) . -337) (undo-tree-id174 . -1) (#("定" 0 1 (fontified t)) . -338) (undo-tree-id175 . -1) (#("好" 0 1 (fontified t)) . -339) (undo-tree-id176 . -1) 340 (337 . 340) (331 . 337) (327 . 331) (320 . 327) (#("m" 0 1 (fontified t)) . -320) (undo-tree-id177 . -1) (#("u" 0 1 (fontified t)) . -321) (undo-tree-id178 . -1) (#("q" 0 1 (fontified t)) . -322) (undo-tree-id179 . -1) 323 (320 . 323) (#("x" 0 1 (fontified t)) . -320) (undo-tree-id180 . -1) (#("i" 0 1 (fontified t)) . -321) (undo-tree-id181 . -1) (#("a" 0 1 (fontified t)) . -322) (undo-tree-id182 . -1) 323 (320 . 323) (319 . 320) (303 . 319) (302 . 303) (#("*" 0 1 (fontified t org-category "inbox" org-stats 0 face (bold) font-lock-multiline t org-emphasis t)) . -302) (undo-tree-id183 . -1) 303 (299 . 303) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -299) (undo-tree-id184 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -300) (undo-tree-id185 . -1) 301 (298 . 301) (#("
+" 0 1 (fontified t org-category "inbox" org-stats 0)) . -298) (undo-tree-id186 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -299) (undo-tree-id187 . -1) (#(" " 0 1 (fontified t org-category "inbox" org-stats 0)) . -300) (undo-tree-id188 . -1) 301 (299 . 301) (#("  " 0 2 (fontified nil org-category "inbox" org-stats 0)) . 298) (undo-tree-id189 . -2) (297 . 301) (t 25402 33044 0 0)) nil (25403 57170 63366 0) 0 nil])
+([nil nil ((#("d" 0 1 (fontified t org-category "inbox" org-stats 0)) . 124)) nil (25403 57170 63296 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . -144) (undo-tree-id40 . -1) 145) nil (25403 57170 63295 0) 0 nil])
+([nil nil ((144 . 145)) nil (25403 57170 63294 0) 0 nil])
+([nil nil ((145 . 151)) nil (25403 57170 63294 0) 0 nil])
+([nil nil ((#("现" 0 1 (fontified t)) . -145) (undo-tree-id34 . -1) (#("在" 0 1 (fontified t)) . -146) (undo-tree-id35 . -1) (#("应" 0 1 (fontified t)) . -147) (undo-tree-id36 . -1) (#("当" 0 1 (fontified t)) . -148) (undo-tree-id37 . -1) (#("是" 0 1 (fontified t)) . -149) (undo-tree-id38 . -1) (#("在" 0 1 (fontified t)) . -150) (undo-tree-id39 . -1) 151) nil (25403 57170 63293 0) 0 nil])
+([nil nil ((145 . 150)) nil (25403 57170 63289 0) 0 nil])
+([nil nil ((150 . 153)) nil (25403 57170 63289 0) 0 nil])
+([nil nil ((#("应" 0 1 (fontified t)) . -150) (undo-tree-id31 . -1) (#("当" 0 1 (fontified t)) . -151) (undo-tree-id32 . -1) (#("在" 0 1 (fontified t)) . -152) (undo-tree-id33 . -1) 153) nil (25403 57170 63288 0) 0 nil])
+([nil nil ((150 . 161)) nil (25403 57170 63286 0) 0 nil])
+([nil nil ((161 . 170)) nil (25403 57170 63286 0) 0 nil])
+([nil nil ((170 . 174)) nil (25403 57170 63285 0) 0 nil])
+([nil nil ((#("颗" 0 1 (fontified t)) . -172) (undo-tree-id29 . -1) (#("牙" 0 1 (fontified t)) . -173) (undo-tree-id30 . -1) 174) nil (25403 57170 63284 0) 0 nil])
+([nil nil ((172 . 186)) nil (25403 57170 63282 0) 0 nil])
+([nil nil ((186 . 198)) nil (25403 57170 63282 0) 0 nil])
+([nil nil ((#("联" 0 1 (fontified t)) . -195) (undo-tree-id26 . -1) (#("系" 0 1 (fontified t)) . -196) (undo-tree-id27 . -1) (#("、" 0 1 (fontified t)) . -197) (undo-tree-id28 . -1) 198) nil (25403 57170 63281 0) 0 nil])
+([nil nil ((195 . 200)) nil (25403 57170 63279 0) 0 nil])
+([nil nil ((#("联" 0 1 (fontified t)) . -198) (undo-tree-id24 . -1) (#("系" 0 1 (fontified t)) . -199) (undo-tree-id25 . -1) 200) nil (25403 57170 63278 0) 0 nil])
+([nil nil ((198 . 207)) nil (25403 57170 63277 0) 0 nil])
+([nil nil ((#("。" 0 1 (fontified t)) . -206) (undo-tree-id23 . -1) 207) nil (25403 57170 63276 0) 0 nil])
+([nil nil ((206 . 207)) nil (25403 57170 63275 0) 0 nil])
+([nil nil ((207 . 212)) nil (25403 57170 63275 0) 0 nil])
+([nil nil ((#("不" 0 1 (fontified t)) . -209) (undo-tree-id20 . -1) (#("开" 0 1 (fontified t)) . -210) (undo-tree-id21 . -1) (#("始" 0 1 (fontified t)) . -211) (undo-tree-id22 . -1) 212) nil (25403 57170 63274 0) 0 nil])
+([nil nil ((209 . 218)) nil (25403 57170 63272 0) 0 nil])
+([nil nil ((#("那" 0 1 (fontified t)) . -217) (undo-tree-id19 . -1) 218) nil (25403 57170 63271 0) 0 nil])
+([nil nil ((217 . 225)) nil (25403 57170 63270 0) 0 nil])
+([nil nil ((225 . 227)) nil (25403 57170 63269 0) 0 nil])
+([nil nil ((#("、" 0 1 (fontified t)) . -226) (undo-tree-id18 . -1) 227) nil (25403 57170 63269 0) 0 nil])
+([nil nil ((226 . 228)) nil (25403 57170 63268 0) 0 nil])
+([nil nil ((228 . 234)) nil (25403 57170 63267 0) 0 nil])
+([nil nil ((nil fontified nil 235 . 238) (#("1. " 0 3 (fontified nil)) . 235) (228 . 241) (#("1. 
+1. 背单词" 0 3 (fontified nil) 3 4 (fontified nil) 4 10 (fontified nil)) . 228) (undo-tree-id17 . -10) (228 . 232) 234) nil (25403 57170 63266 0) 0 nil])
+([nil nil ((238 . 241)) nil (25403 57170 63264 0) 0 nil])
+([nil nil ((nil fontified nil 242 . 245) (#("2. " 0 3 (fontified nil)) . 242) (235 . 248) (#("2. 
+2. 练听力" 0 3 (fontified nil) 3 4 (fontified nil) 4 10 (fontified nil)) . 235) (undo-tree-id16 . -10) (235 . 239) 241) nil (25403 57170 63264 0) 0 nil])
+([nil nil ((245 . 249)) nil (25403 57170 63262 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t org-category "inbox" org-stats 0)) . 249)) nil (25403 57170 63262 0) 0 nil])
+([nil nil ((#("口" 0 1 (fontified t)) . -245) (undo-tree-id12 . -1) (#("语" 0 1 (fontified t)) . -246) (undo-tree-id13 . -1) (#("瘀" 0 1 (fontified t)) . -247) (undo-tree-id14 . -1) (#("斑" 0 1 (fontified t)) . -248) (undo-tree-id15 . -1) 249) nil (25403 57170 63261 0) 0 nil])
+([nil nil ((245 . 256)) nil (25403 57170 63258 0) 0 nil])
+([nil nil ((#("联" 0 1 (fontified t)) . -254) (undo-tree-id10 . -1) (#("系" 0 1 (fontified t)) . -255) (undo-tree-id11 . -1) 256) nil (25403 57170 63258 0) 0 nil])
+([nil nil ((254 . 257)) nil (25403 57170 63256 0) 0 nil])
+([nil nil ((#("里" 0 1 (fontified t)) . -254) (undo-tree-id7 . -1) (#("纳" 0 1 (fontified t)) . -255) (undo-tree-id8 . -1) (#("西" 0 1 (fontified t)) . -256) (undo-tree-id9 . -1) 257) nil (25403 57170 63255 0) 0 nil])
+([nil nil ((254 . 258)) nil (25403 57170 63253 0) 0 nil])
+([nil nil ((258 . 262)) nil (25403 57170 63253 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . -258) (undo-tree-id3 . -1) (#(" " 0 1 (fontified t)) . -259) (undo-tree-id4 . -1) (#(" " 0 1 (fontified t)) . -260) (undo-tree-id5 . -1) (#(" " 0 1 (fontified t)) . -261) (undo-tree-id6 . -1) 262) nil (25403 57170 63252 0) 0 nil])
+([nil nil ((nil fontified nil 259 . 262) (#("3. " 0 3 (fontified nil)) . 259) (242 . 265) (#("3. 
+3. 最好尽快找到口语的练习方式" 0 3 (fontified nil) 3 4 (fontified nil) 4 20 (fontified nil)) . 242) (undo-tree-id2 . -20) (242 . 246) 258) nil (25403 57170 63249 0) 0 nil])
+([nil nil ((262 . 264)) nil (25403 57170 63247 0) 0 nil])
+([nil nil ((#("联" 0 1 (fontified t)) . -262) (undo-tree-id0 . -1) (#("系" 0 1 (fontified t)) . -263) (undo-tree-id1 . -1) 264) nil (25403 57170 63245 0) 0 nil])
+([nil nil ((262 . 272)) nil (25403 57170 63231 0) 0 nil])
+([nil nil ((272 . 276)) nil (25403 57170 63230 0) 0 nil])
+([nil nil ((272 . 286)) nil (25403 57170 63229 0) 0 nil])
+([nil nil ((286 . 290)) nil (25403 57170 63225 0) 0 nil])
+([nil nil (286) nil (25406 8249 138656 0) 0 nil])
+([nil nil ((#("
+" 0 1 (org-stats 0 org-category "inbox" fontified t)) . -259) (undo-tree-id52 . -1) 260 (259 . 260) (t 25403 57170 0 0)) nil (25406 8249 138655 0) 0 nil])
+([nil nil ((340 . 359) (#("两" 0 1 (fontified t)) . -340) (undo-tree-id30 . -1) (#("天" 0 1 (fontified t)) . -341) (undo-tree-id31 . -1) (#("一" 0 1 (fontified t)) . -342) (undo-tree-id32 . -1) (#("个" 0 1 (fontified t)) . -343) (undo-tree-id33 . -1) (#("l" 0 1 (fontified t)) . -344) (undo-tree-id34 . -1) (#("i" 0 1 (fontified t)) . -345) (undo-tree-id35 . -1) (#("s" 0 1 (fontified t)) . -346) (undo-tree-id36 . -1) (#("t" 0 1 (fontified t)) . -347) (undo-tree-id37 . -1) (#("变" 0 1 (fontified t)) . -348) (undo-tree-id38 . -1) (#("为" 0 1 (fontified t)) . -349) (undo-tree-id39 . -1) 350 (337 . 350) (#("两" 0 1 (fontified t)) . -337) (undo-tree-id40 . -1) 338 (332 . 338) (318 . 332) (#("华" 0 1 (fontified t)) . -318) (undo-tree-id41 . -1) 319 (#("仔" 0 1 (fontified t)) . -319) (undo-tree-id42 . -1) 320 (309 . 320) (#("m" 0 1 (fontified t)) . -309) (undo-tree-id43 . -1) 310 (309 . 310) (#("M" 0 1 (fontified t)) . -309) (undo-tree-id44 . -1) (#("U" 0 1 (fontified t)) . -310) (undo-tree-id45 . -1) 311 (309 . 311) (#("M" 0 1 (fontified t)) . -309) (undo-tree-id46 . -1) (#("U" 0 1 (fontified t)) . -310) (undo-tree-id47 . -1) 311 (309 . 311) (308 . 309) (292 . 308) (288 . 292) (#(" " 0 1 (fontified t)) . -288) (undo-tree-id48 . -1) (#(" " 0 1 (fontified t)) . -289) (undo-tree-id49 . -1) (#(" " 0 1 (fontified t)) . -290) (undo-tree-id50 . -1) 291 (288 . 291) (#("   " 0 3 (fontified nil)) . 287) (undo-tree-id51 . -3) (290 . 291) (286 . 290) 259) nil (25406 8249 138651 0) 0 nil])
+([nil nil ((615 . 616) (#("]" 0 1 (face font-lock-comment-face font-lock-fontified t org-category "inbox" fontified nil)) . -615) (615 . 616)) nil (25406 8249 138638 0) 0 nil])
+([nil nil ((#("]" 0 1 (face font-lock-comment-face font-lock-fontified t org-category "inbox" fontified nil)) . 615) (615 . 616) (#("]" 0 1 (face font-lock-comment-face font-lock-fontified t fontified t)) . 615)) nil (25406 8249 138637 0) 0 nil])
+([nil nil ((661 . 669) (656 . 661) (#("带" 0 1 (fontified t)) . -656) (undo-tree-id16 . -1) (#("脑" 0 1 (fontified t)) . -657) (undo-tree-id17 . -1) (#("子" 0 1 (fontified t)) . -658) (undo-tree-id18 . -1) 659 (652 . 659) (#("，" 0 1 (fontified t)) . -652) (undo-tree-id19 . -1) 653 (640 . 653) (#("位" 0 1 (fontified t)) . -640) (undo-tree-id20 . -1) (#("置" 0 1 (fontified t)) . -641) (undo-tree-id21 . -1) 642 (640 . 642) (#("位" 0 1 (fontified t)) . -640) (undo-tree-id22 . -1) (#("置" 0 1 (fontified t)) . -641) (undo-tree-id23 . -1) 642 (640 . 642) (#("按" 0 1 (fontified t)) . -640) (undo-tree-id24 . -1) 641 (638 . 641) (#("j" 0 1 (fontified t)) . -638) (undo-tree-id25 . -1) (#("i" 0 1 (fontified t)) . -639) (undo-tree-id26 . -1) (#("n" 0 1 (fontified t)) . -640) (undo-tree-id27 . -1) 641 (638 . 641) (637 . 638) (621 . 637) (617 . 621) (#("d" 0 1 (org-category "inbox" fontified t)) . -617) (undo-tree-id28 . -1) (#("d" 0 1 (org-category "inbox" fontified t)) . -618) (undo-tree-id29 . -1) 619 (617 . 619) (616 . 617) (616 . 617) 617) nil (25406 8249 138634 0) 0 nil])
+([nil nil ((837 . 838) 838) nil (25406 8249 138625 0) 0 nil])
+([nil nil ((837 . 838)) nil (25406 8249 138624 0) 0 nil])
+([nil nil ((838 . 844)) nil (25406 8249 138624 0) 0 nil])
+([nil nil ((#("C" 0 1 (face org-level-3 org-stats 0 org-category "inbox" fontified t)) . -842) (undo-tree-id14 . -1) (#("i" 0 1 (face org-level-3 org-stats 0 org-category "inbox" fontified t)) . -843) (undo-tree-id15 . -1) 844) nil (25406 8249 138623 0) 0 nil])
+([nil nil ((842 . 858)) nil (25406 8249 138621 0) 0 nil])
+([nil nil ((858 . 859)) nil (25406 8249 138621 0) 0 nil])
+([nil nil ((859 . 863)) nil (25406 8249 138620 0) 0 nil])
+([nil nil ((#("有" 0 1 (fontified t)) . -861) (undo-tree-id12 . -1) (#("限" 0 1 (fontified t)) . -862) (undo-tree-id13 . -1) 863) nil (25406 8249 138620 0) 0 nil])
+([nil nil ((861 . 863)) nil (25406 8249 138618 0) 0 nil])
+([nil nil ((#("有" 0 1 (fontified t)) . -861) (undo-tree-id10 . -1) (#("限" 0 1 (fontified t)) . -862) (undo-tree-id11 . -1) 863) nil (25406 8249 138617 0) 0 nil])
+([nil nil ((861 . 870)) nil (25406 8249 138616 0) 0 nil])
+([nil nil ((870 . 877)) nil (25406 8249 138615 0) 0 nil])
+([nil nil ((#("物" 0 1 (fontified t)) . -875) (undo-tree-id8 . -1) (#("理" 0 1 (fontified t)) . -876) (undo-tree-id9 . -1) 877) nil (25406 8249 138614 0) 0 nil])
+([nil nil ((875 . 879)) nil (25406 8249 138611 0) 0 nil])
+([nil nil ((#("朗" 0 1 (fontified t)) . -875) (undo-tree-id4 . -1) (#("道" 0 1 (fontified t)) . -876) (undo-tree-id5 . -1) (#("物" 0 1 (fontified t)) . -877) (undo-tree-id6 . -1) (#("理" 0 1 (fontified t)) . -878) (undo-tree-id7 . -1) 879) nil (25406 8249 138610 0) 0 nil])
+([nil nil ((875 . 879)) nil (25406 8249 138607 0) 0 nil])
+([nil nil ((879 . 885)) nil (25406 8249 138606 0) 0 nil])
+([nil nil ((#("仿" 0 1 (fontified t)) . -881) (undo-tree-id0 . -1) (#("麦" 0 1 (fontified t)) . -882) (undo-tree-id1 . -1) (#("呢" 0 1 (fontified t)) . -883) (undo-tree-id2 . -1) (#("。" 0 1 (fontified t)) . -884) (undo-tree-id3 . -1) 885) nil (25406 8249 138604 0) 0 nil])
+([nil nil ((881 . 884)) nil (25406 8249 138585 0) 0 nil])
+([nil nil ((1265 . 1266) (t 25406 8249 0 0)) nil (25406 10162 803002 0) 0 nil])
+([nil nil ((#("i" 0 1 (org-category "inbox" fontified t)) . -1265) (undo-tree-id58 . -1) 1266) nil (25406 10162 803001 0) 0 nil])
+([nil nil ((1265 . 1266)) nil (25406 10162 803000 0) 0 nil])
+([nil nil ((1266 . 1270)) nil (25406 10162 802999 0) 0 nil])
+([nil nil ((1270 . 1286)) nil (25406 10162 802998 0) 0 nil])
+([nil nil ((1286 . 1287)) nil (25406 10162 802998 0) 0 nil])
+([nil nil ((1287 . 1289)) nil (25406 10162 802997 0) 0 nil])
+([nil nil ((#("q" 0 1 (fontified t)) . -1287) (undo-tree-id56 . -1) (#("u" 0 1 (fontified t)) . -1288) (undo-tree-id57 . -1) 1289) nil (25406 10162 802996 0) 0 nil])
+([nil nil ((1287 . 1289)) nil (25406 10162 802994 0) 0 nil])
+([nil nil ((#("趋" 0 1 (fontified t)) . -1287) (undo-tree-id54 . -1) (#("势" 0 1 (fontified t)) . -1288) (undo-tree-id55 . -1) 1289) nil (25406 10162 802993 0) 0 nil])
+([nil nil ((1287 . 1289)) nil (25406 10162 802990 0) 0 nil])
+([nil nil ((1289 . 1290)) nil (25406 10162 802988 0) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . -1289) (undo-tree-id53 . -1) 1290) nil (25406 10162 802985 0) 0 nil])
+([nil current ((#("j" 0 1 (fontified t org-category "inbox")) . -12) (undo-tree-id0 . -1) 13 (12 . 13) (#("
+" 0 1 (fontified t)) . -31) (undo-tree-id1 . -1) 32 (31 . 32) (t 25406 10162 0 0) 12) nil (25410 38761 356995 0) 0 nil])
+nil
