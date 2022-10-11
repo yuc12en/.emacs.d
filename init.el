@@ -1,5 +1,5 @@
 ;;;; init.el -- initializing all configs and setings
-;;;; Commentary:
+;;;; commentary:
 ;;;; code:
 
 ;;; package initializing
@@ -20,7 +20,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (electric-pair-mode t)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
-(require 'init-utils)
+(require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
 ;; graph
 (global-display-line-numbers-mode 1)
@@ -31,7 +31,7 @@
 (menu-bar-mode -1)
 (visual-line-mode 1)
 (setq initial-buffer-choice "~/.emacs.d/init.el")
-(load-theme 'dracula t)
+(load-theme 'zenburn t)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 ;; Capture
@@ -47,15 +47,32 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 ;;; 
 
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-one t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (doom-themes-neotree-config)
+  ;; or for treemacs users
+  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+  (doom-themes-treemacs-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 ;;; yasnippet
-
 (use-package yasnippet
   :ensure t
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   :config
   (yas-global-mode 1))
+
 ;;; amx
 (use-package amx
   :ensure t
