@@ -1,15 +1,37 @@
-;;;; init.el -- initializing all configs and setings
-;;;; commentary:
-;;;; code:
+;;; init.el -- initializing all configs and setings
+;;; commentary:
+;;; code:
 
-;;; package initializing
+;; Interface
+(setq inhibit-startup-message t)
+(display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(tooltip-mode -1)
+(visual-line-mode 1)
+(setq visible-bell t)
+(load-theme zenburn)
+
+
+;; package initializing
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
-(package-refresh-contents)
-(eval-when-compile
-  (require 'use-package))
+(unless package-archive-contents
+  (package-refresh-contents))
+(unless (package-installed-p 'usepackage)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+
+;; org
+
+
+
 ;;; primitive configs
 ;; convenience
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
@@ -22,14 +44,6 @@
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
-;; graph
-(global-display-line-numbers-mode 1)
-(display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(visual-line-mode 1)
 (setq initial-buffer-choice "~/.emacs.d/init.el")
 (load-theme 'zenburn t)
 (global-set-key (kbd "C-=") 'text-scale-increase)
@@ -47,25 +61,8 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 ;;; 
 
-(use-package doom-themes
-  :ensure t
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
 
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
-
-;;; yasnippet
+;; yasnippet
 (use-package yasnippet
   :ensure t
   :init
@@ -73,42 +70,28 @@
   :config
   (yas-global-mode 1))
 
-;;; amx
+;; amx
 (use-package amx
   :ensure t
   :init (amx-mode))
 
-;;; rainbow-delimiters
+;; rainbow-delimiters
 (use-package rainbow-delimiters
   :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
-;;; highlight symbol
+
+;; highlight symbol
 (use-package highlight-symbol
   :ensure t
   :init (highlight-symbol-mode)
   :bind ("C-c h" . highlight-symbol))
-
-;;; dash board
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
 
 ;;; good-scroll
 (use-package good-scroll
   :ensure t
   :if window-system
   :init (good-scroll-mode))
-
-;;; smart-mode-line
-(use-package smart-mode-line
-  :ensure t
-  :init
-  (setq sml/no-confirm-load-theme t)
-  :config
-  (setq sml/theme 'powerline)
-  (sml/setup))
 
 ;;; undo-tree
 (use-package undo-tree
@@ -207,12 +190,12 @@
 ;(use-package org-roam
 ;  :ensure t
 ;  :custom
-;  (org-roam-directory "e:/RoamNotes")
+;  (org-roam-directory "~/.emacs.d/RoamNotes")
 ;  :bind (("C-c n l" . org-roam-buffer-toggle)
 ;	 ("C-c n f" . org-roam-node-find)
 ;	 ("C-c n i" . org-roam-node-insert))
 ;  :config
-;  (org-roam-setup))
+; (org-roam-setup))
 ;(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
