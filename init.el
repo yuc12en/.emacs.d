@@ -2,7 +2,11 @@
 ;;; commentary:
 ;;; code:
 
+<<<<<<< HEAD
 ;; Interface and basic settings
+=======
+;; Interface
+>>>>>>> origin/master
 (setq inhibit-startup-message t)
 (display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
@@ -12,15 +16,22 @@
 (tooltip-mode -1)
 (visual-line-mode 1)
 (setq visible-bell t)
+<<<<<<< HEAD
 (load-theme 'zenburn)
 
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+=======
+(load-theme zenburn)
+
+
+>>>>>>> origin/master
 ;; package initializing
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
+<<<<<<< HEAD
 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -28,6 +39,12 @@
 (unless (package-installed-p 'usepackage)
   (package-install 'use-package))
 
+=======
+(unless package-archive-contents
+  (package-refresh-contents))
+(unless (package-installed-p 'usepackage)
+  (package-install 'use-package))
+>>>>>>> origin/master
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -36,8 +53,13 @@
 
 
 
+<<<<<<< HEAD
 ;; handy commands
 
+=======
+;;; primitive configs
+;; convenience
+>>>>>>> origin/master
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -66,7 +88,6 @@
 ;;; 
 
 
-(use-package command-log-mode)
 ;; yasnippet
 (use-package yasnippet
   :diminish
