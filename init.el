@@ -4,8 +4,8 @@
 
 ;; Interface and basic settings
 (setq inhibit-startup-message t)
+(column-number-mode 1)
 (display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -49,8 +49,6 @@
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
-(setq initial-buffer-choice "~/.emacs.d/init.el")
-(load-theme 'zenburn t)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 ;; Capture
@@ -223,7 +221,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("2dc03dfb67fbcb7d9c487522c29b7582da20766c9998aaad5e5b63b5c27eec3f" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+   '("443e2c3c4dd44510f0ea8247b438e834188dc1c6fb80785d83ad3628eadf9294" "2dc03dfb67fbcb7d9c487522c29b7582da20766c9998aaad5e5b63b5c27eec3f" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(org-agenda-files
    '("d:/Emacs/.emacs.d/Agenda/dayview.org" "d:/Emacs/.emacs.d/Agenda/inbox.org" "d:/Emacs/.emacs.d/Agenda/workout.org") t)
  '(package-archives
@@ -231,5 +229,5 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(snippet quote
-	     (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
+   '(use-package snippet quote
+      (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
