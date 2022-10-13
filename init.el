@@ -17,7 +17,6 @@
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-
 ;; package initializing
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -39,6 +38,7 @@
 
 
 ;; handy commands
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
