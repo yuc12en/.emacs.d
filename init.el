@@ -2,7 +2,7 @@
 ;;; commentary:
 ;;; code:
 
-;; Interface
+;; Interface and basic settings
 (setq inhibit-startup-message t)
 (display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
@@ -14,16 +14,20 @@
 (setq visible-bell t)
 (load-theme 'zenburn)
 
-
+; Make ESC quit prompts
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 ;; package initializing
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
+
 (unless package-archive-contents
   (package-refresh-contents))
+
 (unless (package-installed-p 'usepackage)
   (package-install 'use-package))
+
 (require 'use-package)
 (setq use-package-always-ensure t)
 
@@ -32,8 +36,8 @@
 
 
 
-;;; primitive configs
-;; convenience
+;; handy commands
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -62,9 +66,10 @@
 ;;; 
 
 
+(use-package command-log-mode)
 ;; yasnippet
 (use-package yasnippet
-  :ensure t
+  :diminish
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   :config
@@ -95,7 +100,7 @@
 
 ;;; undo-tree
 (use-package undo-tree
-  :ensure t
+  :diminish
   :config
   (setq sml/theme 'powerline)
   (global-undo-tree-mode))
@@ -115,11 +120,10 @@
 
 ;;; ivy
 (use-package counsel
-  :ensure t)
+  :diminish)
 (use-package ivy
-  :ensure t
+  :diminish
   :init
-  (ivy-mode 1)
   (counsel-mode 1)
   :config
   (setq ivy-use-virtual-buffers t)
@@ -134,7 +138,9 @@
    ("C-x C-@" . 'counsel-mark-ring)
    ("C-x C-SPC" . 'counsel-mark-ring)
    :map minibuffer-local-map
-   ("C-r" . counsel-minibuffer-history)))
+   ("C-r" . counsel-minibuffer-history))
+  :config
+   (ivy-mode 1))
 
 ;;; goto-line-preview
 (use-package goto-line-preview
@@ -144,7 +150,7 @@
 
 ;;; beacon
 (use-package beacon
-  :ensure t
+  :dimish
   :config
   (beacon-mode t))
 
