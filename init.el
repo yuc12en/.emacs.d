@@ -5,14 +5,14 @@
 ;; Interface and basic settings
 (setq inhibit-startup-message t)
 (column-number-mode 1)
-(display-line-numbers-mode 1)
+(global-display-line-numbers-mode 1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (tooltip-mode -1)
 (visual-line-mode 1)
 (setq visible-bell t)
-(load-theme 'zenburn)
+(load-theme 'wombat)
 
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
