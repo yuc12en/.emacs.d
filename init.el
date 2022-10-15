@@ -69,6 +69,26 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 
+;;projectile
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Projects/Code")
+    (setq projectile-project-search-path '("~/Projects/Code")))
+  (setq projectile-switch-project-action #'projectile-dired))
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package evil-magit
+  :after magit)
+
 ;; yasnippet
 (use-package yasnippet
   :diminish
@@ -83,6 +103,24 @@
   :init (which-key-mode)
   :config
   (setq which-key-idle-delay 0.3))
+
+;; general
+(use-package general
+  :config
+  (general-create-definer yc/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+  (yc/leader-keys
+   "t" '(:ignore t :which-key "toggles")
+   "tt" '(counsel-load-theme :which-key "choose theme")))
+;; hydra
+(use-package hydra
+  :config
+  (defhydra hydra-text-scale (:timeout 4)
+    ("j" text-scale-increase "in")
+    ("k" text-scale-decrease "out")
+    ("i" nil "finished" :exit t)))
 ;; amx
 (use-package amx
   :ensure t
@@ -101,6 +139,8 @@
 
 ;;doom-themes
 (use-package doom-themes)
+
+    
 
 ;;; all-the-icons
 (use-package all-the-icons
@@ -210,16 +250,30 @@
 ;;; evil
 (use-package evil
   :init
-   (setq evil-shift-width 4)
-  :ensure t
-  :config
-   (evil-mode t)
+   (setq evil-shift-width 2)
+   (setq evil-want-integration t)
+   (setq evil-want-keybinding nil)
    (setq evil-want-C-u-scroll t)
    (setq evil-want-C-d-scroll t)
+  :config
+   (evil-mode t)
    (setq evil-move-beyond-eol t)
    (setq evil-undo-system t)
-   (setq evil-undo-system 'undo-tree))
+   (setq evil-undo-system 'undo-tree)
+   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 
+   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+   (evil-set-initial-state 'message-buffer-mode 'normal)
+   (evil-set-initial-state 'dashboard-mode 'normal)
+   (evil-set-initial-state 'eshell-mode 'insert))
+
+;; evil-collection  it can  be tuned by edit evil-collection-mode
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
 ;;; flycheck
 (use-package flycheck
   :ensure t
@@ -264,5 +318,5 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(general helpful ivy-rich doom-themes which-key doom-modeline use-package snippet quote
-	     (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
+   '(evil-magit magit counsel-projectile projectile hydra evil-collection general helpful ivy-rich doom-themes which-key doom-modeline use-package snippet quote
+		(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
