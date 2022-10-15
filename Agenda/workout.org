@@ -128,3 +128,17 @@ Day2
 day1忘记写了，不过强度是够的。
 
 Day2相对来说强度不够，其他肌群会代偿，可能考虑减重量会适应一点。
+
+
+#+begin_SRC emacs-lisp :results value
+  52
+#+end_SRC
+
+#+RESULTS:
+  52
+
+#+begin_src python :results value
+ 42
+#+end_src
+
+#+RESULTS:

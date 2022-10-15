@@ -38,7 +38,20 @@
 (setq use-package-always-ensure t)
 
 
-;; org
+;; org-babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
+(setq org-confirm-babel-evaluate nil)
+
+;; org templates
+(require 'org-tempo)
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+
 
 
 
@@ -307,7 +320,7 @@
  '(custom-safe-themes
    '("944d52450c57b7cbba08f9b3d08095eb7a5541b0ecfb3a0a9ecd4a18f3c28948" "fc2fa0ef550cbbf5d4d0a0e8b208d0dc75110918c9ad00823439b86748669736" "c4cecd97a6b30d129971302fd8298c2ff56189db0a94570e7238bc95f9389cfb" "443e2c3c4dd44510f0ea8247b438e834188dc1c6fb80785d83ad3628eadf9294" "2dc03dfb67fbcb7d9c487522c29b7582da20766c9998aaad5e5b63b5c27eec3f" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "d8cec8251169ccfe192aa87d69b9378bc81599330f31498f85deaef633721302" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(org-agenda-files
-   '("d:/Emacs/.emacs.d/Agenda/dayview.org" "d:/Emacs/.emacs.d/Agenda/inbox.org" "d:/Emacs/.emacs.d/Agenda/workout.org") t)
+   '("d:/Emacs/.emacs.d/Agenda/dayview.org" "d:/Emacs/.emacs.d/Agenda/inbox.org" "d:/Emacs/.emacs.d/Agenda/workout.org"))
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
