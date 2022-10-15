@@ -21,7 +21,7 @@
   (setq w (- w 34))
   (number-to-string w))
 (defun day-handle(d)
-  "Set the day number D to string"
+ "Set the day number D to string"
   (setq d (string-to-number d))
   (cond ((equal d 0) "Sun")
 	((equal d 1) "Mon")

@@ -124,6 +124,7 @@
   (yc/leader-keys
    "t" '(:ignore t :which-key "toggles")
    "tt" '(counsel-load-theme :which-key "choose theme")))
+
 ;; hydra
 (use-package hydra
   :config
@@ -186,7 +187,7 @@
 
 ;;; mwin
 (use-package mwim
-  :ensure t
+
   :bind
   ("C-a" . mwim-beginning-of-code-or-line)
   ("C-e" . mwim-end-of-code-or-line))
@@ -288,6 +289,12 @@
   :hook
   (prog-mode . flycheck-mode))
 
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
 ;(use-package org-roam
 ;  :ensure t
 ;  :custom
@@ -326,5 +333,5 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(evil-magit magit counsel-projectile projectile hydra evil-collection general helpful ivy-rich doom-themes which-key doom-modeline use-package snippet quote
-		(smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
+   '(python-mode lsp-mode evil-magit magit counsel-projectile projectile hydra evil-collection general helpful ivy-rich doom-themes which-key doom-modeline use-package snippet quote
+		 (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
