@@ -1,9 +1,9 @@
 #+title: Configuration
-#+PROPERTY: header-args:emacs-lisp :tangle ./init-new.el
+#+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 
-* Basic UI Configuration
-** Others
-#+begin_src emacs-lisp :tangle ./init-new.el
+* UI Configuration
+** Basic
+#+begin_src emacs-lisp :tangle ./init.el
 
   ; startup buffer
   (setq inhibit-startup-message t)
@@ -13,10 +13,11 @@
   (global-display-line-numbers-mode 1)
   (setq display-line-numbers-type 'relative)
   (dolist (mode '(term-mode-hook
-		  eshell-mode-hook
-		  shell-mode-hook))
+                  eshell-mode-hook
+                  shell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
   (visual-line-mode 1)
+  (org-indent-mode 1)
 
   ; scroll-, tool-, menu-bar , visible-bell
   (scroll-bar-mode -1)
@@ -30,30 +31,38 @@
     :init (good-scroll-mode))
 
   ; theme
-  (use-package doom-themes)
-  (load-theme 'doom-dracula t)
+  (use-package doom-themes
+    :init (load-theme 'doom-dracula t))
 
   ; yes-or-no to y-o-n
   (fset 'yes-or-no-p 'y-or-n-p)
 
   ; icons
-
   (use-package all-the-icons
     :if (display-graphic-p)
     :config
     (add-to-list 'load-path "~/.emacs.d/icon"))
+  (use-package doom-modeline
+    :init (doom-modeline-mode 1)
+    :custom ((doom-modeline-height 10)))
 
   ; beacon
   (use-package beacon
     :diminish
     :config
     (beacon-mode t))
+
+  ; no-littering
+  (use-package no-littering)
+
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 #+end_src
 
 #+RESULTS:
-: t
+| .* | d:/Emacs/.emacs.d/var/auto-save/ | t |
 ** Archives and loadings
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 
   ; archives
   (require 'package)
@@ -74,27 +83,8 @@
   (setq use-package-always-ensure t)  
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 #+end_src
-** Key bindings
-#+begin_src emacs-lisp :tangle ./init-new.el
-
-  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-  (global-set-key (kbd "M-SPC") 'set-mark-command)
-
-  (require 'init-utils )
-  (global-set-key (kbd "C-c i") 'insert-time-string)
-
-  (global-set-key (kbd "C-=") 'text-scale-increase)
-  (global-set-key (kbd "C--") 'text-scale-decrease)
-
-  (global-set-key (kbd "C-c c") 'org-capture)
-  (global-set-key (kbd "C-c a") 'org-agenda)
-#+end_src
-
-#+RESULTS:
-: org-agenda
-
 ** window
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 
   ; mwin
   (use-package mwim
@@ -105,11 +95,11 @@
   ; ace-window
   (use-package ace-window
     :bind
-  (("c-x o" . 'ace-window)))
+  (("C-x o" . 'ace-window)))
 #+end_src
 
 ** neo-tree
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   (use-package neotree
     :ensure t
     :config
@@ -118,9 +108,22 @@
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 #+end_src
 * Org
+** Faces
+#+begin_src emacs-lisp
+  (defun yc/org-mode-setup ()
+    (org-indent-mode)
+    (variable-pitch-mode 1)
+    (visual-line-mode 1))
+
+  (add-hook 'org-mode-hook #'yc/org-mode-setup)
+  (require 'org-habit)
+  (add-to-list 'org-modules 'org-habit)
+  (setq org-ellipsis " ▾")
+  (setq org-habit-graph-column 60)
+#+end_src
 ** Org-babel
 
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 
   ; add emacs-lisp and python
   (org-babel-do-load-languages
@@ -141,8 +144,10 @@
 : ((py . src python) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
 
 ** capture
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 
+  (global-set-key (kbd "C-c c") 'org-capture)
+  (global-set-key (kbd "C-c a") 'org-agenda)
   ;; capture
   (setq org-capture-templates '(("t" "todo" entry
 				 (file+headline "~/.emacs.d/agenda/routine.org" "tasks") "* todo %i%?")
@@ -151,8 +156,25 @@
 #+end_src
 
 * Easy type
+** Key bindings
+#+begin_src emacs-lisp
+
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  (global-set-key (kbd "M-SPC") 'set-mark-command)
+
+  (require 'init-utils )
+  (global-set-key (kbd "C-c i") 'insert-time-string)
+
+  (global-set-key (kbd "C-=") 'text-scale-increase)
+  (global-set-key (kbd "C--") 'text-scale-decrease)
+
+#+end_src
+
+#+RESULTS:
+: org-agenda
+
 ** evil
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   ; evil
   (use-package evil
     :init
@@ -183,7 +205,7 @@
 #+end_src
 
 ** ivy
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   (use-package amx
     :init (amx-mode))
 
@@ -222,33 +244,46 @@
     ("C-r". counsel-minibuffer-history))
     :config
     (ivy-mode 1))
+  ; ivy-prescient
+  (use-package ivy-prescient
+    :after counsel
+    :custom
+    (ivy-prescient-enable-filtering nil)
+    :config
+    (ivy-prescient-mode 1))
 #+end_src
 
 ** helpful
-#+begin_src emacs-lisp :tangle ./init-new.el
-(use-package helpful
-  :custom
-  (ounsel-decribe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-fubction] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
+#+begin_src emacs-lisp
+  (use-package helpful
+    :commands (helpful-callable helpful-variable helpful-command helpful-key)
+    :custom
+    (counsel-describe-function-function #'helpful-callable)
+    (counsel-describe-variable-function #'helpful-variable)
+    :bind
+    ([remap describe-function] . counsel-describe-function)
+    ([remap describe-command] . helpful-command)
+    ([remap describe-variable] . counsel-describe-variable)
+    ([remap describe-key] . helpful-key))
 #+end_src
+
+#+RESULTS:
+: helpful-key
+
 ** shortcut
 *** Which-key
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 (use-package which-key
-  :diminish
-  :init (which-key-mode)
+  :diminish which-keym-ode
+  :init (which-key-mode t)
   :config
-  (setq which-key-idle-delay 0.3))
+  (setq which-key-idle-delay 1))
 #+end_src
 
 *** General
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   (use-package general
+    :after evil
     :config
     (general-create-definer yc/leader-keys
       :keymaps '(normal insert visual emacs)
@@ -261,7 +296,7 @@
 #+end_src
 
 *** Hydra
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   (use-package hydra
     :config
     (defhydra hydra-text-scale (:timeout 4)
@@ -271,7 +306,7 @@
 #+end_src
 
 ** yasnippet
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 
   (use-package yasnippet
     :diminish
@@ -282,7 +317,7 @@
 #+end_src
 
 ** Undo-tree
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   (use-package undo-tree
     :diminish
     :config
@@ -292,21 +327,22 @@
 
 * Development
 ** prog
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   ; highlight the paren
   (add-hook 'prog-mode-hook #'show-paren-mode)
   (add-hook 'prog-mode-hook #'hs-minor-mode)
   (add-hook 'prog-mode-hook #'electric-pair-mode)
+  (use-package evil-nerd-commenter
+    :bind ("M-/" . evilnc-comment-or-uncomment-lines))
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
-
   (use-package highlight-symbol
     :init (highlight-symbol-mode)
     :bind ("C-c h" . highlight-symbol))
 #+end_src
 
 ** flycheck
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
 
   (use-package flycheck
     :ensure t
@@ -315,38 +351,94 @@
 #+end_src
 
 ** Projectile
-#+begin_src emacs-lisp :tangle ./init-new.el
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (when (file-directory-p "~/Projects/Code")
-    (setq projectile-project-search-path '("~/Projects/Code")))
-  (setq projectile-switch-project-action #'projectile-dired))
-(use-package counsel-projectile
-  :config (counsel-projectile-mode))
+#+begin_src emacs-lisp
+  (use-package projectile
+    :diminish projectile-mode
+    :config (projectile-mode)
+    :bind-keymap
+    ("C-c p" . projectile-command-map)
+    :init
+    (when (file-directory-p "~/Projects/Code")
+      (setq projectile-project-search-path '("~/Projects/Code")))
+    (setq projectile-switch-project-action #'projectile-dired))
+  (use-package counsel-projectile
+    :after projectile
+    :config (counsel-projectile-mode))
 #+end_src
 
 ** Magit
-#+begin_src emacs-lisp :tangle ./init-new.el
+#+begin_src emacs-lisp
   (use-package magit
     :custom
     (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+  (use-package forge
+    :after magit)
 #+end_src
 
 ** Lsp
 #+begin_src emacs-lisp
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :config
+    (lsp-enable-which-key-integration t))
+  (use-package lsp-ui
+    :hook (lsp-mode . lsp-ui-mode)
+    :custom
+    (lsp-ui-doc-position 'bottom))
+  (use-package lsp-treemacs
+    :after lsp)
+  (use-package lsp-ivy
+    :after lsp)
+
+  (use-package company
+    :after lsp-mode
+    :hook (lsp-mode . company-mode)
+    :bind (:map company-active-map
+	   ("<tab>" . company-complete-selection))
+	  (:map lsp-mode-map
+	   ("<tab>" . company-indent-or-complete-common))
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0))
+
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
+
+
+
+  (use-package python-mode
+    :mode "\\.py\\'"
+    :hook (python-mode . lsp-deferred)
+    :custom
+    (dap-python-debugger 'debugpy)
+    :config
+    (require 'dap-python)
+  (use-package pyvenv
+    :after python-mode
+    :config
+    (pyvenv-mode 1))
+#+end_src
+
+** Dap
+#+begin_src emacs-lisp
+(use-package dap-mode
+  ;; Uncomment the config below if you want all UI panes to be hidden by default!
+  ;; :custom
+  ;; (lsp-enable-dap-auto-configure nil)
+  ;; :config
+  ;; (dap-ui-mode 1)
+  :commands dap-debug
   :config
-  (lsp-enable-which-key-integration t))
-(use-package python-mode
-  :mode "\\.py\\'"
-  :hook (python-mode . lsp-deferred)
-  :config
-  (setq python-indent-level 4))
+  ;; Set up Node debugging
+  (require 'dap-node)
+  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+
+  ;; Bind `C-c l d` to `dap-hydra` for easy access
+  (general-define-key
+    :keymaps 'lsp-mode-map
+    :prefix lsp-keymap-prefix
+    "d" '(dap-hydra t :wk "debugger")))
 #+end_src
