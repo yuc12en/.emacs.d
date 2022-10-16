@@ -4,5 +4,6 @@
 !lisp/
 !snippets/
 !.gitignore
+!Emacs.org
 /**/#*#
 /**/*~
