@@ -284,10 +284,10 @@
   :config
   (evil-collection-init))
 ;;; flycheck
-(use-package flycheck
-  :ensure t
-  :hook
-  (prog-mode . flycheck-mode))
+;(use-package flycheck
+;  :ensure t
+; :hook
+;  (prog-mode . flycheck-mode))
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -295,7 +295,16 @@
   (setq lsp-keymap-prefix "C-c l")
   :config
   (lsp-enable-which-key-integration t))
-;(use-package org-roam
+
+(use-package python-mode
+  :mode "\\.py\\'"
+  :hook (python-mode . lsp-deferred)
+  :config
+  (setq python-indent-level 4))
+(use-package term)
+(use-package dired)
+
+;(Use-package org-roam
 ;  :ensure t
 ;  :custom
 ;  (org-roam-directory "~/.emacs.d/RoamNotes")
@@ -333,5 +342,5 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(python-mode lsp-mode evil-magit magit counsel-projectile projectile hydra evil-collection general helpful ivy-rich doom-themes which-key doom-modeline use-package snippet quote
-		 (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
+   '(dired term-mode python-mode lsp-mode evil-magit magit counsel-projectile projectile hydra evil-collection general helpful ivy-rich doom-themes which-key doom-modeline use-package snippet quote
+	   (smart-mode-line-powerline-theme rainbow-delimiters highlight-symbol dashboard good-scroll smart-mode-line undo-tree mwim ace-window amx counsel monokai-theme yasnippet window-numbering use-package org-roam neotree monokai-pro-theme ivy goto-line-preview flycheck evil dracula-theme beacon atom-one-dark-theme all-the-icons))))
