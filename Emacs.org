@@ -5,69 +5,81 @@
 ** Basic
 #+begin_src emacs-lisp :tangle ./init.el
 
-  ; startup buffer
-  (setq inhibit-startup-message t)
+    ; startup buffer
+    (setq inhibit-startup-message t)
 
-  ; column and line numbers , visual-lines
-  (column-number-mode 1)
-  (global-display-line-numbers-mode 1)
-  (setq display-line-numbers-type 'relative)
-  (dolist (mode '(term-mode-hook
-                  eshell-mode-hook
-                  shell-mode-hook))
-    (add-hook mode (lambda () (display-line-numbers-mode 0))))
-  (visual-line-mode 1)
-  (org-indent-mode 1)
+    ; column and line numbers , visual-lines
+    (column-number-mode 1)
+    (global-display-line-numbers-mode 1)
+    (setq display-line-numbers-type 'relative)
+    (dolist (mode '(term-mode-hook
+                    eshell-mode-hook
+                    shell-mode-hook))
+      (add-hook mode (lambda () (display-line-numbers-mode 0))))
+    (visual-line-mode 1)
 
-  ; scroll-, tool-, menu-bar , visible-bell
-  (scroll-bar-mode -1)
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (tooltip-mode -1)
-  (setq visible-bell t)
-  ; good-scroll
-  (use-package good-scroll
-    :if window-system
-    :init (good-scroll-mode))
+    ; scroll-, tool-, menu-bar , visible-bell
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (menu-bar-mode -1)
+    (tooltip-mode -1)
+    (setq visible-bell t)
+    ; good-scroll
+    (use-package good-scroll
+      :if window-system
+      :init (good-scroll-mode))
 
-  ; theme
-  (use-package doom-themes
-    :init (load-theme 'doom-dracula t))
+    ; theme
+    (use-package doom-themes
+      :init (load-theme 'doom-dracula t))
 
-  ; yes-or-no to y-o-n
-  (fset 'yes-or-no-p 'y-or-n-p)
+    ; yes-or-no to y-o-n
+    (fset 'yes-or-no-p 'y-or-n-p)
 
-  ; icons
-  (use-package all-the-icons
-    :if (display-graphic-p)
-    :config
-    (add-to-list 'load-path "~/.emacs.d/icon"))
-  (use-package doom-modeline
-    :init (doom-modeline-mode 1)
-    :custom ((doom-modeline-height 10)))
+    ; icons
+    (use-package all-the-icons
+      :if (display-graphic-p)
+      :config
+      (add-to-list 'load-path "~/.emacs.d/icon"))
+    (use-package doom-modeline
+      :init (doom-modeline-mode 1)
+      :custom ((doom-modeline-height 10)))
 
-  ; beacon
-  (use-package beacon
-    :diminish
-    :config
-    (beacon-mode t))
+    ; beacon
+    (use-package beacon
+      :diminish
 
-  ; no-littering
-  (use-package no-littering)
+      (beacon-mode t))
 
-  (setq auto-save-file-name-transforms
-        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+    ; no-littering
+    (use-package no-littering)
+
+    (setq auto-save-file-name-transforms
+          `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
+    ; font
+
+    (set-face-attribute 'default nil :font "hack"  :height 120)
+
+    ;; Set the fixed pitch face
+    (set-face-attribute 'fixed-pitch nil :font "DejaVu Sans Mono" :height 120 )
+
+  ;; Set the variable pitch face
+    (set-face-attribute 'variable-pitch nil :font "DejaVu Sans Mono" :height 120 :weight 'regular)
+
+  (set-fontset-font "fontset-default"
+                  'unicode
+                  '("Cambria Math" . "iso10646-1"))
 #+end_src
 
 #+RESULTS:
-| .* | d:/Emacs/.emacs.d/var/auto-save/ | t |
 ** Archives and loadings
 #+begin_src emacs-lisp
 
   ; archives
   (require 'package)
   (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			    ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+                            ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
   (package-initialize)
 
   ; refresh empty archives
@@ -83,6 +95,10 @@
   (setq use-package-always-ensure t)  
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 #+end_src
+
+#+RESULTS:
+| d:/Emacs/.emacs.d/lisp | d:/Emacs/.emacs.d/elpa/use-package-20221012.1743 | d:/Emacs/.emacs.d/elpa/bind-key-20220910.2157 | d:/Emacs/share/emacs/28.1/site-lisp | d:/Emacs/share/emacs/site-lisp | d:/Emacs/share/emacs/28.1/lisp | d:/Emacs/share/emacs/28.1/lisp/vc | d:/Emacs/share/emacs/28.1/lisp/url | d:/Emacs/share/emacs/28.1/lisp/textmodes | d:/Emacs/share/emacs/28.1/lisp/progmodes | d:/Emacs/share/emacs/28.1/lisp/play | d:/Emacs/share/emacs/28.1/lisp/org | d:/Emacs/share/emacs/28.1/lisp/nxml | d:/Emacs/share/emacs/28.1/lisp/net | d:/Emacs/share/emacs/28.1/lisp/mh-e | d:/Emacs/share/emacs/28.1/lisp/mail | d:/Emacs/share/emacs/28.1/lisp/leim | d:/Emacs/share/emacs/28.1/lisp/language | d:/Emacs/share/emacs/28.1/lisp/international | d:/Emacs/share/emacs/28.1/lisp/image | d:/Emacs/share/emacs/28.1/lisp/gnus | d:/Emacs/share/emacs/28.1/lisp/eshell | d:/Emacs/share/emacs/28.1/lisp/erc | d:/Emacs/share/emacs/28.1/lisp/emulation | d:/Emacs/share/emacs/28.1/lisp/emacs-lisp | d:/Emacs/share/emacs/28.1/lisp/cedet | d:/Emacs/share/emacs/28.1/lisp/calendar | d:/Emacs/share/emacs/28.1/lisp/calc | d:/Emacs/share/emacs/28.1/lisp/obsolete |
+
 ** window
 #+begin_src emacs-lisp
 
@@ -111,7 +127,6 @@
 ** Faces
 #+begin_src emacs-lisp
   (defun yc/org-mode-setup ()
-    (org-indent-mode)
     (variable-pitch-mode 1)
     (visual-line-mode 1))
 
@@ -120,7 +135,18 @@
   (add-to-list 'org-modules 'org-habit)
   (setq org-ellipsis " ▾")
   (setq org-habit-graph-column 60)
+
+  (use-package org-bullets
+
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
 #+end_src
+
+#+RESULTS:
+| org-bullets-mode | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | org-tempo-setup | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | yc/org-mode-setup |
+
 ** Org-babel
 
 #+begin_src emacs-lisp
@@ -143,7 +169,7 @@
 #+RESULTS:
 : ((py . src python) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
 
-** capture
+** Capture
 #+begin_src emacs-lisp
 
   (global-set-key (kbd "C-c c") 'org-capture)
@@ -154,7 +180,8 @@
 				("d" "days' item" entry
 				 (file+headline "~/.emacs.d/agenda/dayview.org" "today's items") "* %i%? \n %u")))
 #+end_src
-
+** Refile
+** Agenda
 * Easy type
 ** Key bindings
 #+begin_src emacs-lisp
@@ -415,12 +442,15 @@
     :custom
     (dap-python-debugger 'debugpy)
     :config
-    (require 'dap-python)
+    (require 'dap-python))
   (use-package pyvenv
     :after python-mode
     :config
     (pyvenv-mode 1))
 #+end_src
+
+#+RESULTS:
+: t
 
 ** Dap
 #+begin_src emacs-lisp
@@ -442,3 +472,6 @@
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
 #+end_src
+
+#+RESULTS:
+: t

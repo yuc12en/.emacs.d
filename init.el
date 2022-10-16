@@ -1,60 +1,73 @@
 ; startup buffer
-(setq inhibit-startup-message t)
+  (setq inhibit-startup-message t)
 
-; column and line numbers , visual-lines
-(column-number-mode 1)
-(global-display-line-numbers-mode 1)
-(setq display-line-numbers-type 'relative)
-(dolist (mode '(term-mode-hook
-                eshell-mode-hook
-                shell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-(visual-line-mode 1)
-(org-indent-mode 1)
+  ; column and line numbers , visual-lines
+  (column-number-mode 1)
+  (global-display-line-numbers-mode 1)
+  (setq display-line-numbers-type 'relative)
+  (dolist (mode '(term-mode-hook
+                  eshell-mode-hook
+                  shell-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (visual-line-mode 1)
 
-; scroll-, tool-, menu-bar , visible-bell
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(tooltip-mode -1)
-(setq visible-bell t)
-; good-scroll
-(use-package good-scroll
-  :if window-system
-  :init (good-scroll-mode))
+  ; scroll-, tool-, menu-bar , visible-bell
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (tooltip-mode -1)
+  (setq visible-bell t)
+  ; good-scroll
+  (use-package good-scroll
+    :if window-system
+    :init (good-scroll-mode))
 
-; theme
-(use-package doom-themes
-  :init (load-theme 'doom-dracula t))
+  ; theme
+  (use-package doom-themes
+    :init (load-theme 'doom-dracula t))
 
-; yes-or-no to y-o-n
-(fset 'yes-or-no-p 'y-or-n-p)
+  ; yes-or-no to y-o-n
+  (fset 'yes-or-no-p 'y-or-n-p)
 
-; icons
-(use-package all-the-icons
-  :if (display-graphic-p)
-  :config
-  (add-to-list 'load-path "~/.emacs.d/icon"))
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 10)))
+  ; icons
+  (use-package all-the-icons
+    :if (display-graphic-p)
+    :config
+    (add-to-list 'load-path "~/.emacs.d/icon"))
+  (use-package doom-modeline
+    :init (doom-modeline-mode 1)
+    :custom ((doom-modeline-height 10)))
 
-; beacon
-(use-package beacon
-  :diminish
-  :config
-  (beacon-mode t))
+  ; beacon
+  (use-package beacon
+    :diminish
 
-; no-littering
-(use-package no-littering)
+    (beacon-mode t))
 
-(setq auto-save-file-name-transforms
-      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+  ; no-littering
+  (use-package no-littering)
+
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+
+  ; font
+
+  (set-face-attribute 'default nil :font "hack"  :height 120)
+
+  ;; Set the fixed pitch face
+  (set-face-attribute 'fixed-pitch nil :font "DejaVu Sans Mono" :height 120 )
+
+;; Set the variable pitch face
+  (set-face-attribute 'variable-pitch nil :font "DejaVu Sans Mono" :height 120 :weight 'regular)
+
+(set-fontset-font "fontset-default"
+                'unicode
+                '("Cambria Math" . "iso10646-1"))
 
 ; archives
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			  ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
 ; refresh empty archives
@@ -89,7 +102,6 @@
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
 (defun yc/org-mode-setup ()
-  (org-indent-mode)
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
@@ -98,6 +110,12 @@
 (add-to-list 'org-modules 'org-habit)
 (setq org-ellipsis " ▾")
 (setq org-habit-graph-column 60)
+
+(use-package org-bullets
+
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ; add emacs-lisp and python
 (org-babel-do-load-languages
@@ -326,7 +344,7 @@
   :custom
   (dap-python-debugger 'debugpy)
   :config
-  (require 'dap-python)
+  (require 'dap-python))
 (use-package pyvenv
   :after python-mode
   :config
@@ -349,3 +367,16 @@
     :keymaps 'lsp-mode-map
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(yasnippet which-key use-package undo-tree rainbow-delimiters pyvenv python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
