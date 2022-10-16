@@ -475,13 +475,16 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
     :bind-keymap
     ("C-c p" . projectile-command-map)
     :init
-    (when (file-directory-p "~/Projects/Code")
-      (setq projectile-project-search-path '("~/Projects/Code")))
+    (when (file-directory-p "~/.emacs.d/Projects/Code")
+      (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
     (setq projectile-switch-project-action #'projectile-dired))
   (use-package counsel-projectile
     :after projectile
     :config (counsel-projectile-mode))
 #+end_src
+
+#+RESULTS:
+
 ** Magit
 #+begin_src emacs-lisp
   (use-package magit
@@ -522,19 +525,6 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
   (use-package company-box
     :hook (company-mode . company-box-mode))
 
-
-
-  (use-package python-mode
-    :mode "\\.py\\'"
-    :hook (python-mode . lsp-deferred)
-    :custom
-    (dap-python-debugger 'debugpy)
-    :config
-    (require 'dap-python))
-  (use-package pyvenv
-    :after python-mode
-    :config
-    (pyvenv-mode 1))
 #+end_src
 ** Dap
 #+begin_src emacs-lisp
@@ -555,4 +545,26 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
     :keymaps 'lsp-mode-map
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
+#+end_src
+
+** Python
+#+begin_src emacs-lisp
+
+    (use-package python-mode
+	:mode "\\.py\\'"
+	:after elpy
+	:hook
+	(python-mode . lsp-deferred)
+	(python-mode . elpy-mode)
+	:custom
+	(dap-python-debugger 'debugpy)
+	:config
+	(require 'dap-python)
+	(require 'elpy)
+	(elpy-enable))
+(use-package elpy)
+(use-package pyvenv
+    :after python-mode
+    :config
+    (pyvenv-mode 1))
 #+end_src
