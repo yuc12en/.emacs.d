@@ -1,3 +1,22 @@
+; archives
+(require 'package)
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(package-initialize)
+
+; refresh empty archives
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install use-package if it hasn't be installed
+(unless (package-installed-p 'usepackage)
+  (package-install 'use-package))
+(require 'use-package)
+
+; default to set :ensure t for all packages
+(setq use-package-always-ensure t)  
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+
 ; startup buffer
   (setq inhibit-startup-message t)
 
@@ -64,25 +83,6 @@
                 'unicode
                 '("Cambria Math" . "iso10646-1"))
 
-; archives
-(require 'package)
-(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
-(package-initialize)
-
-; refresh empty archives
-(unless package-archive-contents
-  (package-refresh-contents))
-
-; install use-package if it hasn't be installed
-(unless (package-installed-p 'usepackage)
-  (package-install 'use-package))
-(require 'use-package)
-
-; default to set :ensure t for all packages
-(setq use-package-always-ensure t)  
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
-
 ; mwin
 (use-package mwim
   :bind
@@ -101,21 +101,65 @@
   (setq neo-window-fixed-size 20)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
-(defun yc/org-mode-setup ()
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+;global bindings
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 
-(add-hook 'org-mode-hook #'yc/org-mode-setup)
-(require 'org-habit)
-(add-to-list 'org-modules 'org-habit)
+;start view
+(setq org-agenda-inhibit-startup nil)
+(setq org-startup-folded "show2levels")
+(setq org-hide-block-startup t)
+
+;view
 (setq org-ellipsis " ▾")
-(setq org-habit-graph-column 60)
-
 (use-package org-bullets
-
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+
+;; TODO
+; todo keywords
+(setq org-todo-keywords
+  '((sequence "TODO(t)" "|" "DONE(d)" )
+    (sequence "EMERGENCY(e!)" "WORTHY(w!)" "NEED(n@/!)" "|" "FEEDBACK(f)" "OVER(o)" "SUSPEND(s)" )
+    (sequence "|" "CANCLED(c)")))
+
+; keywords color
+(setq org-todo-keyword-faces
+  '(("TODO" . org-warning) ("DONE" . "yellow")))
+
+; org-faces-easy-properties determine some color 
+;(setq org-log-done 'time)
+;(setq org-log-done 'note)
+
+; org-habit
+; setting habit to STYLE property
+(use-package org-habit
+:config
+(add-to-list 'org-modules 'org-habit))
+
+;; Tag
+(setq org-tag-alist '(
+  (:startgrouptag) ("place") (:grouptags)
+  ("@Class". ?w) ("@Dormitory" . ?d)
+  (:endgrouptag)
+  ("intrests" . ?i) ("hard" . ?h)
+  ))
+
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c C-a") 'org-attach)
+;; capture
+(setq org-capture-templates '(("t" "todo" entry
+			       (file+headline "~/.emacs.d/agenda/routine.org" "tasks") "* todo %i%?" :jump-to-captured)
+			      ("d" "days' item" entry
+			       (file+headline "~/.emacs.d/agenda/dayview.org" "today's items") "* %i%? \n %u" :jump-to-captured)))
+; attach
+(setq org-attach-id-relative t)
+(setq org-attach-use-inheritance t)
+
+(setq org-agenda-files '("~/.emacs.d/Agenda"))
 
 ; add emacs-lisp and python
 (org-babel-do-load-languages
@@ -130,14 +174,6 @@
 (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
-
-(global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c a") 'org-agenda)
-;; capture
-(setq org-capture-templates '(("t" "todo" entry
-			       (file+headline "~/.emacs.d/agenda/routine.org" "tasks") "* todo %i%?")
-			      ("d" "days' item" entry
-			       (file+headline "~/.emacs.d/agenda/dayview.org" "today's items") "* %i%? \n %u")))
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
@@ -233,22 +269,21 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(use-package general
+  :after evil
+  :config
+  (general-create-definer spc/leader-keys
+    :keymaps '(normal emacs)
+    :prefix "SPC")
+  (spc/leader-keys
+    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
+    "i" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/init.el")))))
+
 (use-package which-key
   :diminish which-keym-ode
   :init (which-key-mode t)
   :config
   (setq which-key-idle-delay 1))
-
-(use-package general
-  :after evil
-  :config
-  (general-create-definer yc/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-  (yc/leader-keys
-   "t" '(:ignore t :which-key "toggles")
-   "tt" '(counsel-load-theme :which-key "choose theme")))
 
 (use-package hydra
   :config
@@ -367,16 +402,3 @@
     :keymaps 'lsp-mode-map
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(yasnippet which-key use-package undo-tree rainbow-delimiters pyvenv python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
