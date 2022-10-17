@@ -4,8 +4,7 @@
   ("https" . "https:/127.0.0.1:7890")))
 ; archives
 (require 'package)
-(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			  ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 ; refresh empty archives
@@ -120,28 +119,13 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-;; TODO
 ; todo keywords
 (setq org-todo-keywords
   '((sequence "TODO(t)" "|" "DONE(d)" )
     (sequence "EMERGENCY(e!)" "WORTHY(w!)" "NEED(n@/!)" "|" "FEEDBACK(f)" "OVER(o)" "SUSPEND(s)" )
     (sequence "|" "CANCLED(c)")))
 
-; keywords color
-(setq org-todo-keyword-faces
-  '(("TODO" . org-warning) ("DONE" . "yellow")))
-
-; org-faces-easy-properties determine some color 
-;(setq org-log-done 'time)
-;(setq org-log-done 'note)
-
-; org-habit
-; setting habit to STYLE property
-;(use-package org-habit
-;:config
-;(add-to-list 'org-modules 'org-habit))
-
-;; Tag
+; Tag
 (setq org-tag-alist '(
   (:startgrouptag) ("place") (:grouptags)
   ("@Class". ?w) ("@Dormitory" . ?d)
@@ -149,10 +133,7 @@
   ("intrests" . ?i) ("hard" . ?h)
   ))
 
-(global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c C-a") 'org-attach)
-;; capture
+; capture
 (setq org-capture-templates '(("t" "todo" entry
 			       (file+headline "~/.emacs.d/agenda/routine.org" "tasks") "* todo %i%?" :jump-to-captured)
 			      ("d" "days' item" entry
@@ -161,7 +142,13 @@
 (setq org-attach-id-relative t)
 (setq org-attach-use-inheritance t)
 
+; agenda
 (setq org-agenda-files '("~/.emacs.d/Agenda"))
+(spc/leader-keys
+  "g" '(nil :ignore t :which-key "GTD workflow")
+  "ga" '(org-agenda :which-key "Agenda")
+  "gc" '(org-goto-calendar :which-key "Calendar")
+  "gp" '(org-capture :which-key "Capture"))
 
 ; add emacs-lisp and python
 (org-babel-do-load-languages
@@ -271,20 +258,13 @@
 (use-package general
   :after evil)
 
-(general-create-definer view/leader-keys
+(general-create-definer spc/leader-keys
   :keymaps '(normal emacs)
   :prefix "SPC")
 
-(view/leader-keys
-  "f" '(:ignore t :which-key "file")
+(spc/leader-keys
+  "f" '(:ignore t :which-key "open files")
   "fi" '((find-file (expand-file-name "~/.emacs.d/Emacs.org")) :which-key "Emacs.org"))
-
-(view/leader-keys
-  "w" '(:ignore t :which-key "web")
-  "wg" '((eaf-open-browser "github.com"):which-key "Github")
-  "wa" '((eaf-open-browser "www.bing.com") :which-key "Bing")
-  "wb" '((eaf-open-browser "www.baidu.com") :which-key "Baidu")
-  "wy" '((eaf-open-browser "www.youtube.com") :which-key "youtube"))
 
 (use-package which-key
   :diminish which-keym-ode
@@ -418,38 +398,58 @@
     (pyvenv-mode 1))
 
 (use-package eaf
-  :load-path "~/.emacs.d/site-lisp/emacs-application-framework"
-  :custom
-					; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
-  (eaf-browser-continue-where-left-off t)
-  (eaf-browser-enable-adblocker t)
+    :load-path "~/.emacs.d/site-lisp/emacs-application-framework"
+    :custom
+					  ; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+    (eaf-browser-continue-where-left-off t)
+    (eaf-browser-enable-adblocker t)
 
-  (browse-url-browser-function 'eaf-open-browser)
-  :config
-  (require 'eaf-2048)
-  (require 'eaf-airshare)
-  (require 'eaf-browser)
-  (require 'eaf-camera)
-  (require 'eaf-demo)
-  (require 'eaf-file-browser)
-  (require 'eaf-file-manager)
-  (require 'eaf-file-sender)
-  (require 'eaf-git)
-  (require 'eaf-image-viewer)
-  (require 'eaf-jupyter)
-  (require 'eaf-markdown-previewer)
-  (require 'eaf-mindmap)
-  (require 'eaf-music-player)
-  (require 'eaf-netease-cloud-music)
-  (require 'eaf-org-previewer)
-  (require 'eaf-pdf-viewer)
-  (require 'eaf-rss-reader)
-  (require 'eaf-system-monitor)
-  (require 'eaf-terminal)
-  (require 'eaf-video-player)
-  (require 'eaf-vue-demo)
-  (defalias 'browse-web #'eaf-open-browser)
-  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
-  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-  (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+    (browse-url-browser-function 'eaf-open-browser)
+    :config
+    (require 'eaf-2048)
+    (require 'eaf-airshare)
+    (require 'eaf-browser)
+    (require 'eaf-camera)
+    (require 'eaf-demo)
+    (require 'eaf-file-browser)
+    (require 'eaf-file-manager)
+    (require 'eaf-file-sender)
+    (require 'eaf-git)
+    (require 'eaf-image-viewer)
+    (require 'eaf-jupyter)
+    (require 'eaf-markdown-previewer)
+    (require 'eaf-mindmap)
+    (require 'eaf-music-player)
+    (require 'eaf-netease-cloud-music)
+    (require 'eaf-org-previewer)
+    (require 'eaf-pdf-viewer)
+    (require 'eaf-rss-reader)
+    (require 'eaf-system-monitor)
+    (require 'eaf-terminal)
+    (require 'eaf-video-player)
+    (require 'eaf-vue-demo)
+    (defalias 'browse-web #'eaf-open-browser)
+    (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+    (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+    (eaf-bind-key take_photo "p" eaf-camera-keybinding)
+    (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+
+(spc/leader-keys
+  "w" '(:ignore t :which-key "open web page")
+  "wg" '((eaf-open-browser "github.com"):which-key "Github")
+  "wa" '((eaf-open-browser "www.bing.com") :which-key "Bing")
+  "wb" '((eaf-open-browser "www.baidu.com") :which-key "Baidu")
+  "wy" '((eaf-open-browser "www.youtube.com") :which-key "youtube"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(elpy org-habit yasnippet which-key use-package undo-tree rainbow-delimiters pyvenv python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
