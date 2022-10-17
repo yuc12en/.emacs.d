@@ -1,7 +1,11 @@
+; proxy
+(setq url-proxy-services '(
+  ("http" . "http://127.0.0.1:7890")
+  ("https" . "https:/127.0.0.1:7890")))
 ; archives
 (require 'package)
 (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+			  ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 (package-initialize)
 
 ; refresh empty archives
@@ -20,13 +24,15 @@
 ; startup buffer
   (setq inhibit-startup-message t)
 
+  ; frame
+
   ; column and line numbers , visual-lines
   (column-number-mode 1)
   (global-display-line-numbers-mode 1)
   (setq display-line-numbers-type 'relative)
   (dolist (mode '(term-mode-hook
-                  eshell-mode-hook
-                  shell-mode-hook))
+		  eshell-mode-hook
+		  shell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
   (visual-line-mode 1)
 
@@ -67,21 +73,17 @@
   (use-package no-littering)
 
   (setq auto-save-file-name-transforms
-        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+	`((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
   ; font
 
-  (set-face-attribute 'default nil :font "hack"  :height 120)
+  (set-face-attribute 'default nil :font "DejaVu Sans Mono"  :height 120)
 
   ;; Set the fixed pitch face
   (set-face-attribute 'fixed-pitch nil :font "DejaVu Sans Mono" :height 120 )
 
 ;; Set the variable pitch face
   (set-face-attribute 'variable-pitch nil :font "DejaVu Sans Mono" :height 120 :weight 'regular)
-
-(set-fontset-font "fontset-default"
-                'unicode
-                '("Cambria Math" . "iso10646-1"))
 
 ; mwin
 (use-package mwim
@@ -135,9 +137,9 @@
 
 ; org-habit
 ; setting habit to STYLE property
-(use-package org-habit
-:config
-(add-to-list 'org-modules 'org-habit))
+;(use-package org-habit
+;:config
+;(add-to-list 'org-modules 'org-habit))
 
 ;; Tag
 (setq org-tag-alist '(
@@ -181,22 +183,19 @@
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
 
-(global-set-key (kbd "C-=") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-
 ; evil
 (use-package evil
   :init
+  (setq evil-want-keybinding nil)
   (setq evil-shift-width 2)
   (setq evil-want-integration t)
-  (setq evil-want-keybinding nil)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-d-scroll t)
   :config
   (evil-mode t)
   (setq evil-move-beyond-eol t)
-  (setq evil-undo-system t)
-  (setq evil-undo-system 'undo-tree)
+  (global-undo-tree-mode)
+  (setq evil-undo-system 'undo-tree) 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
@@ -270,14 +269,22 @@
   ([remap describe-key] . helpful-key))
 
 (use-package general
-  :after evil
-  :config
-  (general-create-definer spc/leader-keys
-    :keymaps '(normal emacs)
-    :prefix "SPC")
-  (spc/leader-keys
-    "e" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))
-    "i" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/init.el")))))
+  :after evil)
+
+(general-create-definer view/leader-keys
+  :keymaps '(normal emacs)
+  :prefix "SPC")
+
+(view/leader-keys
+  "f" '(:ignore t :which-key "file")
+  "fi" '((find-file (expand-file-name "~/.emacs.d/Emacs.org")) :which-key "Emacs.org"))
+
+(view/leader-keys
+  "w" '(:ignore t :which-key "web")
+  "wg" '((eaf-open-browser "github.com"):which-key "Github")
+  "wa" '((eaf-open-browser "www.bing.com") :which-key "Bing")
+  "wb" '((eaf-open-browser "www.baidu.com") :which-key "Baidu")
+  "wy" '((eaf-open-browser "www.youtube.com") :which-key "youtube"))
 
 (use-package which-key
   :diminish which-keym-ode
@@ -285,12 +292,16 @@
   :config
   (setq which-key-idle-delay 1))
 
-(use-package hydra
-  :config
-  (defhydra hydra-text-scale (:timeout 4)
-    ("j" text-scale-increase "in")
-    ("k" text-scale-decrease "out")
-    ("i" nil "finished" :exit t)))
+(use-package hydra)
+
+    (defhydra hydra-zoom (evil-normal-state-map "SPC z" :which-key "zoom" :hint t )
+	("j" evil-window-increase-height "longer")
+	("k" evil-window-decrease-height "shorter")
+	("h" evil-window-decrease-width "tighter")
+	("l" evil-window-increase-width "broder"))
+
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-=") 'text-scale-increase)
 
 (use-package yasnippet
   :diminish
@@ -308,7 +319,6 @@
 ; highlight the paren
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
-(add-hook 'prog-mode-hook #'electric-pair-mode)
 (use-package evil-nerd-commenter
   :bind ("M-/" . evilnc-comment-or-uncomment-lines))
 (use-package rainbow-delimiters
@@ -328,8 +338,8 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (when (file-directory-p "~/Projects/Code")
-    (setq projectile-project-search-path '("~/Projects/Code")))
+  (when (file-directory-p "~/.emacs.d/Projects/Code")
+    (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
   (setq projectile-switch-project-action #'projectile-dired))
 (use-package counsel-projectile
   :after projectile
@@ -371,20 +381,6 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-
-
-(use-package python-mode
-  :mode "\\.py\\'"
-  :hook (python-mode . lsp-deferred)
-  :custom
-  (dap-python-debugger 'debugpy)
-  :config
-  (require 'dap-python))
-(use-package pyvenv
-  :after python-mode
-  :config
-  (pyvenv-mode 1))
-
 (use-package dap-mode
   ;; Uncomment the config below if you want all UI panes to be hidden by default!
   ;; :custom
@@ -402,3 +398,58 @@
     :keymaps 'lsp-mode-map
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
+
+(use-package python-mode
+	:mode "\\.py\\'"
+	:after elpy
+	:hook
+	(python-mode . lsp-deferred)
+	(python-mode . elpy-mode)
+	:custom
+	(dap-python-debugger 'debugpy)
+	:config
+	(require 'dap-python)
+	(require 'elpy)
+	(elpy-enable))
+(use-package elpy)
+(use-package pyvenv
+    :after python-mode
+    :config
+    (pyvenv-mode 1))
+
+(use-package eaf
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework"
+  :custom
+					; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+  (eaf-browser-continue-where-left-off t)
+  (eaf-browser-enable-adblocker t)
+
+  (browse-url-browser-function 'eaf-open-browser)
+  :config
+  (require 'eaf-2048)
+  (require 'eaf-airshare)
+  (require 'eaf-browser)
+  (require 'eaf-camera)
+  (require 'eaf-demo)
+  (require 'eaf-file-browser)
+  (require 'eaf-file-manager)
+  (require 'eaf-file-sender)
+  (require 'eaf-git)
+  (require 'eaf-image-viewer)
+  (require 'eaf-jupyter)
+  (require 'eaf-markdown-previewer)
+  (require 'eaf-mindmap)
+  (require 'eaf-music-player)
+  (require 'eaf-netease-cloud-music)
+  (require 'eaf-org-previewer)
+  (require 'eaf-pdf-viewer)
+  (require 'eaf-rss-reader)
+  (require 'eaf-system-monitor)
+  (require 'eaf-terminal)
+  (require 'eaf-video-player)
+  (require 'eaf-vue-demo)
+  (defalias 'browse-web #'eaf-open-browser)
+  (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+  (eaf-bind-key take_photo "p" eaf-camera-keybinding)
+  (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
