@@ -152,61 +152,6 @@
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-set-key (kbd "M-SPC") 'set-mark-command)
-
-(require 'init-utils )
-(global-set-key (kbd "C-c i") 'insert-time-string)
-
-(require 'init-keys)
-(use-package general
-  :after evil)
-
-(general-create-definer spc/leader-keys
-  :keymaps '(normal emacs)
-  :prefix "SPC")
-
-(spc/leader-keys
-"o" '(:ignore t :which-key "operation")
-"oe" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
-"ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
-
-(spc/leader-keys
-  "d" '(nil :ignore t :which-key "GTD")
-  "da" '(org-agenda :which-key "Agenda")
-  "dc" '(org-goto-calendar :which-key "Calendar")
-  "dp" '(org-capture :which-key "Capture"))
-
-(spc/leader-keys
-  "w" '(:ignore t :which-key "web")
-  "wg" '(web/github :which-key "Github")
-  "wa" '(web/bing :which-key "Bing")
-  "wb" '(web/baidu :which-key "Baidu")
-  "wy" '(web/youtube :which-key "youtube"))
-
-(spc/leader-keys
-"f" '(:ingore t :which-key "file")
-"fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
-"fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD"))
-
-(use-package which-key
-  :diminish which-keym-ode
-  :init (which-key-mode t)
-  :config
-  (setq which-key-idle-delay 0.5))
-
-(use-package hydra)  
-
-(defhydra hydra-zoom (evil-normal-state-map "SPC")
-    "zoom"
-    ("j" evil-window-increase-height "longer")
-    ("k" evil-window-decrease-height "shorter")
-    ("h" evil-window-decrease-width  "tighter")
-    ("l" evil-window-increase-width  "broder"))
-
-  (global-set-key (kbd "C--") 'text-scale-decrease)
-  (global-set-key (kbd "C-=") 'text-scale-increase)
-
 ; evil
 (setq evil-want-keybinding nil)
 (use-package evil
@@ -304,6 +249,61 @@
   :config
   (setq sml/theme 'powerline)
   (global-undo-tree-mode))
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "M-SPC") 'set-mark-command)
+
+(require 'init-utils )
+(global-set-key (kbd "C-c i") 'insert-time-string)
+
+(require 'init-keys)
+(use-package general
+  :after evil)
+
+(general-create-definer spc/leader-keys
+  :keymaps '(normal emacs)
+  :prefix "SPC")
+
+(spc/leader-keys
+"o" '(:ignore t :which-key "operation")
+"oe" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
+"ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
+
+(spc/leader-keys
+  "d" '(nil :ignore t :which-key "GTD")
+  "da" '(org-agenda :which-key "Agenda")
+  "dc" '(org-goto-calendar :which-key "Calendar")
+  "dp" '(org-capture :which-key "Capture"))
+
+(spc/leader-keys
+  "w" '(:ignore t :which-key "web")
+  "wg" '(web/github :which-key "Github")
+  "wa" '(web/bing :which-key "Bing")
+  "wb" '(web/baidu :which-key "Baidu")
+  "wy" '(web/youtube :which-key "youtube"))
+
+(spc/leader-keys
+"f" '(:ingore t :which-key "file")
+"fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
+"fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD"))
+
+(use-package which-key
+  :diminish which-keym-ode
+  :init (which-key-mode t)
+  :config
+  (setq which-key-idle-delay 0.5))
+
+(use-package hydra)  
+
+(defhydra hydra-zoom (evil-normal-state-map "SPC")
+    "zoom"
+    ("j" evil-window-increase-height "longer")
+    ("k" evil-window-decrease-height "shorter")
+    ("h" evil-window-decrease-width  "tighter")
+    ("l" evil-window-increase-width  "broder"))
+
+  (global-set-key (kbd "C--") 'text-scale-decrease)
+  (global-set-key (kbd "C-=") 'text-scale-increase)
 
 ; highlight the paren
 (add-hook 'prog-mode-hook #'show-paren-mode)
@@ -441,3 +441,16 @@
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(which-key use-package undo-tree rainbow-delimiters python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection elpy doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -261,95 +261,6 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("py" . "src python"))
 #+end_src
-* Key bindgs
-** Basic 
-#+begin_src emacs-lisp
-
-  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-  (global-set-key (kbd "M-SPC") 'set-mark-command)
-
-  (require 'init-utils )
-  (global-set-key (kbd "C-c i") 'insert-time-string)
-
-#+end_src
-** Packages
-*** General
-there are currently three columns 
-
-1. "f" : open files. 
-
-2. "w" : open folder. See [[*Eaf]]
-
-3. "g" : gtd workflow. See [[*GTD]]
-
-#+begin_src emacs-lisp
-  (require 'init-keys)
-  (use-package general
-    :after evil)
-
-  (general-create-definer spc/leader-keys
-    :keymaps '(normal emacs)
-    :prefix "SPC")
-
-  (spc/leader-keys
-  "o" '(:ignore t :which-key "operation")
-  "oe" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
-  "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
-
-  (spc/leader-keys
-    "d" '(nil :ignore t :which-key "GTD")
-    "da" '(org-agenda :which-key "Agenda")
-    "dc" '(org-goto-calendar :which-key "Calendar")
-    "dp" '(org-capture :which-key "Capture"))
-
-  (spc/leader-keys
-    "w" '(:ignore t :which-key "web")
-    "wg" '(web/github :which-key "Github")
-    "wa" '(web/bing :which-key "Bing")
-    "wb" '(web/baidu :which-key "Baidu")
-    "wy" '(web/youtube :which-key "youtube"))
-
-  (spc/leader-keys
-  "f" '(:ingore t :which-key "file")
-  "fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
-  "fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD")) 
-#+end_src
-#+RESULTS:
-
-*** Which-key
-:PROPERTIES:
-:ORDERED:  t
-:END:
-#+begin_src emacs-lisp
-(use-package which-key
-  :diminish which-keym-ode
-  :init (which-key-mode t)
-  :config
-  (setq which-key-idle-delay 0.5))
-#+end_src
-
-#+RESULTS:
-: t
-
-*** Hydra
-Hydra is personaly used to set ornamental adjustment
-#+begin_src emacs-lisp
-  (use-package hydra)  
- 
-  (defhydra hydra-zoom (evil-normal-state-map "SPC")
-      "zoom"
-      ("j" evil-window-increase-height "longer")
-      ("k" evil-window-decrease-height "shorter")
-      ("h" evil-window-decrease-width  "tighter")
-      ("l" evil-window-increase-width  "broder"))
-
-    (global-set-key (kbd "C--") 'text-scale-decrease)
-    (global-set-key (kbd "C-=") 'text-scale-increase)
-  #+end_src
-
-  #+RESULTS:
-  : text-scale-increase
-
 * Easy type
 ** evil
 #+begin_src emacs-lisp
@@ -460,6 +371,95 @@ Hydra is personaly used to set ornamental adjustment
     (setq sml/theme 'powerline)
     (global-undo-tree-mode))
 #+end_src
+* Key bindgs
+** Basic 
+#+begin_src emacs-lisp
+
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  (global-set-key (kbd "M-SPC") 'set-mark-command)
+
+  (require 'init-utils )
+  (global-set-key (kbd "C-c i") 'insert-time-string)
+
+#+end_src
+** Packages
+*** General
+there are currently three columns 
+
+1. "f" : open files. 
+
+2. "w" : open folder. See [[*Eaf]]
+
+3. "g" : gtd workflow. See [[*GTD]]
+
+#+begin_src emacs-lisp
+  (require 'init-keys)
+  (use-package general
+    :after evil)
+
+  (general-create-definer spc/leader-keys
+    :keymaps '(normal emacs)
+    :prefix "SPC")
+
+  (spc/leader-keys
+  "o" '(:ignore t :which-key "operation")
+  "oe" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
+  "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
+
+  (spc/leader-keys
+    "d" '(nil :ignore t :which-key "GTD")
+    "da" '(org-agenda :which-key "Agenda")
+    "dc" '(org-goto-calendar :which-key "Calendar")
+    "dp" '(org-capture :which-key "Capture"))
+
+  (spc/leader-keys
+    "w" '(:ignore t :which-key "web")
+    "wg" '(web/github :which-key "Github")
+    "wa" '(web/bing :which-key "Bing")
+    "wb" '(web/baidu :which-key "Baidu")
+    "wy" '(web/youtube :which-key "youtube"))
+
+  (spc/leader-keys
+  "f" '(:ingore t :which-key "file")
+  "fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
+  "fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD")) 
+#+end_src
+#+RESULTS:
+
+*** Which-key
+:PROPERTIES:
+:ORDERED:  t
+:END:
+#+begin_src emacs-lisp
+(use-package which-key
+  :diminish which-keym-ode
+  :init (which-key-mode t)
+  :config
+  (setq which-key-idle-delay 0.5))
+#+end_src
+
+#+RESULTS:
+: t
+
+*** Hydra
+Hydra is personaly used to set ornamental adjustment
+#+begin_src emacs-lisp
+  (use-package hydra)  
+ 
+  (defhydra hydra-zoom (evil-normal-state-map "SPC")
+      "zoom"
+      ("j" evil-window-increase-height "longer")
+      ("k" evil-window-decrease-height "shorter")
+      ("h" evil-window-decrease-width  "tighter")
+      ("l" evil-window-increase-width  "broder"))
+
+    (global-set-key (kbd "C--") 'text-scale-decrease)
+    (global-set-key (kbd "C-=") 'text-scale-increase)
+  #+end_src
+
+  #+RESULTS:
+  : text-scale-increase
+
 * Development
 ** prog
 #+begin_src emacs-lisp
