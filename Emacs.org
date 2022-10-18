@@ -1,8 +1,7 @@
-#+STARTUP: show2levels hideblocks
 #+title: Configuration
+#+STARTUP: show2levels hideblocks 
+#+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
 
-
-* UI Configuration
 * Archives and loadings
 #+begin_src emacs-lisp
   ; proxy
@@ -25,8 +24,9 @@
   (setq use-package-always-ensure t)  
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))  
 #+end_src
+* UI Configuration
 ** Basic
-#+begin_src emacs-lisp :tangle ./init.el
+#+begin_src emacs-lisp
 
     ; startup buffer
     (setq inhibit-startup-message t)
@@ -119,12 +119,6 @@
 * Org
 ** Interface
 #+begin_src emacs-lisp
-
-  ;global bindings
-  (global-set-key (kbd "C-c l") #'org-store-link)
-  (global-set-key (kbd "C-c a") #'org-agenda)
-  (global-set-key (kbd "C-c c") #'org-capture)
-
   ;start view
   (setq org-agenda-inhibit-startup nil)
   (setq org-startup-folded "show2levels")
@@ -235,19 +229,21 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
     ))
 
   ; capture
-  (setq org-capture-templates '(("t" "todo" entry
-				 (file+headline "~/.emacs.d/agenda/routine.org" "tasks") "* todo %i%?" :jump-to-captured)
-				("d" "days' item" entry
-				 (file+headline "~/.emacs.d/agenda/dayview.org" "today's items") "* %i%? \n %u" :jump-to-captured)))
   ; attach
   (setq org-attach-id-relative t)
   (setq org-attach-use-inheritance t)
 
 
   ; GTD
-  (defvar GTDfolder "e:/GTD/")
-  (setq org-agenda-files GTDfolder)
+  (setq org-agenda-files '("e:/GTD/Process.org"))
+  (setq org-capture-templates '(("c" "capture raw items" entry
+				 (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
+  (setq org-refile-targets '(("e:/GTD/Inbox" :level . 2)))
 #+end_src
+
+#+RESULTS:
+: ((GTD-main-path) :maxlevel . 3)
+
 ** Org-babel
 #+begin_src emacs-lisp
 
@@ -296,20 +292,15 @@ there are currently three columns
     :prefix "SPC")
 
   (spc/leader-keys
-  "c" '(:ignore t :which-key "configs")
-  "ce" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
-  "cb" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
-  (org-babel-tangle)
+  "o" '(:ignore t :which-key "operation")
+  "oe" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
+  "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
 
   (spc/leader-keys
-    "f" '(:ignore t :which-key "files")
-    "fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs.org")) 
-
-  (spc/leader-keys
-    "g" '(nil :ignore t :which-key "GTD")
-    "ga" '(org-agenda :which-key "Agenda")
-    "gc" '(org-goto-calendar :which-key "Calendar")
-    "gp" '(org-capture :which-key "Capture"))
+    "d" '(nil :ignore t :which-key "GTD")
+    "da" '(org-agenda :which-key "Agenda")
+    "dc" '(org-goto-calendar :which-key "Calendar")
+    "dp" '(org-capture :which-key "Capture"))
 
   (spc/leader-keys
     "w" '(:ignore t :which-key "web")
@@ -317,39 +308,55 @@ there are currently three columns
     "wa" '(web/bing :which-key "Bing")
     "wb" '(web/baidu :which-key "Baidu")
     "wy" '(web/youtube :which-key "youtube"))
-#+end_src
 
+  (spc/leader-keys
+  "f" '(:ingore t :which-key "file")
+  "fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
+  "fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD")) 
+#+end_src
 #+RESULTS:
 
 *** Which-key
+:PROPERTIES:
+:ORDERED:  t
+:END:
 #+begin_src emacs-lisp
 (use-package which-key
   :diminish which-keym-ode
   :init (which-key-mode t)
   :config
-  (setq which-key-idle-delay 1))
+  (setq which-key-idle-delay 0.5))
 #+end_src
+
+#+RESULTS:
+: t
+
 *** Hydra
 Hydra is personaly used to set ornamental adjustment
 #+begin_src emacs-lisp
-      (use-package hydra)
+  (use-package hydra)  
+ 
+  (defhydra hydra-zoom (evil-normal-state-map "SPC")
+      "zoom"
+      ("j" evil-window-increase-height "longer")
+      ("k" evil-window-decrease-height "shorter")
+      ("h" evil-window-decrease-width  "tighter")
+      ("l" evil-window-increase-width  "broder"))
 
-      (defhydra hydra-zoom (evil-normal-state-map "SPC z" :which-key "zoom" :hint t )
-	  ("j" evil-window-increase-height "longer")
-	  ("k" evil-window-decrease-height "shorter")
-	  ("h" evil-window-decrease-width "tighter")
-	  ("l" evil-window-increase-width "broder"))
-
-  (global-set-key (kbd "C--") 'text-scale-decrease)
-  (global-set-key (kbd "C-=") 'text-scale-increase)
+    (global-set-key (kbd "C--") 'text-scale-decrease)
+    (global-set-key (kbd "C-=") 'text-scale-increase)
   #+end_src
+
+  #+RESULTS:
+  : text-scale-increase
+
 * Easy type
 ** evil
 #+begin_src emacs-lisp
   ; evil
+  (setq evil-want-keybinding nil)
   (use-package evil
     :init
-    (setq evil-want-keybinding nil)
     (setq evil-shift-width 2)
     (setq evil-want-integration t)
     (setq evil-want-C-u-scroll t)
@@ -488,7 +495,7 @@ Hydra is personaly used to set ornamental adjustment
     ("C-c p" . projectile-command-map)
     :init
     (when (file-directory-p "~/.emacs.d/Projects/Code")
-      (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
+      (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
     (setq projectile-switch-project-action #'projectile-dired))
   (use-package counsel-projectile
     :after projectile
