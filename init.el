@@ -162,6 +162,7 @@
   (setq evil-want-C-d-scroll t)
   :config
   (evil-mode t)
+  (setq evil-visual-line t)
   (setq evil-move-beyond-eol t)
   (global-undo-tree-mode)
   (setq evil-undo-system 'undo-redo) 
@@ -450,16 +451,3 @@
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(zenburn-theme window-numbering which-key use-package undo-tree solarized-theme smart-mode-line rainbow-delimiters python-mode org-roam org-bullets no-littering neotree mwim markdownfmt lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge flycheck ewal evil-nerd-commenter evil-collection elpy dracula-theme doom-themes doom-modeline dashboard dap-mode counsel-projectile company-box beacon amx all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

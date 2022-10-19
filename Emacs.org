@@ -274,6 +274,7 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
     (setq evil-want-C-d-scroll t)
     :config
     (evil-mode t)
+    (setq evil-visual-line t)
     (setq evil-move-beyond-eol t)
     (global-undo-tree-mode)
     (setq evil-undo-system 'undo-redo) 
