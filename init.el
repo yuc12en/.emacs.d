@@ -164,7 +164,7 @@
   (evil-mode t)
   (setq evil-move-beyond-eol t)
   (global-undo-tree-mode)
-  (setq evil-undo-system 'undo-tree) 
+  (setq evil-undo-system 'undo-redo) 
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
 
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
@@ -179,6 +179,12 @@
   :after evil
   :config
   (evil-collection-init))
+
+(use-package undo-tree
+  :diminish
+  :config
+  (setq sml/theme 'powerline)
+  (global-undo-tree-mode))
 
 (use-package amx
   :init (amx-mode))
@@ -244,54 +250,11 @@
   :config
   (yas-global-mode 1))
 
-(use-package undo-tree
-  :diminish
-  :config
-  (setq sml/theme 'powerline)
-  (global-undo-tree-mode))
-
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
-
-(require 'init-keys)
-(use-package general
-  :after evil)
-
-(general-create-definer spc/leader-keys
-  :keymaps '(normal emacs)
-  :prefix "SPC")
-
-(spc/leader-keys
-"o" '(:ignore t :which-key "operation")
-"oe" '((lambda () (interactive) (eval-buffer)) :which-key "eval-buffer")
-"ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle"))
-
-(spc/leader-keys
-  "d" '(nil :ignore t :which-key "GTD")
-  "da" '(org-agenda :which-key "Agenda")
-  "dc" '(org-goto-calendar :which-key "Calendar")
-  "dp" '(org-capture :which-key "Capture"))
-
-(spc/leader-keys
-  "w" '(:ignore t :which-key "web")
-  "wg" '(web/github :which-key "Github")
-  "wa" '(web/bing :which-key "Bing")
-  "wb" '(web/baidu :which-key "Baidu")
-  "wy" '(web/youtube :which-key "youtube"))
-
-(spc/leader-keys
-"f" '(:ingore t :which-key "file")
-"fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
-"fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD"))
-
-(use-package which-key
-  :diminish which-keym-ode
-  :init (which-key-mode t)
-  :config
-  (setq which-key-idle-delay 0.5))
 
 (use-package hydra)  
 
@@ -304,6 +267,52 @@
 
   (global-set-key (kbd "C--") 'text-scale-decrease)
   (global-set-key (kbd "C-=") 'text-scale-increase)
+
+(require 'init-keys)
+ (use-package general
+   :after evil)
+
+ (general-define-key
+ :keymaps 'evil-normal-state-map
+ "RET" 'newline
+ "DEL" 'join-line
+ "K" 'motion/natrual-up
+ "J" 'motion/natrual-down
+ "S" 'evil-show-marks
+ "R" 'evil-delete-marks
+ "M" 'evil-goto-mark
+ "m" 'evil-set-marker)
+
+
+(general-create-definer spc/leader-keys
+   :keymaps '(normal emacs)
+   :prefix "SPC")
+
+ (spc/leader-keys
+ "o" '(:ignore t :which-key "Org command")
+ "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle")
+ "oa" '(org-agenda :which-key "Agenda")
+ "oc" '(org-goto-calendar :which-key "Calendar")
+ "op" '(org-capture :which-key "Capture"))
+
+
+ (spc/leader-keys
+   "w" '(:ignore t :which-key "web")
+   "wg" '(web/github :which-key "Github")
+   "wa" '(web/bing :which-key "Bing")
+   "wb" '(web/baidu :which-key "Baidu")
+   "wy" '(web/youtube :which-key "youtube"))
+
+ (spc/leader-keys
+ "f" '(:ingore t :which-key "find files")
+ "fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
+ "fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD"))
+
+(use-package which-key
+  :diminish which-keym-ode
+  :init (which-key-mode t)
+  :config
+  (setq which-key-idle-delay 0.5))
 
 ; highlight the paren
 (add-hook 'prog-mode-hook #'show-paren-mode)
@@ -447,7 +456,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(which-key use-package undo-tree rainbow-delimiters python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection elpy doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+   '(zenburn-theme window-numbering which-key use-package undo-tree solarized-theme smart-mode-line rainbow-delimiters python-mode org-roam org-bullets no-littering neotree mwim markdownfmt lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge flycheck ewal evil-nerd-commenter evil-collection elpy dracula-theme doom-themes doom-modeline dashboard dap-mode counsel-projectile company-box beacon amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

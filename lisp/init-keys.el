@@ -21,4 +21,15 @@
   (eaf-open-browser "www.baidu.com"))
 
 
+(defun motion/natrual-up ()
+  (interactive)
+  (evil-scroll-line-up 1)
+  (evil-previous-line))
+
+(defun motion/natrual-down ()
+  (interactive)
+  (evil-scroll-line-down 1)
+  (evil-next-line))
+
+
 (provide 'init-keys)
