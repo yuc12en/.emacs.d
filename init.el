@@ -5,6 +5,7 @@
 			("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
 			("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))  
 
+(package-initialize)
 ; refresh empty archives
 (unless package-archive-contents
   (package-refresh-contents))
@@ -79,7 +80,7 @@
   ;; Set the fixed pitch face
   (set-face-attribute 'fixed-pitch nil :font "DejaVu Sans Mono" :height 120 )
 
-;; Set the variable pitch face
+; Set the variable pitch face
   (set-face-attribute 'variable-pitch nil :font "DejaVu Sans Mono" :height 120 :weight 'regular)
 
 ; mwin
@@ -90,13 +91,14 @@
 
 ; ace-window
 (use-package ace-window
-  :bind
-(("C-x o" . 'ace-window)))
+  :config
+(setq aw-background nil)
+(ace-window-display-mode t))
 
+(require 'init-dir)
 (use-package neotree
   :ensure t
   :config
-  (global-set-key (kbd "C-c n t") 'neotree-toggle)
   (setq neo-window-fixed-size 20)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
@@ -120,13 +122,10 @@
 
 ; Tag
 (setq org-tag-alist '(
-  ("NaN" . ?n)
-  (:startgrouptag) ("glimpse") (:grouptags)
-  ("potential". ?w) ("check" . ?d) ("bin" . ?b) 
+  (:startgrouptag) ("place") (:grouptags)
+  ("@Class". ?w) ("@Dormitory" . ?d)
   (:endgrouptag)
-  (:startgrouptag) ("digest") (:grouptags)
-  ("exellent" .?e) ("fine" . ?f) ("bin" . ?b)
-  (:endgrouptag)
+  ("intrests" . ?i) ("hard" . ?h)
   ))
 
 ; capture
@@ -139,7 +138,7 @@
 (setq org-agenda-files '("e:/GTD/Process.org"))
 (setq org-capture-templates '(("c" "capture raw items" entry
 			       (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
-(setq org-refile-targets '(("e:/GTD/Inbox" :level . 2)))
+(setq org-refile-targets '(("e:/Zen/GTD.org" :level . 2)))
 
 ; add emacs-lisp and python
 (org-babel-do-load-languages
@@ -154,105 +153,7 @@
 (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
-(add-to-list 'org-structure-template-alist '("md" . "src markdown"))
-
-; evil
-(setq evil-want-keybinding nil)
-(use-package evil
-  :init
-  (setq evil-shift-width 2)
-  (setq evil-want-integration t)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-d-scroll t)
-  :config
-  (evil-mode t)
-  (setq evil-move-beyond-eol t)
-  (global-undo-tree-mode)
-  (setq evil-undo-system 'undo-redo) 
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  (evil-set-initial-state 'message-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal)
-  (evil-set-initial-state 'eshell-mode 'insert))
-
-; evil-collection  it can  be tuned by edit evil-collection-mode
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-(use-package undo-tree
-  :diminish
-  :config
-  (setq sml/theme 'powerline)
-  (global-undo-tree-mode))
-
-(use-package amx
-  :init (amx-mode))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
-
-;; counsel M-o to some defined function
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-	("C-x b" . counsel-ibuffer)
-	("C-x C-f" . counsel-find-file)
-	:map minibuffer-local-map
-	("C-r" . 'counsel-minibuffer-history))
-  :config
-  (setq ivy-initial-inputs-alist nil))
-
-;ivy
-(use-package ivy
-  :diminish
-  :init
-  (counsel-mode 1)
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq search-default-mode #'char-fold-to-regexp)
-  (setq ivy-count-format "(%d/%d) ")
-  :bind
-  (("C-s" . 'swiper)
-  ("C-x b" . 'ivy-switch-buffer)
-  ("C-c v" . 'ivy-push-view)
-  ("C-c s" . 'ivy-switch-view)
-  ("C-c V" . 'ivy-pop-view)
-  ("C-x C-@" . 'counsel-mark-ring)
-  ("C-x C-SPC" . 'counsel-mark-ring)
-  :map minibuffer-local-map
-  ("C-r". counsel-minibuffer-history))
-  :config
-  (ivy-mode 1))
-; ivy-prescient
-(use-package ivy-prescient
-  :after counsel
-  :custom
-  (ivy-prescient-enable-filtering nil)
-  :config
-  (ivy-prescient-mode 1))
-
-(use-package helpful
-  :commands (helpful-callable helpful-variable helpful-command helpful-key)
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
-
-(use-package yasnippet
-  :diminish
-  :init
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  :config
-  (yas-global-mode 1))
+(add-to-list 'org-structure-template-alist '("latex" . "src latex"))
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
@@ -260,63 +161,72 @@
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
 
-(use-package hydra)  
-
-(defhydra hydra-zoom (evil-normal-state-map "SPC")
-    "zoom"
-    ("j" evil-window-increase-height "longer")
-    ("k" evil-window-decrease-height "shorter")
-    ("h" evil-window-decrease-width  "tighter")
-    ("l" evil-window-increase-width  "broder"))
-
-  (global-set-key (kbd "C--") 'text-scale-decrease)
-  (global-set-key (kbd "C-=") 'text-scale-increase)
-
-(require 'init-keys)
- (use-package general
-   :after evil)
-
- (general-define-key
- :keymaps 'evil-normal-state-map
- "RET" 'newline
- "DEL" 'join-line
- "K" 'motion/natrual-up
- "J" 'motion/natrual-down
- "S" 'evil-show-marks
- "R" 'evil-delete-marks
- "M" 'evil-goto-mark
- "m" 'evil-set-marker)
-
-
-(general-create-definer spc/leader-keys
-   :keymaps '(normal emacs)
-   :prefix "SPC")
-
- (spc/leader-keys
- "o" '(:ignore t :which-key "Org command")
- "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "org-babel-toggle")
- "oa" '(org-agenda :which-key "Agenda")
- "oc" '(org-goto-calendar :which-key "Calendar")
- "op" '(org-capture :which-key "Capture"))
-
-
- (spc/leader-keys
-   "w" '(:ignore t :which-key "web")
-   "wg" '(web/github :which-key "Github")
-   "wa" '(web/bing :which-key "Bing")
-   "wb" '(web/baidu :which-key "Baidu")
-   "wy" '(web/youtube :which-key "youtube"))
-
- (spc/leader-keys
- "f" '(:ingore t :which-key "find files")
- "fi" '((lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org"))) :which-key "Emacs")
- "fd" '((lambda () (interactive) (dired "e:/GTD/")) :which-key "GTD"))
+(use-package hydra)
 
 (use-package which-key
   :diminish which-keym-ode
   :init (which-key-mode t)
   :config
-  (setq which-key-idle-delay 0.5))
+  (setq which-key-idle-delay 1))
+
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+  (require 'init-keys)
+  (use-package general
+    :after evil)
+
+(general-define-key
+:keymaps 'evil-normal-state-map
+"RET" 'newline
+"DEL" 'join-line
+"K" 'motion/natrual-up
+"J" 'motion/natrual-down
+"S" 'evil-show-marks
+"R" 'evil-delete-marks
+"M" 'evil-goto-mark
+"m" 'evil-set-marker
+"C-/" 'comment-or-uncomment-region)
+
+
+(general-define-key
+:keymaps 'evil-normal-state-map
+"C-c e" 'ebib)
+
+
+
+(general-create-definer spc/leader-keys
+:keymaps '(normal visual emacs)
+:prefix "SPC")
+
+
+(spc/leader-keys
+"e" '(eval-buffer :which-key "eval buffer")
+"s" '(save-buffer :which-key "save buffer"))
+
+(spc/leader-keys
+"o" '(:ignore t :which-key "Org command")
+"ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "Babel")
+"oa" '(org-agenda :which-key "Agenda")
+"oc" '(org-goto-calendar :which-key "Calendar")
+"op" '(org-capture :which-key "Capture")
+"of" '(org-refile :which-key "Refile")) 
+
+
+(spc/leader-keys
+"n" '(:ignore t :which-key "narrow")
+"nr" '(narrow-to-region :which-key "narrow to region")
+"ns" '(org-narrow-to-subtree :which-key "narrow to subtree")
+"nb" '(org-narrow-to-block :whic-key "narrow to block")
+"nw" '(widen :which-key "widen")
+"ne" '(eaf-open-demo :which-key "Screen"))
+
+(spc/leader-keys
+"f" '(:ingore t :which-key "find")
+"fs" '(swiper :which-key "words")
+"ff" '(counsel-find-file :which-key "file")
+"fd" '(counsel-dired) :which-key "dired"
+"fn" '(dir/neo-here :which-key "neotree")
+"fb" '(ivy-switch-buffer :which-key "swith buffer"))
 
 ; highlight the paren
 (add-hook 'prog-mode-hook #'show-paren-mode)
@@ -341,7 +251,7 @@
   ("C-c p" . projectile-command-map)
   :init
   (when (file-directory-p "~/.emacs.d/Projects/Code")
-    (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
+    (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
   (setq projectile-switch-project-action #'projectile-dired))
 (use-package counsel-projectile
   :after projectile
@@ -350,7 +260,6 @@
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-
 (use-package forge
   :after magit)
 
@@ -454,16 +363,105 @@
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(which-key use-package undo-tree rainbow-delimiters python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection elpy doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+(use-package ebib)
+
+; evil
+(setq evil-want-keybinding nil)
+(use-package evil
+  :init
+  (setq evil-shift-width 2)
+  (setq evil-want-integration t)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-d-scroll t)
+  (setq evil-visual-screen-line t)
+  :config
+  (evil-mode t)
+  (setq evil-move-beyond-eol t)
+  (global-undo-tree-mode)
+  (setq evil-undo-system 'undo-redo) 
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-set-initial-state 'message-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal)
+  (evil-set-initial-state 'eshell-mode 'insert))
+
+; evil-collection  it can  be tuned by edit evil-collection-mode
+(use-package evil-collection
+  :after evil
+  :config
+  (setq forge-add-default-bindings nil)
+  (evil-collection-init))
+
+(use-package undo-tree
+  :diminish
+  :config
+  (setq sml/theme 'powerline)
+  (global-undo-tree-mode))
+
+(use-package amx
+  :init (amx-mode))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+;; counsel M-o to some defined function
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+	("C-x b" . counsel-ibuffer)
+	("C-x C-f" . counsel-find-file)
+	:map minibuffer-local-map
+	("C-r" . 'counsel-minibuffer-history))
+  :config
+  (setq ivy-initial-inputs-alist nil))
+
+;ivy
+(use-package ivy
+  :diminish
+  :init
+  (counsel-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq search-default-mode #'char-fold-to-regexp)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind
+  (("C-s" . 'swiper)
+  ("C-x b" . 'ivy-switch-buffer)
+  ("C-c v" . 'ivy-push-view)
+  ("C-c s" . 'ivy-switch-view)
+  ("C-c V" . 'ivy-pop-view)
+  ("C-x C-@" . 'counsel-mark-ring)
+  ("C-x C-SPC" . 'counsel-mark-ring)
+  :map minibuffer-local-map
+  ("C-r". counsel-minibuffer-history))
+  :config
+  (ivy-mode 1))
+; ivy-prescient
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  (ivy-prescient-mode 1))
+
+(use-package helpful
+  :commands (helpful-callable helpful-variable helpful-command helpful-key)
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+
+(use-package yasnippet
+  :diminish
+  :init
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  :config
+  (yas-global-mode 1))
