@@ -222,10 +222,13 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
 
   ; Tag
   (setq org-tag-alist '(
-    (:startgrouptag) ("place") (:grouptags)
-    ("@Class". ?w) ("@Dormitory" . ?d)
+    ("NaN" . ?n)
+    (:startgrouptag) ("glimpse") (:grouptags)
+    ("potential". ?w) ("check" . ?d) ("bin" . ?b) 
     (:endgrouptag)
-    ("intrests" . ?i) ("hard" . ?h)
+    (:startgrouptag) ("digest") (:grouptags)
+    ("exellent" .?e) ("fine" . ?f) ("bin" . ?b)
+    (:endgrouptag)
     ))
 
   ; capture
@@ -259,7 +262,8 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
   (require 'org-tempo)
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-  (add-to-list 'org-structure-template-alist '("py" . "src python"))
+  (add-to-list 'org-structure-template-alist '("py" . "src python")
+  (add-to-list 'org-structure-template-alist '("md" . "src markdown"))
 #+end_src
 * Easy type
 ** evil

@@ -120,10 +120,13 @@
 
 ; Tag
 (setq org-tag-alist '(
-  (:startgrouptag) ("place") (:grouptags)
-  ("@Class". ?w) ("@Dormitory" . ?d)
+  ("NaN" . ?n)
+  (:startgrouptag) ("glimpse") (:grouptags)
+  ("potential". ?w) ("check" . ?d) ("bin" . ?b) 
   (:endgrouptag)
-  ("intrests" . ?i) ("hard" . ?h)
+  (:startgrouptag) ("digest") (:grouptags)
+  ("exellent" .?e) ("fine" . ?f) ("bin" . ?b)
+  (:endgrouptag)
   ))
 
 ; capture
@@ -151,6 +154,7 @@
 (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("md" . "src markdown"))
 
 ; evil
 (setq evil-want-keybinding nil)
@@ -456,7 +460,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(zenburn-theme window-numbering which-key use-package undo-tree solarized-theme smart-mode-line rainbow-delimiters python-mode org-roam org-bullets no-littering neotree mwim markdownfmt lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge flycheck ewal evil-nerd-commenter evil-collection elpy dracula-theme doom-themes doom-modeline dashboard dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+   '(which-key use-package undo-tree rainbow-delimiters python-mode org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection elpy doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
