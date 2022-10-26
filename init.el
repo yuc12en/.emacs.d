@@ -5,6 +5,7 @@
 			("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
 			("nongnu" . "http://mirrors.ustc.edu.cn/elpa/nongnu/")))  
 
+(package-initialize)
 ; refresh empty archives
 (unless package-archive-contents
   (package-refresh-contents))
@@ -34,7 +35,6 @@
   (visual-line-mode 1)
 
   ; scroll-, tool-, menu-bar , visible-bell
-  (display-time-mode 1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
@@ -135,6 +135,14 @@
 
 
 ; GTD
+; org-agenda-category-icon-alist
+; org-agenda-filter-by-tag \
+; org-agenda-filter-by-category <
+; org-agenda-filter-by-regexp =
+; org-agenda-filter-by-effort _
+; org-agenda-filter-by-top-headline ^
+; org-agenda-filter /
+(setq org-agenda-start-with-follow-mode t)
 (setq org-agenda-files '("e:/GTD/Process.org"))
 (setq org-capture-templates '(("c" "capture raw items" entry
 			       (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
@@ -153,106 +161,7 @@
 (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
 (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
-
-; evil
-(setq evil-want-keybinding nil)
-(use-package evil
-  :init
-  (setq evil-shift-width 2)
-  (setq evil-want-integration t)
-  (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-d-scroll t)
-  (setq evil-visual-screen-line t)
-  :config
-  (evil-mode t)
-  (setq evil-move-beyond-eol t)
-  (global-undo-tree-mode)
-  (setq evil-undo-system 'undo-redo) 
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-
-  (evil-set-initial-state 'message-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal)
-  (evil-set-initial-state 'eshell-mode 'insert))
-
-; evil-collection  it can  be tuned by edit evil-collection-mode
-(use-package evil-collection
-  :after evil
-  :config
-  (setq forge-add-default-bindings nil)
-  (evil-collection-init))
-
-(use-package undo-tree
-  :diminish
-  :config
-  (setq sml/theme 'powerline)
-  (global-undo-tree-mode))
-
-(use-package amx
-  :init (amx-mode))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
-
-;; counsel M-o to some defined function
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-	("C-x b" . counsel-ibuffer)
-	("C-x C-f" . counsel-find-file)
-	:map minibuffer-local-map
-	("C-r" . 'counsel-minibuffer-history))
-  :config
-  (setq ivy-initial-inputs-alist nil))
-
-;ivy
-(use-package ivy
-  :diminish
-  :init
-  (counsel-mode 1)
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq search-default-mode #'char-fold-to-regexp)
-  (setq ivy-count-format "(%d/%d) ")
-  :bind
-  (("C-s" . 'swiper)
-  ("C-x b" . 'ivy-switch-buffer)
-  ("C-c v" . 'ivy-push-view)
-  ("C-c s" . 'ivy-switch-view)
-  ("C-c V" . 'ivy-pop-view)
-  ("C-x C-@" . 'counsel-mark-ring)
-  ("C-x C-SPC" . 'counsel-mark-ring)
-  :map minibuffer-local-map
-  ("C-r". counsel-minibuffer-history))
-  :config
-  (ivy-mode 1))
-; ivy-prescient
-(use-package ivy-prescient
-  :after counsel
-  :custom
-  (ivy-prescient-enable-filtering nil)
-  :config
-  (ivy-prescient-mode 1))
-
-(use-package helpful
-  :commands (helpful-callable helpful-variable helpful-command helpful-key)
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
-
-(use-package yasnippet
-  :diminish
-  :init
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-  :config
-  (yas-global-mode 1))
+(add-to-list 'org-structure-template-alist '("latex" . "src latex"))
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
@@ -269,58 +178,67 @@
   (setq which-key-idle-delay 1))
 
 (global-set-key (kbd "C--") 'text-scale-decrease)
-  (global-set-key (kbd "C-=") 'text-scale-increase)
-    (require 'init-keys)
-    (use-package general
-      :after evil)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+  (require 'init-keys)
+  (use-package general
+    :after evil)
 
-  (general-define-key
-  :keymaps 'evil-normal-state-map
-  "RET" 'newline
-  "DEL" 'join-line
-  "K" 'motion/natrual-up
-  "J" 'motion/natrual-down
-  "S" 'evil-show-marks
-  "R" 'evil-delete-marks
-  "M" 'evil-goto-mark
-  "m" 'evil-set-marker
-)
-
-
-
-  (general-create-definer spc/leader-keys
-  :keymaps '(normal visual emacs)
-  :prefix "SPC")
+(general-define-key
+:keymaps 'evil-normal-state-map
+"RET" 'newline
+"DEL" 'join-line
+"K" 'motion/natrual-up
+"J" 'motion/natrual-down
+"S" 'evil-show-marks
+"R" 'evil-delete-marks
+"M" 'evil-goto-mark
+"m" 'evil-set-marker
+"C-/" 'comment-or-uncomment-region
+"C-<" 'org-speedbar-set-agenda-restriction
+"C->" 'org-agenda-remove-restriction-lock)
 
 
-  (spc/leader-keys
-  "e" '(eval-buffer :which-key "eval buffer")
-  "s" '(save-buffer :which-key "save buffer"))
-
-  (spc/leader-keys
-  "o" '(:ignore t :which-key "Org command")
-  "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "Babel")
-  "oa" '(org-agenda :which-key "Agenda")
-  "oc" '(org-goto-calendar :which-key "Calendar")
-  "op" '(org-capture :which-key "Capture")
-  "of" '(org-refile :which-key "Refile")) 
+(general-define-key
+:keymaps 'evil-normal-state-map
+"C-c e" 'ebib)
 
 
-  (spc/leader-keys
-  "n" '(:ignore t :which-key "narrow")
-  "nr" '(narrow-to-region :which-key "narrow to region")
-  "ns" '(org-narrow-to-subtree :which-key "narrow to subtree")
-  "nb" '(org-narrow-to-block :whic-key "narrow to block")
-  "nw" '(widen :which-key "widen")
-  "ne" '(eaf-open-demo :which-key "Screen"))
 
-  (spc/leader-keys
-  "f" '(:ingore t :which-key "find")
-  "fs" '(swiper :which-key "words")
-  "ff" '(counsel-find-file :which-key "file")
-  "fd" '(counsel-dired) :which-key "dired"
-  "fn" '(dir/neo-here :which-key "neotree")
-  "fb" '(ivy-switch-buffer :which-key "swith buffer"))
+(general-create-definer spc/leader-keys
+:keymaps '(normal visual)
+:prefix "SPC")
+
+
+(spc/leader-keys
+"e" '(eval-buffer :which-key "eval buffer")
+"s" '(save-buffer :which-key "save buffer")
+"b" '(ivy-switch-buffer :which-key "switch buffer"))
+
+
+(spc/leader-keys
+"o" '(:ignore t :which-key "Org command")
+"ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "Babel")
+"oa" '(org-agenda :which-key "Agenda")
+"oc" '(org-goto-calendar :which-key "Calendar")
+"op" '(org-capture :which-key "Capture")
+"of" '(org-refile :which-key "Refile")) 
+
+
+(spc/leader-keys
+"n" '(:ignore t :which-key "narrow")
+"nr" '(narrow-to-region :which-key "narrow to region")
+"ns" '(org-narrow-to-subtree :which-key "narrow to subtree")
+"nb" '(org-narrow-to-block :whic-key "narrow to block")
+"nw" '(widen :which-key "widen")
+"ne" '(eaf-open-demo :which-key "Screen"))
+
+(spc/leader-keys
+"f" '(:ingore t :which-key "find")
+"fs" '(swiper :which-key "words")
+"ff" '(counsel-find-file :which-key "file")
+"fd" '(counsel-dired) :which-key "dired"
+"fn" '(dir/neo-here :which-key "neotree")
+"fb" '(ivy-switch-buffer :which-key "swith buffer"))
 
 ; highlight the paren
 (add-hook 'prog-mode-hook #'show-paren-mode)
@@ -345,7 +263,7 @@
   ("C-c p" . projectile-command-map)
   :init
   (when (file-directory-p "~/.emacs.d/Projects/Code")
-    (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
+    (setq projectile-project-search-path '("~/.emacs.d/Projects/Code")))
   (setq projectile-switch-project-action #'projectile-dired))
 (use-package counsel-projectile
   :after projectile
@@ -354,7 +272,6 @@
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-
 (use-package forge
   :after magit)
 
@@ -458,13 +375,130 @@
   (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+
+(use-package ebib
+  :ensure t
+  :config
+  (setq ebib-preload-bib-files '("e:/papers/reference.bib"))
+  (setq ebib-bib-search-dirs '("e:/papers"))
+  (setq ebib-index-columns '(("Title" 50 t)
+                             ("Year" 6 t)
+                             ("Entry Key" 40 t)))
+  (setq ebib-use-timestamp t)
+  (setq ebib-file-associations '(("pdf" . "d:/SumatraPDF/SumatraPDF.exe"))))
+
+; evil
+(setq evil-want-keybinding nil)
+(use-package evil
+  :init
+  (setq evil-shift-width 2)
+  (setq evil-want-integration t)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-d-scroll t)
+  (setq evil-visual-screen-line t)
+  :config
+  (evil-mode t)
+
+  (dolist (mode '(org-agenda-mode-hook
+		  ebib-entry-mode-hook))
+    (add-hook mode (lambda () (evil-mode 0))))
+
+  (setq evil-move-beyond-eol t)
+  (global-undo-tree-mode)
+  (setq evil-undo-system 'undo-redo) 
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-set-initial-state 'message-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal)
+  (evil-set-initial-state 'eshell-mode 'insert))
+
+; evil-collection  it can  be tuned by edit evil-collection-mode
+(use-package evil-collection
+  :after evil
+  :config
+  (setq forge-add-default-bindings nil)
+  (evil-collection-init))
+
+(use-package undo-tree
+  :diminish
+  :config
+  (setq sml/theme 'powerline)
+  (global-undo-tree-mode))
+
+(use-package amx
+  :init (amx-mode))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+;; counsel M-o to some defined function
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+	("C-x b" . counsel-ibuffer)
+	("C-x C-f" . counsel-find-file)
+	:map minibuffer-local-map
+	("C-r" . 'counsel-minibuffer-history))
+  :config
+  (setq ivy-initial-inputs-alist nil))
+
+;ivy
+(use-package ivy
+  :diminish
+  :init
+  (counsel-mode 1)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (setq search-default-mode #'char-fold-to-regexp)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind
+  (("C-s" . 'swiper)
+  ("C-x b" . 'ivy-switch-buffer)
+  ("C-c v" . 'ivy-push-view)
+  ("C-c s" . 'ivy-switch-view)
+  ("C-c V" . 'ivy-pop-view)
+  ("C-x C-@" . 'counsel-mark-ring)
+  ("C-x C-SPC" . 'counsel-mark-ring)
+  :map minibuffer-local-map
+  ("C-r". counsel-minibuffer-history))
+  :config
+  (ivy-mode 1))
+; ivy-prescient
+(use-package ivy-prescient
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  (ivy-prescient-mode 1))
+
+(use-package helpful
+  :commands (helpful-callable helpful-variable helpful-command helpful-key)
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+
+(use-package yasnippet
+  :diminish
+  :init
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  :config
+  (yas-global-mode 1))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files nil)
  '(package-selected-packages
-   '(ebib org-ref zenburn-theme window-numbering which-key use-package undo-tree solarized-theme smart-mode-line rainbow-delimiters python-mode org-roam org-bullets no-littering neotree mwim markdownfmt lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge flycheck ewal evil-nerd-commenter evil-collection elpy dracula-theme doom-themes doom-modeline dashboard dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+   '(ivy-bibtex zenburn-theme window-numbering which-key use-package undo-tree solarized-theme smart-mode-line rainbow-delimiters python-mode ox-pandoc org-roam org-bullets no-littering neotree mwim markdownfmt lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge flycheck ewal evil-nerd-commenter evil-collection elpy ebib dracula-theme doom-themes doom-modeline dashboard dap-mode counsel-projectile company-box beacon amx all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
