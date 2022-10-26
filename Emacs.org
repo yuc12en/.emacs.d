@@ -242,6 +242,14 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
 
 
   ; GTD
+  ; org-agenda-category-icon-alist
+  ; org-agenda-filter-by-tag \
+  ; org-agenda-filter-by-category <
+  ; org-agenda-filter-by-regexp =
+  ; org-agenda-filter-by-effort _
+  ; org-agenda-filter-by-top-headline ^
+  ; org-agenda-filter /
+  (setq org-agenda-start-with-follow-mode t)
   (setq org-agenda-files '("e:/GTD/Process.org"))
   (setq org-capture-templates '(("c" "capture raw items" entry
 				 (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
@@ -337,7 +345,9 @@ find org narrow
   "R" 'evil-delete-marks
   "M" 'evil-goto-mark
   "m" 'evil-set-marker
-  "C-/" 'comment-or-uncomment-region)
+  "C-/" 'comment-or-uncomment-region
+  "C-<" 'org-speedbar-set-agenda-restriction
+  "C->" 'org-agenda-remove-restriction-lock)
 
 
   (general-define-key
@@ -347,13 +357,15 @@ find org narrow
 
 
   (general-create-definer spc/leader-keys
-  :keymaps '(normal visual emacs)
+  :keymaps '(normal visual)
   :prefix "SPC")
 
 
   (spc/leader-keys
   "e" '(eval-buffer :which-key "eval buffer")
-  "s" '(save-buffer :which-key "save buffer"))
+  "s" '(save-buffer :which-key "save buffer")
+  "b" '(ivy-switch-buffer :which-key "switch buffer"))
+  
 
   (spc/leader-keys
   "o" '(:ignore t :which-key "Org command")
@@ -467,28 +479,28 @@ find org narrow
     :hook (company-mode . company-box-mode))
 
 #+end_src
-** Dap
+** dap
 #+begin_src emacs-lisp
 (use-package dap-mode
-  ;; Uncomment the config below if you want all UI panes to be hidden by default!
+  ;; uncomment the config below if you want all ui panes to be hidden by default!
   ;; :custom
   ;; (lsp-enable-dap-auto-configure nil)
   ;; :config
   ;; (dap-ui-mode 1)
   :commands dap-debug
   :config
-  ;; Set up Node debugging
+  ;; set up node debugging
   (require 'dap-node)
-  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+  (dap-node-setup) ;; automatically installs node debug adapter if needed
 
-  ;; Bind `C-c l d` to `dap-hydra` for easy access
+  ;; bind `c-c l d` to `dap-hydra` for easy access
   (general-define-key
     :keymaps 'lsp-mode-map
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
 #+end_src
 
-** Python
+** python
 #+begin_src emacs-lisp
 
   (use-package elpy)
@@ -509,12 +521,12 @@ find org narrow
     (pyvenv-mode 1))
 #+end_src
 
-** Eaf
+** eaf
 #+begin_src emacs-lisp
     (use-package eaf
       :load-path "~/.emacs.d/site-lisp/emacs-application-framework"
       :custom
-					    ; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+					    ; see https://github.com/emacs-eaf/emacs-application-framework/wiki/customization
       (eaf-browser-continue-where-left-off t)
       (eaf-browser-enable-adblocker t)
 
@@ -543,28 +555,47 @@ find org narrow
       (require 'eaf-video-player)
       (require 'eaf-vue-demo)
       (defalias 'browse-web #'eaf-open-browser)
-      (eaf-bind-key scroll_up "C-n" eaf-pdf-viewer-keybinding)
-      (eaf-bind-key scroll_down "C-p" eaf-pdf-viewer-keybinding)
+      (eaf-bind-key scroll_up "c-n" eaf-pdf-viewer-keybinding)
+      (eaf-bind-key scroll_down "c-p" eaf-pdf-viewer-keybinding)
       (eaf-bind-key take_photo "p" eaf-camera-keybinding)
-      (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
+      (eaf-bind-key nil "m-q" eaf-browser-keybinding)) ;; unbind, see more in the wiki
 
 #+end_src
 
-#+RESULTS:
+#+results:
 : t
 
 
 
 
 
-
-* Paper
+* paper
 #+begin_src emacs-lisp
-      ; ebib
-    (use-package ebib
-      :config
-      (setq ebib-preload-bib-files '("e:/papers/reference.bib")))
+  (use-package ebib
+    :ensure t
+    :config
+    (setq ebib-preload-bib-files '("e:/papers/reference.bib"))
+    (setq ebib-bib-search-dirs '("e:/papers"))
+    (setq ebib-index-columns '(("title" 50 t)
+			       ("year" 6 t)
+			       ("entry key" 40 t)))
+    (setq ebib-use-timestamp t)
+    (setq ebib-file-associations '(("pdf" . "d:/sumatrapdf/sumatrapdf.exe"))))
 
+  (use-package ivy-bibtex
+     :config
+     (setq ivy-re-builders-alist
+	    '((ivy-bibtex . ivy--regex-ignore-order)
+	      (t . ivy--regex-plus)))
+     (setq bibtex-completion-bibliography
+      '("e:/papers/reference.bib"))
+
+      (setq bibtex-completion-library-path '("e:/papers"))
+     (setq bibtex-completion-pdf-field "File")
+     (setq bibtex-completion-pdf-symbol "⌘")
+      (setq bibtex-completion-pdf-open-function
+  (lambda (fpath)
+    (call-process "open" nil 0 nil "-a" "d:/sumatrapdf/sumatrapdf.exe" fpath)))
 #+end_src
 
 * Easy type
@@ -581,6 +612,11 @@ find org narrow
     (setq evil-visual-screen-line t)
     :config
     (evil-mode t)
+
+    (dolist (mode '(org-agenda-mode-hook
+		    ebib-entry-mode-hook))
+      (add-hook mode (lambda () (evil-mode 0))))
+
     (setq evil-move-beyond-eol t)
     (global-undo-tree-mode)
     (setq evil-undo-system 'undo-redo) 

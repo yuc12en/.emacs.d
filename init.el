@@ -135,7 +135,15 @@
 
 
 ; GTD
-(setq org-agenda-files '("e:/GTD/Process.org"))
+; org-agenda-category-icon-alist
+; org-agenda-filter-by-tag \
+; org-agenda-filter-by-category <
+; org-agenda-filter-by-regexp =
+; org-agenda-filter-by-effort _
+; org-agenda-filter-by-top-headline ^
+; org-agenda-filter /
+(setq org-agenda-start-with-follow-mode t)
+setq org-agenda-files '("e:/GTD/Process.org"))
 (setq org-capture-templates '(("c" "capture raw items" entry
 			       (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
 (setq org-refile-targets '(("e:/Zen/GTD.org" :level . 2)))
@@ -185,8 +193,8 @@
 "R" 'evil-delete-marks
 "M" 'evil-goto-mark
 "m" 'evil-set-marker
-"C-/" 'comment-or-uncomment-region)
-
+"C-/" 'comment-or-uncomment-region
+"C-<" 'org-speedbar-set-agenda-restriction
 
 (general-define-key
 :keymaps 'evil-normal-state-map
@@ -195,14 +203,14 @@
 
 
 (general-create-definer spc/leader-keys
-:keymaps '(normal visual emacs)
+:keymaps '(normal visual)
 :prefix "SPC")
 
 
 (spc/leader-keys
 "e" '(eval-buffer :which-key "eval buffer")
-"s" '(save-buffer :which-key "save buffer"))
-
+"s" '(save-buffer :which-key "save buffer")
+"b" '(ivy-switch-buffer :which-key "switch buffer"))
 (spc/leader-keys
 "o" '(:ignore t :which-key "Org command")
 "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "Babel")
@@ -364,8 +372,16 @@
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
 
-; ebib
-(use-package ebib)
+(use-package ebib
+  :ensure t
+  :config
+  (setq ebib-preload-bib-files '("e:/papers/reference.bib"))
+  (setq ebib-bib-search-dirs '("e:/papers"))
+  (setq ebib-index-columns '(("Title" 50 t)
+                             ("Year" 6 t)
+                             ("Entry Key" 40 t)))
+  (setq ebib-use-timestamp t)
+  (setq ebib-file-associations '(("pdf" . "d:/SumatraPDF/SumatraPDF.exe"))))
 
 ; evil
 (setq evil-want-keybinding nil)
@@ -378,6 +394,10 @@
   (setq evil-visual-screen-line t)
   :config
   (evil-mode t)
+  (dolist (mode '(org-agenda-mode-hook
+		  ebib-entry-mode-hook))
+    (add-hook mode (lambda () (evil-mode 0))))
+
   (setq evil-move-beyond-eol t)
   (global-undo-tree-mode)
   (setq evil-undo-system 'undo-redo) 
@@ -466,3 +486,17 @@
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   :config
   (yas-global-mode 1))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files nil)
+ '(package-selected-packages
+   '(ivy-bibtex zenburn-theme window-numbering which-key use-package undo-tree solarized-theme smart-mode-line rainbow-delimiters python-mode ox-pandoc org-roam org-bullets no-littering neotree mwim markdownfmt lsp-ui lsp-ivy ivy-rich ivy-prescient highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge flycheck ewal evil-nerd-commenter evil-collection elpy ebib dracula-theme doom-themes doom-modeline dashboard dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
