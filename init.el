@@ -143,7 +143,7 @@
 ; org-agenda-filter-by-top-headline ^
 ; org-agenda-filter /
 (setq org-agenda-start-with-follow-mode t)
-(setq org-agenda-files '("e:/GTD/Process.org"))
+setq org-agenda-files '("e:/GTD/Process.org"))
 (setq org-capture-templates '(("c" "capture raw items" entry
 			       (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
 (setq org-refile-targets '(("e:/Zen/GTD.org" :level . 2)))
@@ -195,8 +195,6 @@
 "m" 'evil-set-marker
 "C-/" 'comment-or-uncomment-region
 "C-<" 'org-speedbar-set-agenda-restriction
-"C->" 'org-agenda-remove-restriction-lock)
-
 
 (general-define-key
 :keymaps 'evil-normal-state-map
@@ -213,8 +211,6 @@
 "e" '(eval-buffer :which-key "eval buffer")
 "s" '(save-buffer :which-key "save buffer")
 "b" '(ivy-switch-buffer :which-key "switch buffer"))
-
-
 (spc/leader-keys
 "o" '(:ignore t :which-key "Org command")
 "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "Babel")
@@ -398,7 +394,6 @@
   (setq evil-visual-screen-line t)
   :config
   (evil-mode t)
-
   (dolist (mode '(org-agenda-mode-hook
 		  ebib-entry-mode-hook))
     (add-hook mode (lambda () (evil-mode 0))))
