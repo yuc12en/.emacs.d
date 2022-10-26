@@ -560,7 +560,11 @@ find org narrow
 
 * Paper
 #+begin_src emacs-lisp
-(use-package ebib)
+      ; ebib
+    (use-package ebib
+      :config
+      (setq ebib-preload-bib-files '("e:/papers/reference.bib")))
+
 #+end_src
 
 * Easy type

@@ -364,6 +364,7 @@
   (eaf-bind-key take_photo "p" eaf-camera-keybinding)
   (eaf-bind-key nil "M-q" eaf-browser-keybinding)) ;; unbind, see more in the Wiki
 
+; ebib
 (use-package ebib)
 
 ; evil
