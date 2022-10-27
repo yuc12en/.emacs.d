@@ -91,6 +91,8 @@
 
 ; ace-window
 (use-package ace-window
+  :bind
+  ("C-x o" . ace-window)
   :config
 (setq aw-background nil)
 (ace-window-display-mode t))
@@ -143,7 +145,8 @@
 ; org-agenda-filter-by-top-headline ^
 ; org-agenda-filter /
 (setq org-agenda-start-with-follow-mode t)
-(setq org-agenda-files '("e:/GTD/Process.org"))
+(setq org-agenda-files '("e:/Zen/current_working_sheet.org"))
+>>>>>>> origin/master
 (setq org-capture-templates '(("c" "capture raw items" entry
 			       (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
 (setq org-refile-targets '(("e:/Zen/GTD.org" :level . 2)))
@@ -163,6 +166,7 @@
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("latex" . "src latex"))
 
+<<<<<<< HEAD
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 
@@ -240,6 +244,8 @@
 "fn" '(dir/neo-here :which-key "neotree")
 "fb" '(ivy-switch-buffer :which-key "swith buffer"))
 
+=======
+>>>>>>> origin/master
 ; highlight the paren
 (add-hook 'prog-mode-hook #'show-paren-mode)
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -377,6 +383,7 @@
   (eaf-bind-key nil "m-q" eaf-browser-keybinding)) ;; unbind, see more in the wiki
 
 (use-package ebib
+<<<<<<< HEAD
   :ensure t
   :config
   (setq ebib-preload-bib-files '("e:/papers/reference.bib"))
@@ -401,6 +408,33 @@
     (setq bibtex-completion-pdf-open-function
 (lambda (fpath)
   (call-process "open" nil 0 nil "-a" "d:/sumatrapdf/sumatrapdf.exe" fpath)))
+=======
+    :config
+    (setq ebib-preload-bib-files '("e:/papers/reference.bib"))
+    (setq ebib-index-columns '(
+			       ("Entry Key" 40 t)
+			       ("Author/Editor" 40 t)
+			       ("Year" 6 t)
+			       ("Title" 50 t)
+			       ))
+    (setq ebib-use-timestamp t))
+
+  (use-package ivy-bibtex
+    :config
+    (setq ivy-re-builders-alist
+	  '((ivy-bibtex . ivy--regex-ignore-order)
+	    (t . ivy--regex-plus))))
+  (setq bibtex-completion-bibliography
+	'("e:/papers/reference.bib"))
+
+  (setq bibtex-completion-format-citation-functions
+	'((org-mode      . bibtex-completion-format-citation-cite)
+	  (latex-mode    . bibtex-completion-format-citation-cite)
+	  (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+	  (default       . bibtex-completion-format-citation-default))) 
+
+(setq ivy-bibtex-default-action 'ivy-bibtex-insert-key)
+>>>>>>> origin/master
 
 ; evil
 (setq evil-want-keybinding nil)
@@ -414,8 +448,12 @@
   :config
   (evil-mode t)
 
+<<<<<<< HEAD
   (dolist (mode '(org-agenda-mode-hook
 		  ebib-entry-mode-hook))
+=======
+  (dolist (mode '(org-agenda-mode-hook))
+>>>>>>> origin/master
     (add-hook mode (lambda () (evil-mode 0))))
 
   (setq evil-move-beyond-eol t)
@@ -481,6 +519,7 @@
   ("C-r". counsel-minibuffer-history))
   :config
   (ivy-mode 1))
+
 ; ivy-prescient
 (use-package ivy-prescient
   :after counsel
@@ -506,3 +545,83 @@
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   :config
   (yas-global-mode 1))
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "M-SPC") 'set-mark-command)
+
+(require 'init-utils )
+(global-set-key (kbd "C-c i") 'insert-time-string)
+
+(use-package hydra)
+
+(use-package which-key
+  :diminish which-keym-ode
+  :init (which-key-mode t)
+  :config
+  (setq which-key-idle-delay 1))
+
+(global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-=") 'text-scale-increase)
+(require 'init-keys)
+(use-package general
+  :after evil)
+
+(general-define-key
+ :keymaps 'evil-normal-state-map
+ "RET" 'newline
+ "DEL" 'join-line
+ "K" 'motion/natrual-up
+ "J" 'motion/natrual-down
+ "S" 'evil-show-marks
+ "R" 'evil-delete-marks
+ "M" 'evil-goto-mark
+ "m" 'evil-set-marker
+ "C-/" 'comment-or-uncomment-region
+ "C-<" 'org-speedbar-set-agenda-restriction
+ "C->" 'org-agenda-remove-restriction-lock)
+
+(general-create-definer spc/leader-keys
+  :keymaps '(normal visual)
+  :prefix "SPC")
+
+
+(spc/leader-keys
+ "e" '(eval-buffer :which-key "eval buffer")
+ "s" '(save-buffer :which-key "save buffer")
+ "b" '(ivy-switch-buffer :which-key "switch buffer"))
+
+
+(spc/leader-keys
+ "o" '(:ignore t :which-key "Org command")
+ "ob" '((lambda () (interactive) (org-babel-tangle)) :which-key "Babel")
+ "oa" '(org-agenda :which-key "Agenda")
+ "oc" '(org-goto-calendar :which-key "Calendar")
+ "op" '(org-capture :which-key "Capture")
+ "of" '(org-refile :which-key "Refile")) 
+
+
+(spc/leader-keys
+ "n" '(:ignore t :which-key "narrow")
+ "nr" '(narrow-to-region :which-key "narrow to region")
+ "ns" '(org-narrow-to-subtree :which-key "narrow to subtree")
+ "nb" '(org-narrow-to-block :whic-key "narrow to block")
+ "nw" '(widen :which-key "widen")
+ "ne" '(eaf-open-demo :which-key "Screen"))
+
+(spc/leader-keys
+ "f" '(:ingore t :which-key "find")
+ "fs" '(swiper :which-key "words")
+ "ff" '(counsel-find-file :which-key "file")
+ "fd" '(counsel-dired) :which-key "dired"
+ "fn" '(dir/neo-here :which-key "neotree")
+ "fb" '(ivy-switch-buffer :which-key "swith buffer"))
+
+
+
+(spc/leader-keys
+ "p" '(:ignore t :which-key "papers")
+ "pe" '(ebib :which-key "ebib")
+ "pb" '(ivy-bibtex :which-key "ivy-tex")
+ "pd" '(org-insert-drawer :which-key "drawer")
+ "pt" '(org-set-tags-command :which-key "tags"))
+>>>>>>> origin/master
