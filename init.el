@@ -91,6 +91,8 @@
 
 ; ace-window
 (use-package ace-window
+  :bind
+  ("C-x o" . ace-window)
   :config
 (setq aw-background nil)
 (ace-window-display-mode t))
@@ -143,7 +145,7 @@
 ; org-agenda-filter-by-top-headline ^
 ; org-agenda-filter /
 (setq org-agenda-start-with-follow-mode t)
-(setq org-agenda-files '("e:/GTD/Process.org"))
+(setq org-agenda-files '("e:/Zen/current_working_sheet.org"))
 (setq org-capture-templates '(("c" "capture raw items" entry
 			       (file+headline "e:/GTD/Inbox.org" "Capture") "* TODO %?"))) 
 (setq org-refile-targets '(("e:/Zen/GTD.org" :level . 2)))
