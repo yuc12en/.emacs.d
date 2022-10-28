@@ -439,7 +439,15 @@
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
 
-(use-package hydra)
+
+  (use-package hydra)  
+  (defhydra hydra-window (evil-normal-state-map "C-w")
+    "window"
+    ("," evil-window-decrease-width "width decrease")
+    ("." evil-window-increase-width "width increase")
+    ("-" evil-window-decrease-height "height decrease")
+    ("=" evil-window-increase-height "height decrease")
+    )
 
 (use-package which-key
   :diminish which-keym-ode
