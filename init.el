@@ -439,7 +439,15 @@
 (require 'init-utils )
 (global-set-key (kbd "C-c i") 'insert-time-string)
 
-(use-package hydra)
+
+  (use-package hydra)  
+  (defhydra hydra-window (evil-normal-state-map "C-w")
+    "window"
+    ("," evil-window-decrease-width "width decrease")
+    ("." evil-window-increase-width "width increase")
+    ("-" evil-window-decrease-height "height decrease")
+    ("=" evil-window-increase-height "height decrease")
+    )
 
 (use-package which-key
   :diminish which-keym-ode
@@ -511,16 +519,3 @@
  "pb" '(ivy-bibtex :which-key "ivy-tex")
  "pd" '(org-insert-drawer :which-key "drawer")
  "pt" '(org-set-tags-command :which-key "tags"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(which-key use-package undo-tree rainbow-delimiters python-mode pandoc org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-bibtex highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection elpy ebib doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
