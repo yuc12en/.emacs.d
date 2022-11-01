@@ -533,7 +533,7 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
     (pyvenv-mode 1))
 #+end_src
 
-* documents management
+* document management
 #+begin_src emacs-lisp
   ;; ebib
   (use-package ebib
