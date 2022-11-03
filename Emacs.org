@@ -147,7 +147,7 @@
   (use-package org-bullets
     :hook (org-mode . org-bullets-mode)
     :custom
-    (org-bullets-bullet-list '("◉" "✧" "○" "▢"  ))
+    (org-bullets-bullet-list '("◉" "✧" "○" "▢"  )))
 #+end_src
 ** GTD
 #+begin_src emacs-lisp
@@ -546,6 +546,8 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
 			       ("Title" 50 t)
 			       ))
     (setq ebib-use-timestamp t))
+  (require 'org-ebib)
+  ;; ebib-citation-commands
 
   ;; ivy-bibtex
   (use-package ivy-bibtex
@@ -557,12 +559,15 @@ like this: #+FILETAGS: :Peter:Boss:Secret:
 	'("e:/papers/reference.bib"))
 
   (setq bibtex-completion-format-citation-functions
-	'((org-mode      . bibtex-completion-format-citation-cite)
+	'((org-mode      . bibtex-completion-format-citation-ebib)
 	  (latex-mode    . bibtex-completion-format-citation-cite)
 	  (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
 	  (default       . bibtex-completion-format-citation-default))) 
 
   (setq ivy-bibtex-default-action 'ivy-bibtex-insert-key)
+
+  ;; ebib-create-org-url-link KEY DB
+  ;; ebib--display-url-field
 #+end_src
 
 * Key bindgs

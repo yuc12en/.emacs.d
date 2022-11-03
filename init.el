@@ -378,7 +378,7 @@
   :config
   (pyvenv-mode 1))
 
-; ebib
+;; ebib
 (use-package ebib
   :config
   (setq ebib-preload-bib-files '("e:/papers/reference.bib"))
@@ -389,6 +389,8 @@
 			     ("Title" 50 t)
 			     ))
   (setq ebib-use-timestamp t))
+(require 'org-ebib)
+;; ebib-citation-commands
 
 ;; ivy-bibtex
 (use-package ivy-bibtex
@@ -400,12 +402,15 @@
       '("e:/papers/reference.bib"))
 
 (setq bibtex-completion-format-citation-functions
-      '((org-mode      . bibtex-completion-format-citation-cite)
+      '((org-mode      . bibtex-completion-format-citation-ebib)
 	(latex-mode    . bibtex-completion-format-citation-cite)
 	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
 	(default       . bibtex-completion-format-citation-default))) 
 
 (setq ivy-bibtex-default-action 'ivy-bibtex-insert-key)
+
+;; ebib-create-org-url-link KEY DB
+;; ebib--display-url-field
 
 (use-package which-key
   :diminish which-keym-ode
@@ -507,7 +512,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(which-key use-package undo-tree rainbow-delimiters python-mode pandoc org-bullets no-littering neotree mwim lsp-ui lsp-ivy ivy-rich ivy-prescient ivy-bibtex highlight-symbol helpful good-scroll general forge flycheck evil-nerd-commenter evil-collection elpy ebib doom-themes doom-modeline dap-mode counsel-projectile company-box beacon amx all-the-icons)))
+   '(zoom zone-sl zone-rainbow zone-nyan zenburn-theme window-numbering which-key use-package undo-tree solarized-theme solaire-mode smart-mode-line rainbow-delimiters quelpa python-mode ox-pandoc org-roam org-bullets nyan-mode no-littering neotree mwim move-text minimap markdownfmt lsp-ui lsp-ivy lentic language-id ivy-rich ivy-prescient ivy-bibtex inheritenv indent-guide hyperbole highlight-symbol helpful helm-themes goto-line-preview good-scroll general forge focus flycheck ewal evil-surround evil-nerd-commenter evil-collection elpy ebib dracula-theme doom-themes doom-modeline dimmer dashboard dap-mode counsel-projectile company-emojify company-box bug-hunter beacon auctex amx all-the-icons aggressive-indent)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
